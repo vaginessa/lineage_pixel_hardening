@@ -28,7 +28,6 @@
   <remove-project name="platform/packages/apps/MusicFX" />
   <remove-project name="platform/packages/apps/QuickSearchBox" />
   <remove-project name="platform/packages/apps/SampleLocationAttribution" />
-  <remove-project name="platform/packages/modules/AdServices" />
   <remove-project name="platform/packages/providers/PartnerBookmarksProvider" />
   <remove-project name="platform/packages/screensavers/Basic" />
   <remove-project name="platform/prebuilts/clang/host/darwin-x86" />

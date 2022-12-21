@@ -1,0 +1,25 @@
+From 5aa4631bde0f019a389bf1ba2a1e15260c8ac35e Mon Sep 17 00:00:00 2001
+From: danielk43 <11856117+danielk43@users.noreply.github.com>
+Date: Mon, 13 Dec 2021 10:58:55 -0500
+Subject: [PATCH 2/2] Use alternate ntp pool
+
+---
+ core/res/res/values/config.xml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
+index 659d0f37bf05..e54c0940fcb7 100644
+--- a/core/res/res/values/config.xml
++++ b/core/res/res/values/config.xml
+@@ -2390,7 +2390,7 @@
+     <bool name="config_actionMenuItemAllCaps">true</bool>
+ 
+     <!-- Remote server that can provide NTP responses. -->
+-    <string translatable="false" name="config_ntpServer">time.android.com</string>
++    <string translatable="false" name="config_ntpServer">us.pool.ntp.org</string>
+     <!-- Normal polling frequency in milliseconds -->
+     <integer name="config_ntpPollingInterval">64800000</integer>
+     <!-- Try-again polling interval in milliseconds, in case the network request failed -->
+-- 
+2.30.2
+

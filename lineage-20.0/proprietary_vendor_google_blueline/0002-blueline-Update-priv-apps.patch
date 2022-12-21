@@ -1,0 +1,439 @@
+From d119fa94586e0f525c368252f593f30b86634334 Mon Sep 17 00:00:00 2001
+From: danielk43 <11856117+danielk43@users.noreply.github.com>
+Date: Sun, 4 Dec 2022 09:27:26 -0500
+Subject: [PATCH 2/3] blueline: Update priv-apps
+
+---
+ Android.bp                                    | 323 ------------------
+ blueline-vendor.mk                            |  37 --
+ 2 files changed, 360 deletions(-)
+
+diff --git a/Android.bp b/Android.bp
+--- a/Android.bp
++++ b/Android.bp
+@@ -163,17 +163,6 @@ android_app_import {
+ 	product_specific: true,
+ }
+ 
+-android_app_import {
+-	name: "VZWAPNLib",
+-	owner: "google",
+-	apk: "proprietary/product/app/VZWAPNLib/VZWAPNLib.apk",
+-	presigned: true,
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	product_specific: true,
+-}
+-
+ android_app_import {
+ 	name: "com.qualcomm.qti.services.secureui",
+ 	owner: "google",
+@@ -185,42 +174,6 @@ android_app_import {
+ 	product_specific: true,
+ }
+ 
+-android_app_import {
+-	name: "AmbientSensePrebuilt",
+-	owner: "google",
+-	apk: "proprietary/product/priv-app/AmbientSensePrebuilt/AmbientSensePrebuilt.apk",
+-	presigned: true,
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	privileged: true,
+-	product_specific: true,
+-}
+-
+-android_app_import {
+-	name: "AppDirectedSMSService",
+-	owner: "google",
+-	apk: "proprietary/product/priv-app/AppDirectedSMSService/AppDirectedSMSService.apk",
+-	presigned: true,
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	privileged: true,
+-	product_specific: true,
+-}
+-
+-android_app_import {
+-	name: "CarrierServices",
+-	owner: "google",
+-	apk: "proprietary/product/priv-app/CarrierServices/CarrierServices.apk",
+-	presigned: true,
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	privileged: true,
+-	product_specific: true,
+-}
+-
+ android_app_import {
+ 	name: "CarrierSettings",
+ 	owner: "google",
+@@ -233,270 +186,6 @@ android_app_import {
+ 	product_specific: true,
+ }
+ 
+-android_app_import {
+-	name: "CarrierWifi",
+-	owner: "google",
+-	apk: "proprietary/product/priv-app/CarrierWifi/CarrierWifi.apk",
+-	presigned: true,
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	privileged: true,
+-	product_specific: true,
+-}
+-
+-android_app_import {
+-	name: "ConnMO",
+-	owner: "google",
+-	apk: "proprietary/product/priv-app/ConnMO/ConnMO.apk",
+-	certificate: "platform",
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	privileged: true,
+-	product_specific: true,
+-}
+-
+-android_app_import {
+-	name: "DCMO",
+-	owner: "google",
+-	apk: "proprietary/product/priv-app/DCMO/DCMO.apk",
+-	certificate: "platform",
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	privileged: true,
+-	product_specific: true,
+-}
+-
+-android_app_import {
+-	name: "DMService",
+-	owner: "google",
+-	apk: "proprietary/product/priv-app/DMService/DMService.apk",
+-	certificate: "platform",
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	privileged: true,
+-	product_specific: true,
+-}
+-
+-android_app_import {
+-	name: "DeviceIntelligenceNetworkPrebuilt",
+-	owner: "google",
+-	apk: "proprietary/product/priv-app/DeviceIntelligenceNetworkPrebuilt/DeviceIntelligenceNetworkPrebuilt.apk",
+-	presigned: true,
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	privileged: true,
+-	product_specific: true,
+-}
+-
+-android_app_import {
+-	name: "DevicePersonalizationPrebuiltPixel3",
+-	owner: "google",
+-	apk: "proprietary/product/priv-app/DevicePersonalizationPrebuiltPixel3/DevicePersonalizationPrebuiltPixel3.apk",
+-	presigned: true,
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	privileged: true,
+-	product_specific: true,
+-}
+-
+-android_app_import {
+-	name: "DiagMon",
+-	owner: "google",
+-	apk: "proprietary/product/priv-app/DiagMon/DiagMon.apk",
+-	certificate: "platform",
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	privileged: true,
+-	product_specific: true,
+-}
+-
+-android_app_import {
+-	name: "EuiccGoogle",
+-	owner: "google",
+-	apk: "proprietary/product/priv-app/EuiccGoogle/EuiccGoogle.apk",
+-	presigned: true,
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	privileged: true,
+-	product_specific: true,
+-}
+-
+-android_app_import {
+-	name: "HardwareInfo",
+-	owner: "google",
+-	apk: "proprietary/product/priv-app/HardwareInfo/HardwareInfo.apk",
+-	presigned: true,
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	privileged: true,
+-	product_specific: true,
+-}
+-
+-android_app_import {
+-	name: "HotwordEnrollmentOKGoogleWCD9340",
+-	owner: "google",
+-	apk: "proprietary/product/priv-app/HotwordEnrollmentOKGoogleWCD9340/HotwordEnrollmentOKGoogleWCD9340.apk",
+-	presigned: true,
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	privileged: true,
+-	product_specific: true,
+-}
+-
+-android_app_import {
+-	name: "HotwordEnrollmentXGoogleWCD9340",
+-	owner: "google",
+-	apk: "proprietary/product/priv-app/HotwordEnrollmentXGoogleWCD9340/HotwordEnrollmentXGoogleWCD9340.apk",
+-	presigned: true,
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	privileged: true,
+-	product_specific: true,
+-}
+-
+-android_app_import {
+-	name: "OemDmTrigger",
+-	owner: "google",
+-	apk: "proprietary/product/priv-app/OemDmTrigger/OemDmTrigger.apk",
+-	certificate: "platform",
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	privileged: true,
+-	product_specific: true,
+-}
+-
+-android_app_import {
+-	name: "SprintDM",
+-	owner: "google",
+-	apk: "proprietary/product/priv-app/SprintDM/SprintDM.apk",
+-	certificate: "platform",
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	privileged: true,
+-	product_specific: true,
+-}
+-
+-android_app_import {
+-	name: "SprintHM",
+-	owner: "google",
+-	apk: "proprietary/product/priv-app/SprintHM/SprintHM.apk",
+-	certificate: "platform",
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	privileged: true,
+-	product_specific: true,
+-}
+-
+-android_app_import {
+-	name: "TetheringEntitlement",
+-	owner: "google",
+-	apk: "proprietary/product/priv-app/TetheringEntitlement/TetheringEntitlement.apk",
+-	certificate: "platform",
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	privileged: true,
+-	product_specific: true,
+-}
+-
+-android_app_import {
+-	name: "USCCDM",
+-	owner: "google",
+-	apk: "proprietary/product/priv-app/USCCDM/USCCDM.apk",
+-	certificate: "platform",
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	privileged: true,
+-	product_specific: true,
+-}
+-
+-android_app_import {
+-	name: "WfcActivation",
+-	owner: "google",
+-	apk: "proprietary/product/priv-app/WfcActivation/WfcActivation.apk",
+-	presigned: true,
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	privileged: true,
+-	product_specific: true,
+-}
+-
+-android_app_import {
+-	name: "CarrierSetup",
+-	owner: "google",
+-	apk: "proprietary/system_ext/priv-app/CarrierSetup/CarrierSetup.apk",
+-	presigned: true,
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	privileged: true,
+-	system_ext_specific: true,
+-}
+-
+-android_app_import {
+-	name: "EuiccSupportPixel",
+-	owner: "google",
+-	apk: "proprietary/system_ext/priv-app/EuiccSupportPixel/EuiccSupportPixel.apk",
+-	presigned: true,
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	privileged: true,
+-	system_ext_specific: true,
+-}
+-
+-android_app_import {
+-	name: "EuiccSupportPixelPermissions",
+-	owner: "google",
+-	apk: "proprietary/system_ext/priv-app/EuiccSupportPixelPermissions/EuiccSupportPixelPermissions.apk",
+-	presigned: true,
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	privileged: true,
+-	system_ext_specific: true,
+-}
+-
+-android_app_import {
+-	name: "MyVerizonServices",
+-	owner: "google",
+-	apk: "proprietary/system_ext/priv-app/MyVerizonServices/MyVerizonServices.apk",
+-	certificate: "platform",
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	privileged: true,
+-	system_ext_specific: true,
+-}
+-
+-android_app_import {
+-	name: "OBDM_Permissions",
+-	owner: "google",
+-	apk: "proprietary/system_ext/priv-app/OBDM_Permissions/OBDM_Permissions.apk",
+-	certificate: "platform",
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	privileged: true,
+-	system_ext_specific: true,
+-}
+-
+ android_app_import {
+ 	name: "RilConfigService",
+ 	owner: "google",
+@@ -521,18 +210,6 @@ android_app_import {
+ 	system_ext_specific: true,
+ }
+ 
+-android_app_import {
+-	name: "obdm_stub",
+-	owner: "google",
+-	apk: "proprietary/system_ext/priv-app/obdm_stub/obdm_stub.apk",
+-	certificate: "platform",
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	privileged: true,
+-	system_ext_specific: true,
+-}
+-
+ dex_import {
+ 	name: "QtiTelephonyServicelibrary",
+ 	owner: "google",
+diff --git a/blueline-vendor.mk b/blueline-vendor.mk
+--- a/blueline-vendor.mk
++++ b/blueline-vendor.mk
+@@ -197,15 +197,9 @@ PRODUCT_COPY_FILES += \
+     vendor/google/blueline/proprietary/product/lib/libdmjavaplugin.so:$(TARGET_COPY_OUT_PRODUCT)/lib/libdmjavaplugin.so \
+     vendor/google/blueline/proprietary/product/lib/libsecureuisvc_jni.so:$(TARGET_COPY_OUT_PRODUCT)/lib/libsecureuisvc_jni.so \
+     vendor/google/blueline/proprietary/product/lib64/libsecureuisvc_jni.so:$(TARGET_COPY_OUT_PRODUCT)/lib64/libsecureuisvc_jni.so \
+-    vendor/google/blueline/proprietary/system_ext/etc/permissions/com.android.hotwordenrollment.common.util.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/com.android.hotwordenrollment.common.util.xml \
+     vendor/google/blueline/proprietary/system_ext/etc/permissions/com.android.omadm.radioconfig.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/com.android.omadm.radioconfig.xml \
+     vendor/google/blueline/proprietary/system_ext/etc/permissions/com.google.android.camera.extensions.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/com.google.android.camera.extensions.xml \
+-    vendor/google/blueline/proprietary/system_ext/etc/permissions/com.google.euiccpixel.permissions.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/com.google.euiccpixel.permissions.xml \
+-    vendor/google/blueline/proprietary/system_ext/etc/permissions/com.google.euiccpixel.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/com.google.euiccpixel.xml \
+     vendor/google/blueline/proprietary/system_ext/etc/permissions/google-ril.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/google-ril.xml \
+-    vendor/google/blueline/proprietary/system_ext/etc/permissions/obdm_permissions.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/obdm_permissions.xml \
+-    vendor/google/blueline/proprietary/system_ext/etc/permissions/privapp-permissions-google-se-lineage.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-google-se-lineage.xml \
+-    vendor/google/blueline/proprietary/system_ext/etc/permissions/vzw_mvs_permissions.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/vzw_mvs_permissions.xml \
+     vendor/google/blueline/proprietary/system_ext/lib/com.qualcomm.qti.ant@1.0.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib/com.qualcomm.qti.ant@1.0.so \
+     vendor/google/blueline/proprietary/system_ext/lib/com.qualcomm.qti.imscmservice@1.0.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib/com.qualcomm.qti.imscmservice@1.0.so \
+     vendor/google/blueline/proprietary/system_ext/lib/com.qualcomm.qti.uceservice@2.0.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib/com.qualcomm.qti.uceservice@2.0.so \
+@@ -264,7 +258,6 @@ PRODUCT_COPY_FILES += \
+     vendor/google/blueline/proprietary/system_ext/lib64/vendor.display.color@1.1.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib64/vendor.display.color@1.1.so \
+     vendor/google/blueline/proprietary/system_ext/lib64/vendor.display.color@1.2.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib64/vendor.display.color@1.2.so \
+     vendor/google/blueline/proprietary/system_ext/lib64/vendor.display.postproc@1.0.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib64/vendor.display.postproc@1.0.so \
+-    vendor/google/blueline/proprietary/system_ext/lib64/vendor.google.wifi_ext@1.0.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib64/vendor.google.wifi_ext@1.0.so \
+     vendor/google/blueline/proprietary/system_ext/lib64/vendor.qti.hardware.alarm@1.0.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib64/vendor.qti.hardware.alarm@1.0.so \
+     vendor/google/blueline/proprietary/system_ext/lib64/vendor.qti.hardware.data.latency@1.0.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib64/vendor.qti.hardware.data.latency@1.0.so \
+     vendor/google/blueline/proprietary/system_ext/lib64/vendor.qti.hardware.qseecom@1.0.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib64/vendor.qti.hardware.qseecom@1.0.so \
+@@ -294,8 +287,6 @@ PRODUCT_COPY_FILES += \
+     vendor/google/blueline/proprietary/system_ext/lib64/vendor.qti.hardware.tui_comm@1.0.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib64/vendor.qti.hardware.tui_comm@1.0.so \
+     vendor/google/blueline/proprietary/system_ext/lib64/vendor.qti.ims.callinfo@1.0.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib64/vendor.qti.ims.callinfo@1.0.so \
+     vendor/google/blueline/proprietary/system_ext/lib64/vendor.qti.imsrtpservice@1.0.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib64/vendor.qti.imsrtpservice@1.0.so \
+-    vendor/google/blueline/proprietary/system_ext/priv-app/EuiccSupportPixel/esim-full-v0.img:$(TARGET_COPY_OUT_SYSTEM_EXT)/priv-app/EuiccSupportPixel/esim-full-v0.img \
+-    vendor/google/blueline/proprietary/system_ext/priv-app/EuiccSupportPixel/esim-v1.img:$(TARGET_COPY_OUT_SYSTEM_EXT)/priv-app/EuiccSupportPixel/esim-v1.img
+ 
+ PRODUCT_PACKAGES += \
+     QtiTelephonyService \
+@@ -313,37 +304,9 @@ PRODUCT_PACKAGES += \
+     MobileFeliCaWebPlugin \
+     MobileFeliCaWebPluginBoot \
+     PixelCameraServicesBlueline \
+-    VZWAPNLib \
+     com.qualcomm.qti.services.secureui \
+-    AmbientSensePrebuilt \
+-    AppDirectedSMSService \
+-    CarrierServices \
+-    CarrierSettings \
+-    CarrierWifi \
+-    ConnMO \
+-    DCMO \
+-    DMService \
+-    DeviceIntelligenceNetworkPrebuilt \
+-    DevicePersonalizationPrebuiltPixel3 \
+-    DiagMon \
+-    EuiccGoogle \
+-    HardwareInfo \
+-    HotwordEnrollmentOKGoogleWCD9340 \
+-    HotwordEnrollmentXGoogleWCD9340 \
+-    OemDmTrigger \
+-    SprintDM \
+-    SprintHM \
+-    TetheringEntitlement \
+-    USCCDM \
+-    WfcActivation \
+-    CarrierSetup \
+-    EuiccSupportPixel \
+-    EuiccSupportPixelPermissions \
+-    MyVerizonServices \
+-    OBDM_Permissions \
+     RilConfigService \
+     grilservice \
+-    obdm_stub \
+     QtiTelephonyServicelibrary \
+     qcrilhook \
+     uimremoteclientlibrary \
+

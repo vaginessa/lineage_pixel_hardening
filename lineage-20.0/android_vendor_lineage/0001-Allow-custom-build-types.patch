@@ -1,0 +1,30 @@
+From 7a6c79e586fdc4416b4666718a2e79a351235b9b Mon Sep 17 00:00:00 2001
+From: danielk43 <11856117+danielk43@users.noreply.github.com>
+Date: Mon, 13 Feb 2023 00:18:02 -0500
+Subject: [PATCH 1/5] Allow custom build types
+
+Change-Id: Ifd471f5ec92caf49eac0d7a3149844e16b8911f6
+---
+ config/version.mk | 6 ------
+ 1 file changed, 6 deletions(-)
+
+diff --git a/config/version.mk b/config/version.mk
+index 0d15a03e..d543aa29 100644
+--- a/config/version.mk
++++ b/config/version.mk
+@@ -17,12 +17,6 @@ ifndef LINEAGE_BUILDTYPE
+     endif
+ endif
+ 
+-# Filter out random types, so it'll reset to UNOFFICIAL
+-ifeq ($(filter RELEASE NIGHTLY SNAPSHOT EXPERIMENTAL,$(LINEAGE_BUILDTYPE)),)
+-    LINEAGE_BUILDTYPE := UNOFFICIAL
+-    LINEAGE_EXTRAVERSION :=
+-endif
+-
+ ifeq ($(LINEAGE_BUILDTYPE), UNOFFICIAL)
+     ifneq ($(TARGET_UNOFFICIAL_BUILD_ID),)
+         LINEAGE_EXTRAVERSION := -$(TARGET_UNOFFICIAL_BUILD_ID)
+-- 
+2.30.2
+

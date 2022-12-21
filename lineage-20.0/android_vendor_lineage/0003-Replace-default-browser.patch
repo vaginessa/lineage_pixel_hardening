@@ -1,0 +1,26 @@
+From 5256422a82f43e25060e7754cc5368fb9be46d92 Mon Sep 17 00:00:00 2001
+From: danielk43 <11856117+danielk43@users.noreply.github.com>
+Date: Mon, 13 Feb 2023 00:19:33 -0500
+Subject: [PATCH 3/5] Replace default browser
+
+Change-Id: I4981807d038cf08d1fc126ecf10121c1a7c73d6b
+---
+ config/common_mobile.mk | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/config/common_mobile.mk b/config/common_mobile.mk
+index 4be98c06..874cd5bf 100644
+--- a/config/common_mobile.mk
++++ b/config/common_mobile.mk
+@@ -19,7 +19,7 @@ PRODUCT_PACKAGES += \
+     Eleven \
+     Etar \
+     ExactCalculator \
+-    Jelly \
++    Chromium \
+     Profiles \
+     Seedvault
+ 
+-- 
+2.30.2
+

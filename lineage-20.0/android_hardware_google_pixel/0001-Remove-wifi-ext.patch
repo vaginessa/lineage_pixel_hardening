@@ -1,0 +1,18 @@
+From 585690b1d4f3397dda895b9bfb7348dba2b6901d Mon Sep 17 00:00:00 2001
+From: danielk43 <11856117+danielk43@users.noreply.github.com>
+Date: Sun, 16 Oct 2022 23:06:10 -0400
+Subject: [PATCH] Remove wifi ext
+
+---
+ wifi_ext/device.mk | 2 --
+ 1 file changed, 2 deletions(-)
+ delete mode 100644 wifi_ext/device.mk
+
+diff --git a/wifi_ext/device.mk b/wifi_ext/device.mk
+deleted file mode 100644
+--- a/wifi_ext/device.mk
++++ /dev/null
+@@ -1,2 +0,0 @@
+-PRODUCT_PACKAGES += vendor.google.wifi_ext@1.0-service-vendor
+-BOARD_VENDOR_SEPOLICY_DIRS += hardware/google/pixel-sepolicy/wifi_ext
+

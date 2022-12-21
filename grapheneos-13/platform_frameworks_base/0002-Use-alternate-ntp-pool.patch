@@ -1,0 +1,22 @@
+From b869dd1f9b869428316c59895c6e62f394da15d5 Mon Sep 17 00:00:00 2001
+From: danielk43 <11856117+danielk43@users.noreply.github.com>
+Date: Mon, 18 Oct 2021 15:51:56 -0400
+Subject: [PATCH 2/2] Use alternate ntp pool
+
+---
+ core/res/res/values/config.xml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
+--- a/core/res/res/values/config.xml
++++ b/core/res/res/values/config.xml
+@@ -2392,7 +2392,7 @@
+          Supports "ntp" or "https" only now -->
+     <string translatable="false" name="config_ntpMode">https</string>
+     <!-- Remote server that can provide NTP responses. -->
+-    <string translatable="false" name="config_ntpServer">time.android.com</string>
++    <string translatable="false" name="config_ntpServer">us.pool.ntp.org</string>
+     <!-- Remote server that can provide HTTPS time responses -->
+     <string translatable="false" name="config_httpsTimeServer">https://time.grapheneos.org/generate_204</string>
+     <!-- Normal polling frequency in milliseconds -->
+

@@ -1,0 +1,119 @@
+From abb13d521e219170c0d9f6265779578641b43fb4 Mon Sep 17 00:00:00 2001
+From: danielk43 <11856117+danielk43@users.noreply.github.com>
+Date: Sun, 11 Dec 2022 15:53:50 -0500
+Subject: [PATCH 3/3] crosshatch: Update apps
+
+---
+ Android.bp           | 77 --------------------------------------------
+ crosshatch-vendor.mk |  7 ----
+ 2 files changed, 84 deletions(-)
+
+diff --git a/Android.bp b/Android.bp
+index af8abec..1bd87fb 100644
+--- a/Android.bp
++++ b/Android.bp
+@@ -86,83 +86,6 @@ android_app_import {
+ 	privileged: true,
+ }
+ 
+-android_app_import {
+-	name: "MobileFeliCaClient",
+-	owner: "google",
+-	apk: "proprietary/product/app/MobileFeliCaClient/MobileFeliCaClient.apk",
+-	presigned: true,
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	product_specific: true,
+-}
+-
+-android_app_import {
+-	name: "MobileFeliCaMenuMainApp",
+-	owner: "google",
+-	apk: "proprietary/product/app/MobileFeliCaMenuMainApp/MobileFeliCaMenuMainApp.apk",
+-	presigned: true,
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	product_specific: true,
+-}
+-
+-android_app_import {
+-	name: "MobileFeliCaSettingApp",
+-	owner: "google",
+-	apk: "proprietary/product/app/MobileFeliCaSettingApp/MobileFeliCaSettingApp.apk",
+-	presigned: true,
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	product_specific: true,
+-}
+-
+-android_app_import {
+-	name: "MobileFeliCaWebPlugin",
+-	owner: "google",
+-	apk: "proprietary/product/app/MobileFeliCaWebPlugin/MobileFeliCaWebPlugin.apk",
+-	presigned: true,
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	product_specific: true,
+-}
+-
+-android_app_import {
+-	name: "MobileFeliCaWebPluginBoot",
+-	owner: "google",
+-	apk: "proprietary/product/app/MobileFeliCaWebPluginBoot/MobileFeliCaWebPluginBoot.apk",
+-	presigned: true,
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	product_specific: true,
+-}
+-
+-android_app_import {
+-	name: "PixelCameraServicesCrosshatch",
+-	owner: "google",
+-	apk: "proprietary/product/app/PixelCameraServicesCrosshatch/PixelCameraServicesCrosshatch.apk",
+-	presigned: true,
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	product_specific: true,
+-}
+-
+-android_app_import {
+-	name: "VZWAPNLib",
+-	owner: "google",
+-	apk: "proprietary/product/app/VZWAPNLib/VZWAPNLib.apk",
+-	presigned: true,
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	product_specific: true,
+-}
+-
+ android_app_import {
+ 	name: "com.qualcomm.qti.services.secureui",
+ 	owner: "google",
+diff --git a/crosshatch-vendor.mk b/crosshatch-vendor.mk
+index ce6c92f..f4a4a20 100644
+--- a/crosshatch-vendor.mk
++++ b/crosshatch-vendor.mk
+@@ -303,13 +303,6 @@ PRODUCT_PACKAGES += \
+     uimremoteserver \
+     CNEService \
+     qcrilmsgtunnel \
+-    MobileFeliCaClient \
+-    MobileFeliCaMenuMainApp \
+-    MobileFeliCaSettingApp \
+-    MobileFeliCaWebPlugin \
+-    MobileFeliCaWebPluginBoot \
+-    PixelCameraServicesCrosshatch \
+-    VZWAPNLib \
+     com.qualcomm.qti.services.secureui \
+     CarrierSettings \
+     RilConfigService \
+-- 
+2.30.2
+

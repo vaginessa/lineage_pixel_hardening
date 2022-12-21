@@ -1,0 +1,103 @@
+From b9fa3e6bea008a788aeb295fe3cb8b3a2eb2ad2d Mon Sep 17 00:00:00 2001
+From: danielk43 <11856117+danielk43@users.noreply.github.com>
+Date: Sun, 4 Dec 2022 09:34:21 -0500
+Subject: [PATCH 3/3] blueline: Update apps
+
+---
+ Android.bp                                    |  66 ------------------
+ blueline-vendor.mk                            |   6 --
+ 2 files changed, 72 deletions(-)
+
+diff --git a/Android.bp b/Android.bp
+--- a/Android.bp
++++ b/Android.bp
+@@ -97,72 +97,6 @@ android_app_import {
+ 	privileged: true,
+ }
+ 
+-android_app_import {
+-	name: "MobileFeliCaClient",
+-	owner: "google",
+-	apk: "proprietary/product/app/MobileFeliCaClient/MobileFeliCaClient.apk",
+-	presigned: true,
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	product_specific: true,
+-}
+-
+-android_app_import {
+-	name: "MobileFeliCaMenuMainApp",
+-	owner: "google",
+-	apk: "proprietary/product/app/MobileFeliCaMenuMainApp/MobileFeliCaMenuMainApp.apk",
+-	presigned: true,
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	product_specific: true,
+-}
+-
+-android_app_import {
+-	name: "MobileFeliCaSettingApp",
+-	owner: "google",
+-	apk: "proprietary/product/app/MobileFeliCaSettingApp/MobileFeliCaSettingApp.apk",
+-	presigned: true,
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	product_specific: true,
+-}
+-
+-android_app_import {
+-	name: "MobileFeliCaWebPlugin",
+-	owner: "google",
+-	apk: "proprietary/product/app/MobileFeliCaWebPlugin/MobileFeliCaWebPlugin.apk",
+-	presigned: true,
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	product_specific: true,
+-}
+-
+-android_app_import {
+-	name: "MobileFeliCaWebPluginBoot",
+-	owner: "google",
+-	apk: "proprietary/product/app/MobileFeliCaWebPluginBoot/MobileFeliCaWebPluginBoot.apk",
+-	presigned: true,
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	product_specific: true,
+-}
+-
+-android_app_import {
+-	name: "PixelCameraServicesBlueline",
+-	owner: "google",
+-	apk: "proprietary/product/app/PixelCameraServicesBlueline/PixelCameraServicesBlueline.apk",
+-	presigned: true,
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	product_specific: true,
+-}
+-
+ android_app_import {
+ 	name: "com.qualcomm.qti.services.secureui",
+ 	owner: "google",
+diff --git a/blueline-vendor.mk b/blueline-vendor.mk
+--- a/blueline-vendor.mk
++++ b/blueline-vendor.mk
+@@ -298,12 +298,6 @@ PRODUCT_PACKAGES += \
+     uimremoteserver \
+     CNEService \
+     qcrilmsgtunnel \
+-    MobileFeliCaClient \
+-    MobileFeliCaMenuMainApp \
+-    MobileFeliCaSettingApp \
+-    MobileFeliCaWebPlugin \
+-    MobileFeliCaWebPluginBoot \
+-    PixelCameraServicesBlueline \
+     com.qualcomm.qti.services.secureui \
+     RilConfigService \
+     grilservice \
+

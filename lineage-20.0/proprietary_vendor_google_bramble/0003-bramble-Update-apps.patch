@@ -1,0 +1,60 @@
+From 047b03ca1cc382b681af12484ff14c6d371500b7 Mon Sep 17 00:00:00 2001
+From: danielk43 <11856117+danielk43@users.noreply.github.com>
+Date: Mon, 13 Feb 2023 00:52:32 -0500
+Subject: [PATCH 3/3] bramble: Update apps
+
+Change-Id: I008cae1c8ec51737f5fa86cf02679bf90c2bf9b5
+---
+ Android.bp        | 22 ----------------------
+ bramble-vendor.mk |  2 --
+ 2 files changed, 24 deletions(-)
+
+diff --git a/Android.bp b/Android.bp
+index 23fe786..7f794e0 100644
+--- a/Android.bp
++++ b/Android.bp
+@@ -5,28 +5,6 @@
+ soong_namespace {
+ }
+ 
+-android_app_import {
+-	name: "PixelCameraServicesBramble",
+-	owner: "google",
+-	apk: "proprietary/product/app/PixelCameraServicesBramble/PixelCameraServicesBramble.apk",
+-	presigned: true,
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	product_specific: true,
+-}
+-
+-android_app_import {
+-	name: "VZWAPNLib",
+-	owner: "google",
+-	apk: "proprietary/product/app/VZWAPNLib/VZWAPNLib.apk",
+-	presigned: true,
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	product_specific: true,
+-}
+-
+ android_app_import {
+ 	name: "uimremoteclient",
+ 	owner: "google",
+diff --git a/bramble-vendor.mk b/bramble-vendor.mk
+index 673c5f7..bb2fdf4 100644
+--- a/bramble-vendor.mk
++++ b/bramble-vendor.mk
+@@ -609,8 +609,6 @@ PRODUCT_COPY_FILES += \
+     vendor/google/bramble/proprietary/system_ext/lib64/vendor.qti.voiceprint@1.0.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib64/vendor.qti.voiceprint@1.0.so \
+ 
+ PRODUCT_PACKAGES += \
+-    PixelCameraServicesBramble \
+-    VZWAPNLib \
+     uimremoteclient \
+     uimremoteserver \
+     CarrierSettings \
+-- 
+2.30.2
+

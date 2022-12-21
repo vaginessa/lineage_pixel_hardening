@@ -1,0 +1,107 @@
+From 1c508551a069f9a5ecf273224a9e80ee60584570 Mon Sep 17 00:00:00 2001
+From: danielk43 <11856117+danielk43@users.noreply.github.com>
+Date: Sun, 4 Dec 2022 10:18:23 -0500
+Subject: [PATCH 3/3] redfin: Update apps
+
+---
+ Android.bp                                    |  31 ------------------
+ redfin-vendor.mk                              |   9 -----
+ 2 files changed, 40 deletions(-)
+
+diff --git a/Android.bp b/Android.bp
+--- a/Android.bp
++++ b/Android.bp
+@@ -5,28 +5,6 @@
+ soong_namespace {
+ }
+ 
+-android_app_import {
+-	name: "PixelCameraServicesRedfin",
+-	owner: "google",
+-	apk: "proprietary/product/app/PixelCameraServicesRedfin/PixelCameraServicesRedfin.apk",
+-	presigned: true,
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	product_specific: true,
+-}
+-
+-android_app_import {
+-	name: "VZWAPNLib",
+-	owner: "google",
+-	apk: "proprietary/product/app/VZWAPNLib/VZWAPNLib.apk",
+-	presigned: true,
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	product_specific: true,
+-}
+-
+ android_app_import {
+ 	name: "uimremoteclient",
+ 	owner: "google",
+@@ -827,15 +805,6 @@ prebuilt_etc_xml {
+ 	soc_specific: true,
+ }
+ 
+-prebuilt_etc_xml {
+-	name: "manifest_wifi_ext",
+-	owner: "google",
+-	src: "proprietary/vendor/etc/vintf/manifest/manifest_wifi_ext.xml",
+-	filename_from_src: true,
+-	sub_dir: "vintf/manifest",
+-	soc_specific: true,
+-}
+-
+ prebuilt_etc_xml {
+ 	name: "rebootescrow-citadel",
+ 	owner: "google",
+
+diff --git a/redfin-vendor.mk b/redfin-vendor.mk
+--- a/redfin-vendor.mk
++++ b/redfin-vendor.mk
+@@ -312,7 +312,6 @@ PRODUCT_COPY_FILES += \
+     vendor/google/redfin/proprietary/system_ext/lib/vendor.display.color@1.1.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib/vendor.display.color@1.1.so \
+     vendor/google/redfin/proprietary/system_ext/lib/vendor.display.color@1.2.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib/vendor.display.color@1.2.so \
+     vendor/google/redfin/proprietary/system_ext/lib/vendor.display.postproc@1.0.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib/vendor.display.postproc@1.0.so \
+-    vendor/google/redfin/proprietary/system_ext/lib/vendor.google.wifi_ext@1.0.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib/vendor.google.wifi_ext@1.0.so \
+     vendor/google/redfin/proprietary/system_ext/lib/vendor.qti.data.factory@1.0.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib/vendor.qti.data.factory@1.0.so \
+     vendor/google/redfin/proprietary/system_ext/lib/vendor.qti.data.factory@2.0.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib/vendor.qti.data.factory@2.0.so \
+     vendor/google/redfin/proprietary/system_ext/lib/vendor.qti.data.factory@2.1.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib/vendor.qti.data.factory@2.1.so \
+@@ -509,7 +508,6 @@ PRODUCT_COPY_FILES += \
+     vendor/google/redfin/proprietary/system_ext/lib64/vendor.display.color@1.1.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib64/vendor.display.color@1.1.so \
+     vendor/google/redfin/proprietary/system_ext/lib64/vendor.display.color@1.2.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib64/vendor.display.color@1.2.so \
+     vendor/google/redfin/proprietary/system_ext/lib64/vendor.display.postproc@1.0.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib64/vendor.display.postproc@1.0.so \
+-    vendor/google/redfin/proprietary/system_ext/lib64/vendor.google.wifi_ext@1.0.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib64/vendor.google.wifi_ext@1.0.so \
+     vendor/google/redfin/proprietary/system_ext/lib64/vendor.qti.data.factory@1.0.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib64/vendor.qti.data.factory@1.0.so \
+     vendor/google/redfin/proprietary/system_ext/lib64/vendor.qti.data.factory@2.0.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib64/vendor.qti.data.factory@2.0.so \
+     vendor/google/redfin/proprietary/system_ext/lib64/vendor.qti.data.factory@2.1.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib64/vendor.qti.data.factory@2.1.so \
+@@ -604,8 +602,6 @@ PRODUCT_COPY_FILES += \
+     vendor/google/redfin/proprietary/system_ext/lib64/vendor.qti.voiceprint@1.0.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib64/vendor.qti.voiceprint@1.0.so \
+ 
+ PRODUCT_PACKAGES += \
+-    PixelCameraServicesRedfin \
+-    VZWAPNLib \
+     uimremoteclient \
+     uimremoteserver \
+     CarrierSettings \
+@@ -2166,10 +2162,6 @@ PRODUCT_COPY_FILES += \
+     vendor/google/redfin/proprietary/vendor/lib64/vendor.google.radioext@1.1.so:$(TARGET_COPY_OUT_VENDOR)/lib64/vendor.google.radioext@1.1.so \
+     vendor/google/redfin/proprietary/vendor/lib64/vendor.google.radioext@1.2.so:$(TARGET_COPY_OUT_VENDOR)/lib64/vendor.google.radioext@1.2.so \
+     vendor/google/redfin/proprietary/vendor/lib64/vendor.google.radioext@1.3.so:$(TARGET_COPY_OUT_VENDOR)/lib64/vendor.google.radioext@1.3.so \
+-    vendor/google/redfin/proprietary/vendor/lib64/vendor.google.wifi_ext@1.0.so:$(TARGET_COPY_OUT_VENDOR)/lib64/vendor.google.wifi_ext@1.0.so \
+-    vendor/google/redfin/proprietary/vendor/lib64/vendor.google.wifi_ext@1.1.so:$(TARGET_COPY_OUT_VENDOR)/lib64/vendor.google.wifi_ext@1.1.so \
+-    vendor/google/redfin/proprietary/vendor/lib64/vendor.google.wifi_ext@1.2.so:$(TARGET_COPY_OUT_VENDOR)/lib64/vendor.google.wifi_ext@1.2.so \
+-    vendor/google/redfin/proprietary/vendor/lib64/vendor.google.wifi_ext@1.3.so:$(TARGET_COPY_OUT_VENDOR)/lib64/vendor.google.wifi_ext@1.3.so \
+     vendor/google/redfin/proprietary/vendor/lib64/vendor.google.wireless_charger@1.0.so:$(TARGET_COPY_OUT_VENDOR)/lib64/vendor.google.wireless_charger@1.0.so \
+     vendor/google/redfin/proprietary/vendor/lib64/vendor.google.wireless_charger@1.1.so:$(TARGET_COPY_OUT_VENDOR)/lib64/vendor.google.wireless_charger@1.1.so \
+     vendor/google/redfin/proprietary/vendor/lib64/vendor.google.wireless_charger@1.2.so:$(TARGET_COPY_OUT_VENDOR)/lib64/vendor.google.wireless_charger@1.2.so \
+@@ -2440,7 +2432,6 @@ PRODUCT_PACKAGES += \
+     c2_manifest_vendor \
+     manifest_android.hardware.drm-service.widevine \
+     manifest_input.processor-service \
+-    manifest_wifi_ext \
+     rebootescrow-citadel \
+     vendor.google.google_battery-default \
+     vendor.google.wireless_charger@1.3-service-vendor
+
