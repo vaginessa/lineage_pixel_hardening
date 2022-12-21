@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <project path="vendor/google/redfin" name="TheMuppets/proprietary_vendor_google_redfin" revision="lineage-20" clone-depth="1" />
+  <project path="vendor/google/bramble" name="TheMuppets/proprietary_vendor_google_bramble" revision="lineage-20" clone-depth="1" />
+  <project path="vendor/google/blueline" name="TheMuppets/proprietary_vendor_google_blueline" revision="lineage-20" clone-depth="1" />
+  <project path="vendor/google/crosshatch" name="TheMuppets/proprietary_vendor_google_crosshatch" revision="lineage-20" clone-depth="1" />
+
+</manifest>
