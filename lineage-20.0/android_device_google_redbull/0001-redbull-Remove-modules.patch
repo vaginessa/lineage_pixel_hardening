@@ -1,4 +1,4 @@
-From 475d509422c6a3af06794d23015ef85afb1323b5 Mon Sep 17 00:00:00 2001
+From 8039a928957e0212064f5e8b04bfc80315c009a7 Mon Sep 17 00:00:00 2001
 From: danielk43 <11856117+danielk43@users.noreply.github.com>
 Date: Sat, 15 Oct 2022 20:15:09 -0400
 Subject: [PATCH 1/3] redbull: Remove modules
@@ -12,6 +12,7 @@ Subject: [PATCH 1/3] redbull: Remove modules
  5 files changed, 7 insertions(+), 28 deletions(-)
 
 diff --git a/BoardConfig-common.mk b/BoardConfig-common.mk
+index 59b40658..ad5fda84 100644
 --- a/BoardConfig-common.mk
 +++ b/BoardConfig-common.mk
 @@ -430,7 +430,7 @@ BOARD_USES_ALSA_AUDIO := true
@@ -33,6 +34,7 @@ diff --git a/BoardConfig-common.mk b/BoardConfig-common.mk
  # Vendor Interface Manifest
  DEVICE_MANIFEST_FILE := device/google/redbull/manifest.xml
 diff --git a/device-common.mk b/device-common.mk
+index be9abe34..36567a45 100644
 --- a/device-common.mk
 +++ b/device-common.mk
 @@ -346,8 +346,8 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
@@ -56,6 +58,7 @@ diff --git a/device-common.mk b/device-common.mk
      ro.hardware.keystore_desede=true \
      persist.vendor.radio.procedure_bytes=SKIP \
 diff --git a/device-lineage.mk b/device-lineage.mk
+index ac9f9864..f38b06ce 100644
 --- a/device-lineage.mk
 +++ b/device-lineage.mk
 @@ -21,29 +21,10 @@ PRODUCT_PRODUCT_PROPERTIES += \
@@ -98,6 +101,7 @@ diff --git a/device-lineage.mk b/device-lineage.mk
      android.hardware.camera.device@1.0.vendor:64 \
      android.hardware.camera.device@3.2.vendor:64 \
 diff --git a/overlay/frameworks/base/core/res/res/values/config.xml b/overlay/frameworks/base/core/res/res/values/config.xml
+index f3a8abc4..b34f6bb3 100755
 --- a/overlay/frameworks/base/core/res/res/values/config.xml
 +++ b/overlay/frameworks/base/core/res/res/values/config.xml
 @@ -229,7 +229,7 @@
@@ -110,6 +114,7 @@ diff --git a/overlay/frameworks/base/core/res/res/values/config.xml b/overlay/fr
      <!-- Configure mobile tcp buffer sizes in the form:
           rat-name:rmem_min,rmem_def,rmem_max,wmem_min,wmem_def,wmem_max
 diff --git a/product.prop b/product.prop
+index add581ec..50bc72dc 100644
 --- a/product.prop
 +++ b/product.prop
 @@ -14,7 +14,7 @@ debug.sf.hw=1
@@ -121,4 +126,6 @@ diff --git a/product.prop b/product.prop
  
  # system props for the MM modules
  media.stagefright.enable-player=true
+-- 
+2.30.2
 

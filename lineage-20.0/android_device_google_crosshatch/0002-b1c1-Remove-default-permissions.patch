@@ -1,4 +1,4 @@
-From d13ec9d965cd5cfa85e1def9ee082d52e4d05c86 Mon Sep 17 00:00:00 2001
+From 121c1ace68d8f01df6e9d18288136daabdffa443 Mon Sep 17 00:00:00 2001
 From: danielk43 <11856117+danielk43@users.noreply.github.com>
 Date: Mon, 5 Dec 2022 17:00:52 -0500
 Subject: [PATCH 2/3] b1c1: Remove default-permissions
@@ -13,6 +13,7 @@ Subject: [PATCH 2/3] b1c1: Remove default-permissions
  delete mode 100644 default-permissions.xml
 
 diff --git a/Android.mk b/Android.mk
+index 40fa8343..3ecdb453 100644
 --- a/Android.mk
 +++ b/Android.mk
 @@ -16,7 +16,6 @@
@@ -24,6 +25,7 @@ diff --git a/Android.mk b/Android.mk
  $(eval $(call declare-copy-files-license-metadata,device/google/crosshatch,fstab.postinstall,SPDX-license-identifier-Apache-2.0,notice,build/soong/licenses/LICENSE,))
  $(eval $(call declare-copy-files-license-metadata,device/google/crosshatch,ueventd.rc,SPDX-license-identifier-Apache-2.0,notice,build/soong/licenses/LICENSE,))
 diff --git a/blueline/regen-vendor.sh b/blueline/regen-vendor.sh
+index f6572fcd..efc7b1f6 100755
 --- a/blueline/regen-vendor.sh
 +++ b/blueline/regen-vendor.sh
 @@ -304,7 +304,6 @@ VENDOR_SKIP_FILES=(
@@ -35,6 +37,7 @@ diff --git a/blueline/regen-vendor.sh b/blueline/regen-vendor.sh
      "etc/fs_config_dirs"
      "etc/fs_config_files"
 diff --git a/crosshatch/regen-vendor.sh b/crosshatch/regen-vendor.sh
+index 21300fca..6fd6cdb5 100755
 --- a/crosshatch/regen-vendor.sh
 +++ b/crosshatch/regen-vendor.sh
 @@ -304,7 +304,6 @@ VENDOR_SKIP_FILES=(
@@ -47,6 +50,7 @@ diff --git a/crosshatch/regen-vendor.sh b/crosshatch/regen-vendor.sh
      "etc/fs_config_files"
 diff --git a/default-permissions.xml b/default-permissions.xml
 deleted file mode 100644
+index 32cbcebe..00000000
 --- a/default-permissions.xml
 +++ /dev/null
 @@ -1,117 +0,0 @@
@@ -168,6 +172,7 @@ deleted file mode 100644
 -
 -</exceptions>
 diff --git a/device.mk b/device.mk
+index 84d00685..5e4f845f 100644
 --- a/device.mk
 +++ b/device.mk
 @@ -41,7 +41,6 @@ PRODUCT_PRODUCT_PROPERTIES += \
@@ -189,4 +194,6 @@ diff --git a/device.mk b/device.mk
  PRODUCT_PACKAGES += \
      fs_config_dirs \
      fs_config_files
+-- 
+2.30.2
 

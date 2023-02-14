@@ -1,4 +1,4 @@
-From d60c97452d567c28e4e88dd1e744442ae16a0820 Mon Sep 17 00:00:00 2001
+From 715d6c12d62030c3eca940d06913a22285810a48 Mon Sep 17 00:00:00 2001
 From: danielk43 <11856117+danielk43@users.noreply.github.com>
 Date: Mon, 5 Dec 2022 16:39:56 -0500
 Subject: [PATCH 2/3] redbull: Remove default-permissions
@@ -11,6 +11,7 @@ Subject: [PATCH 2/3] redbull: Remove default-permissions
 
 diff --git a/default-permissions.xml b/default-permissions.xml
 deleted file mode 100644
+index 1c1c5bff..00000000
 --- a/default-permissions.xml
 +++ /dev/null
 @@ -1,157 +0,0 @@
@@ -172,6 +173,7 @@ deleted file mode 100644
 -    </exception>
 -</exceptions>
 diff --git a/device-common.mk b/device-common.mk
+index 36567a45..37e4b27f 100644
 --- a/device-common.mk
 +++ b/device-common.mk
 @@ -79,7 +79,6 @@ PRODUCT_PRODUCT_PROPERTIES += \
@@ -182,4 +184,6 @@ diff --git a/device-common.mk b/device-common.mk
      device/google/redbull/component-overrides.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sysconfig/component-overrides.xml \
      frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/handheld_core_hardware.xml \
      frameworks/native/data/etc/android.software.verified_boot.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.verified_boot.xml
+-- 
+2.30.2
 

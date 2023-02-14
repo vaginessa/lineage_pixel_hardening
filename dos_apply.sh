@@ -57,19 +57,18 @@ if [[ ${ANDROID_BUILD_TOP,,} =~ "lineage" ]]; then
 
   if enterAndClear "device/google/bramble"; then
     applyPatch "${PATCH_DIR}/android_device_google_bramble/0001-bramble-Disable-mainline-checking.patch"; #Allow extra apks at build time
-    applyPatch "${PATCH_DIR}/android_device_google_bramble/0002-Move-avb-key-from-device-redbull.patch"; #Add support for AVB at device level
   fi;
 
   if enterAndClear "device/google/crosshatch"; then
     applyPatch "${PATCH_DIR}/android_device_google_crosshatch/0001-b1c1-Remove-modules.patch"; #Debloat
     applyPatch "${PATCH_DIR}/android_device_google_crosshatch/0002-b1c1-Remove-default-permissions.patch"; #Remove unused permissions
-    applyPatch "${PATCH_DIR}/android_device_google_crosshatch/0003-Add-custom-avb-key.patch"; #Add support for AVB
+    applyPatch "${PATCH_DIR}/android_device_google_crosshatch/0003-b1c1-Add-custom-avb-key.patch"; #Add support for AVB
   fi;
 
   if enterAndClear "device/google/redbull"; then
     applyPatch "${PATCH_DIR}/android_device_google_redbull/0001-redbull-Remove-modules.patch"; #Debloat
     applyPatch "${PATCH_DIR}/android_device_google_redbull/0002-redbull-Remove-default-permissions.patch"; #Remove unused permissions
-    applyPatch "${PATCH_DIR}/android_device_google_redbull/0003-Move-avb-key-to-device-bramble.patch"; #Move AVB support to device repo
+    applyPatch "${PATCH_DIR}/android_device_google_redbull/0003-redbull-Add-custom-avb-key.patch"; #Add support for AVB
   fi;
 
   #KERNEL
@@ -85,13 +84,13 @@ if [[ ${ANDROID_BUILD_TOP,,} =~ "lineage" ]]; then
   #VENDOR
 
   if enterAndClear "vendor/google/bramble"; then
-    git am "${PATCH_DIR}/proprietary_vendor_google_bramble/0001-bramble-Add-gesture-input.patch" && echo "Add libjni_latinimegoogle.so";
+    git am "${PATCH_DIR}/proprietary_vendor_google_bramble/0001-bramble-Add-gesture-input.patch";
     applyPatch "${PATCH_DIR}/proprietary_vendor_google_bramble/0002-bramble-Update-priv-apps.patch"; #Deblob priv-apps
     applyPatch "${PATCH_DIR}/proprietary_vendor_google_bramble/0003-bramble-Update-apps.patch"; #Deblob apps
   fi;
 
   if enterAndClear "vendor/google/crosshatch"; then
-    git am "${PATCH_DIR}/proprietary_vendor_google_crosshatch/0001-crosshatch-Add-gesture-input.patch" && echo "Add libjni_latinimegoogle.so";
+    git am "${PATCH_DIR}/proprietary_vendor_google_crosshatch/0001-crosshatch-Add-gesture-input.patch";
     applyPatch "${PATCH_DIR}/proprietary_vendor_google_crosshatch/0002-crosshatch-Update-priv-apps.patch"; #Deblob priv-apps
     applyPatch "${PATCH_DIR}/proprietary_vendor_google_crosshatch/0003-crosshatch-Update-apps.patch"; #Deblob apps
   fi;

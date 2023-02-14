@@ -1,14 +1,16 @@
-From e285c73d4b8b8aec48c8f2174675fb19bd003e05 Mon Sep 17 00:00:00 2001
+From 356d85f35190bfe6df839dfae62abd44d683225a Mon Sep 17 00:00:00 2001
 From: danielk43 <11856117+danielk43@users.noreply.github.com>
 Date: Thu, 23 Jun 2022 17:56:20 -0400
-Subject: [PATCH 3/3] Add custom avb key
+Subject: [PATCH 3/3] b1c1: Add custom avb key
 
+Change-Id: I7580b85385686606d112993101553f8d3395afa4
 ---
  BoardConfig-common.mk | 4 ++--
  BoardConfigLineage.mk | 3 ++-
  2 files changed, 4 insertions(+), 3 deletions(-)
 
 diff --git a/BoardConfig-common.mk b/BoardConfig-common.mk
+index baab6f72..d08db81c 100644
 --- a/BoardConfig-common.mk
 +++ b/BoardConfig-common.mk
 @@ -103,8 +103,8 @@ TARGET_RECOVERY_UI_LIB := \
@@ -23,6 +25,7 @@ diff --git a/BoardConfig-common.mk b/BoardConfig-common.mk
  BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX_LOCATION := 1
  endif
 diff --git a/BoardConfigLineage.mk b/BoardConfigLineage.mk
+index df750206..4916f3b1 100644
 --- a/BoardConfigLineage.mk
 +++ b/BoardConfigLineage.mk
 @@ -43,4 +43,5 @@ BOARD_SEPOLICY_DIRS += device/google/crosshatch/sepolicy-lineage/dynamic
@@ -32,4 +35,6 @@ diff --git a/BoardConfigLineage.mk b/BoardConfigLineage.mk
 -BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
 +BOARD_AVB_ALGORITHM := SHA256_RSA4096
 +BOARD_AVB_KEY_PATH := keys/crosshatch/avb.pem
+-- 
+2.30.2
 
