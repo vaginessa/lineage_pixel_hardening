@@ -96,7 +96,23 @@ if [[ ${ANDROID_BUILD_TOP,,} =~ "lineage" ]]; then
     applyPatch "${PATCH_DIR}/proprietary_vendor_google_crosshatch/0003-crosshatch-Update-apps.patch"; #Deblob apps
   fi;
 elif [[ ${ANDROID_BUILD_TOP,,} =~ "graphene" ]]; then
-  echo "Do stuff";
+  #ROM
+  if enterAndClear "frameworks/base"; then
+    applyPatch "${PATCH_DIR}/platform_frameworks_base/0001-Update-dns-references.patch"; #Use quad9 dns
+    applyPatch "${PATCH_DIR}/platform_frameworks_base/0002-Use-alternate-ntp-pool.patch"; #Use non-Android ntp pool
+  fi;
+
+  if enterAndClear "packages/inputmethods/LatinIME"; then
+    applyPatch "${PATCH_DIR}/platform_packages_inputmethods_LatinIME/0001-Enable-gesture-input.patch"; #Reenable swipe keyboard
+  fi;
+
+  if enterAndClear "packages/modules/Connectivity"; then
+    applyPatch "${PATCH_DIR}/platform_packages_modules_Connectivity/0001-Update-dns-references.patch"; #Use quad9 dns
+  fi;
+
+  if enterAndClear "script"; then
+    applyPatch "${PATCH_DIR}/script/0001-Alias-signify-cmd-if-applicable.patch"; #Add shim for signing on debian
+  fi;
 fi
 
 #
