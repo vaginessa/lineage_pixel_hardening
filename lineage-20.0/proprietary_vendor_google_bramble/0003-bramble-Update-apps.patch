@@ -10,7 +10,6 @@ Change-Id: I008cae1c8ec51737f5fa86cf02679bf90c2bf9b5
  2 files changed, 24 deletions(-)
 
 diff --git a/Android.bp b/Android.bp
-index 23fe786..7f794e0 100644
 --- a/Android.bp
 +++ b/Android.bp
 @@ -5,28 +5,6 @@
@@ -43,7 +42,6 @@ index 23fe786..7f794e0 100644
  	name: "uimremoteclient",
  	owner: "google",
 diff --git a/bramble-vendor.mk b/bramble-vendor.mk
-index 673c5f7..bb2fdf4 100644
 --- a/bramble-vendor.mk
 +++ b/bramble-vendor.mk
 @@ -609,8 +609,6 @@ PRODUCT_COPY_FILES += \
@@ -55,6 +53,4 @@ index 673c5f7..bb2fdf4 100644
      uimremoteclient \
      uimremoteserver \
      CarrierSettings \
--- 
-2.30.2
 

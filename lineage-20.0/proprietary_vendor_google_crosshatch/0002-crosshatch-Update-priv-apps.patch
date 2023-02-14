@@ -9,7 +9,6 @@ Subject: [PATCH 2/3] crosshatch: Update priv-apps
  2 files changed, 353 deletions(-)
 
 diff --git a/Android.bp b/Android.bp
-index d11c8c2..af8abec 100644
 --- a/Android.bp
 +++ b/Android.bp
 @@ -75,17 +75,6 @@ android_app_import {
@@ -364,7 +363,6 @@ index d11c8c2..af8abec 100644
  	name: "QtiTelephonyServicelibrary",
  	owner: "google",
 diff --git a/crosshatch-vendor.mk b/crosshatch-vendor.mk
-index 718e396..ce6c92f 100644
 --- a/crosshatch-vendor.mk
 +++ b/crosshatch-vendor.mk
 @@ -200,8 +200,6 @@ PRODUCT_COPY_FILES += \
@@ -421,6 +419,4 @@ index 718e396..ce6c92f 100644
      QtiTelephonyServicelibrary \
      qcrilhook \
      uimremoteclientlibrary \
--- 
-2.30.2
 

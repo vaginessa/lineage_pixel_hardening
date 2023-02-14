@@ -9,7 +9,6 @@ Change-Id: Ib4a7f0834c9a39dd719a67326dd3d2d571af9e39
  1 file changed, 2 insertions(+), 16 deletions(-)
 
 diff --git a/overlay/common/frameworks/base/core/res/res/xml/config_webview_packages.xml b/overlay/common/frameworks/base/core/res/res/xml/config_webview_packages.xml
-index 5b5039f9..137f7640 100644
 --- a/overlay/common/frameworks/base/core/res/res/xml/config_webview_packages.xml
 +++ b/overlay/common/frameworks/base/core/res/res/xml/config_webview_packages.xml
 @@ -16,21 +16,7 @@
@@ -36,6 +35,4 @@ index 5b5039f9..137f7640 100644
 -    <webviewprovider description="AOSP WebView" packageName="com.android.webview" availableByDefault="true" />
 -
  </webviewproviders>
--- 
-2.30.2
 

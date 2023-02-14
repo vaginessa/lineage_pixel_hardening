@@ -8,7 +8,6 @@ Subject: [PATCH 4/5] Add extra apks
  1 file changed, 11 insertions(+)
 
 diff --git a/config/common_mobile.mk b/config/common_mobile.mk
-index 874cd5bf..581a3d17 100644
 --- a/config/common_mobile.mk
 +++ b/config/common_mobile.mk
 @@ -77,3 +77,14 @@ PRODUCT_PACKAGES += \
@@ -26,6 +25,4 @@ index 874cd5bf..581a3d17 100644
 +    PdfViewer
 +
 +
--- 
-2.30.2
 

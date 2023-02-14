@@ -9,7 +9,6 @@ Change-Id: I7206edd6b4c1b91f83181504466feec4863ea665
  1 file changed, 7 insertions(+), 1 deletion(-)
 
 diff --git a/config/common_mobile.mk b/config/common_mobile.mk
-index 581a3d17..164d2a36 100644
 --- a/config/common_mobile.mk
 +++ b/config/common_mobile.mk
 @@ -87,4 +87,10 @@ PRODUCT_PACKAGES += \
@@ -24,6 +23,4 @@ index 581a3d17..164d2a36 100644
 +    FakeStore \
 +    LocalGsmNlpBackend \
 +    NominatimGeocoderBackend
--- 
-2.30.2
 

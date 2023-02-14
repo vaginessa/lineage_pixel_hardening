@@ -1,7 +1,7 @@
-From a8b28e886b795ec71a338b63489194f0d9fcefb6 Mon Sep 17 00:00:00 2001
+From 6a69e27716d58a32f56aa359a0a6f7a540b18910 Mon Sep 17 00:00:00 2001
 From: danielk43 <11856117+danielk43@users.noreply.github.com>
 Date: Sun, 16 Oct 2022 00:50:07 -0400
-Subject: [PATCH 1/2] bramble: Disable mainline checking
+Subject: [PATCH] bramble: Disable mainline checking
 
 ---
  aosp_bramble.mk | 2 +-

@@ -9,7 +9,6 @@ Change-Id: I4981807d038cf08d1fc126ecf10121c1a7c73d6b
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/config/common_mobile.mk b/config/common_mobile.mk
-index 4be98c06..874cd5bf 100644
 --- a/config/common_mobile.mk
 +++ b/config/common_mobile.mk
 @@ -19,7 +19,7 @@ PRODUCT_PACKAGES += \
@@ -21,6 +20,4 @@ index 4be98c06..874cd5bf 100644
      Profiles \
      Seedvault
  
--- 
-2.30.2
 

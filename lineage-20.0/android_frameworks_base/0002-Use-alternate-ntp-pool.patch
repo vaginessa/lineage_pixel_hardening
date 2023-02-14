@@ -8,7 +8,6 @@ Subject: [PATCH 2/2] Use alternate ntp pool
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
-index 659d0f37bf05..e54c0940fcb7 100644
 --- a/core/res/res/values/config.xml
 +++ b/core/res/res/values/config.xml
 @@ -2390,7 +2390,7 @@
@@ -20,6 +19,4 @@ index 659d0f37bf05..e54c0940fcb7 100644
      <!-- Normal polling frequency in milliseconds -->
      <integer name="config_ntpPollingInterval">64800000</integer>
      <!-- Try-again polling interval in milliseconds, in case the network request failed -->
--- 
-2.30.2
 

@@ -12,7 +12,6 @@ Change-Id: I13b5a3e03071f4af894c1caa085f49e0efe7cafc
  4 files changed, 57 insertions(+), 3 deletions(-)
 
 diff --git a/core/api/current.txt b/core/api/current.txt
-index c8a43db2f9c2..277183036c60 100644
 --- a/core/api/current.txt
 +++ b/core/api/current.txt
 @@ -87,6 +87,7 @@ package android {
@@ -32,7 +31,6 @@ index c8a43db2f9c2..277183036c60 100644
      field public static final String MICROPHONE = "android.permission-group.MICROPHONE";
      field public static final String NEARBY_DEVICES = "android.permission-group.NEARBY_DEVICES";
 diff --git a/core/res/AndroidManifest.xml b/core/res/AndroidManifest.xml
-index 1b90803404f7..d1cb6c3241f2 100644
 --- a/core/res/AndroidManifest.xml
 +++ b/core/res/AndroidManifest.xml
 @@ -3542,6 +3542,21 @@
@@ -58,7 +56,6 @@ index 1b90803404f7..d1cb6c3241f2 100644
           {@link android.content.pm.PackageManager#addPackageToPreferred}
           for details. -->
 diff --git a/core/res/res/values/strings.xml b/core/res/res/values/strings.xml
-index 5763345aba4d..8ffdbdd6f15b 100644
 --- a/core/res/res/values/strings.xml
 +++ b/core/res/res/values/strings.xml
 @@ -974,6 +974,18 @@
@@ -81,7 +78,6 @@ index 5763345aba4d..8ffdbdd6f15b 100644
      <string name="permlab_statusBar">disable or modify status bar</string>
      <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
 diff --git a/services/core/java/com/android/server/pm/ComputerEngine.java b/services/core/java/com/android/server/pm/ComputerEngine.java
-index 46b7460dff1b..90f75dedef59 100644
 --- a/services/core/java/com/android/server/pm/ComputerEngine.java
 +++ b/services/core/java/com/android/server/pm/ComputerEngine.java
 @@ -1603,6 +1603,29 @@ public class ComputerEngine implements Computer {
@@ -133,6 +129,4 @@ index 46b7460dff1b..90f75dedef59 100644
  
              if (packageInfo == null) {
                  return null;
--- 
-2.30.2
 

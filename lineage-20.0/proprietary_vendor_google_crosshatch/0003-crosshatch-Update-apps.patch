@@ -9,7 +9,6 @@ Subject: [PATCH 3/3] crosshatch: Update apps
  2 files changed, 84 deletions(-)
 
 diff --git a/Android.bp b/Android.bp
-index af8abec..1bd87fb 100644
 --- a/Android.bp
 +++ b/Android.bp
 @@ -86,83 +86,6 @@ android_app_import {
@@ -97,7 +96,6 @@ index af8abec..1bd87fb 100644
  	name: "com.qualcomm.qti.services.secureui",
  	owner: "google",
 diff --git a/crosshatch-vendor.mk b/crosshatch-vendor.mk
-index ce6c92f..f4a4a20 100644
 --- a/crosshatch-vendor.mk
 +++ b/crosshatch-vendor.mk
 @@ -303,13 +303,6 @@ PRODUCT_PACKAGES += \
@@ -114,6 +112,4 @@ index ce6c92f..f4a4a20 100644
      com.qualcomm.qti.services.secureui \
      CarrierSettings \
      RilConfigService \
--- 
-2.30.2
 

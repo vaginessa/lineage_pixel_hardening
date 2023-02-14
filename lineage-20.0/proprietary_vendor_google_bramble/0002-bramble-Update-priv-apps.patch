@@ -10,7 +10,6 @@ Change-Id: I7bb116d3a1a2bae5043abe3774e1b00cf9520a48
  2 files changed, 381 deletions(-)
 
 diff --git a/Android.bp b/Android.bp
-index d1f0237..23fe786 100644
 --- a/Android.bp
 +++ b/Android.bp
 @@ -49,42 +49,6 @@ android_app_import {
@@ -390,7 +389,6 @@ index d1f0237..23fe786 100644
  	name: "qcrilmsgtunnel",
  	owner: "google",
 diff --git a/bramble-vendor.mk b/bramble-vendor.mk
-index 9293d53..673c5f7 100644
 --- a/bramble-vendor.mk
 +++ b/bramble-vendor.mk
 @@ -215,8 +215,6 @@ PRODUCT_COPY_FILES += \
@@ -456,6 +454,4 @@ index 9293d53..673c5f7 100644
      qcrilmsgtunnel \
      libhwinfo \
      remotesimlockmanagerlibrary \
--- 
-2.30.2
 

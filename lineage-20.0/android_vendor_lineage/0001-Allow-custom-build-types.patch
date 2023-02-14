@@ -9,7 +9,6 @@ Change-Id: Ifd471f5ec92caf49eac0d7a3149844e16b8911f6
  1 file changed, 6 deletions(-)
 
 diff --git a/config/version.mk b/config/version.mk
-index 0d15a03e..d543aa29 100644
 --- a/config/version.mk
 +++ b/config/version.mk
 @@ -17,12 +17,6 @@ ifndef LINEAGE_BUILDTYPE
@@ -25,6 +24,4 @@ index 0d15a03e..d543aa29 100644
  ifeq ($(LINEAGE_BUILDTYPE), UNOFFICIAL)
      ifneq ($(TARGET_UNOFFICIAL_BUILD_ID),)
          LINEAGE_EXTRAVERSION := -$(TARGET_UNOFFICIAL_BUILD_ID)
--- 
-2.30.2
 
