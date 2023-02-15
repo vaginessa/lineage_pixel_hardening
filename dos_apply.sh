@@ -32,12 +32,12 @@ export PATCH_DIR="${GIT_LOCAL}/android_patches/$(basename ${ANDROID_BUILD_TOP})"
 if [[ ${ANDROID_BUILD_TOP,,} =~ "lineage" ]]; then
   #ROM
   if enterAndClear "build/make"; then
-    if [ -n "${DOS_DEBLOBBER_REMOVE_FP} = true" ]; then applyPatch "${PATCH_DIR}/android_build/0001-Remove-fp.patch"; fi; #Remove fingerprint module
-    applyPatch "${PATCH_DIR}/android_build/0002-Patch-makefile-for-custom-avb.patch"; #Add support for custom AVB key
+    [[ -n "${DOS_DEBLOBBER_REMOVE_FP} = true" ]] && applyPatch "${PATCH_DIR}/android_build/0001-Remove-fp.patch"; #Remove fingerprint module
+    [[ -n ${AVB} ]] && applyPatch "${PATCH_DIR}/android_build/0002-Patch-makefile-for-custom-avb.patch"; #Add support for custom AVB key
   fi;
 
   if enterAndClear "frameworks/base"; then
-    if [ -n "${MICROG}" ]; then applyPatch "${PATCH_DIR}/android_frameworks_base/0001-Apply-restricted-sig-spoof.patch"; fi; #Support restricted sig spoofing
+    [[ -n "${MICROG}" || "${WITH_GMS}" = true ]] && applyPatch "${PATCH_DIR}/android_frameworks_base/0001-Apply-restricted-sig-spoof.patch"; #Support restricted sig spoofing
     applyPatch "${PATCH_DIR}/android_frameworks_base/0002-Use-alternate-ntp-pool.patch"; #Use non-Android ntp pool
   fi;
 
@@ -49,8 +49,8 @@ if [[ ${ANDROID_BUILD_TOP,,} =~ "lineage" ]]; then
     applyPatch "${PATCH_DIR}/android_vendor_lineage/0001-Allow-custom-build-types.patch"; #Remove restriction for build type
     applyPatch "${PATCH_DIR}/android_vendor_lineage/0002-Update-webview-providers.patch"; #Allowlist Bromite webview
     applyPatch "${PATCH_DIR}/android_vendor_lineage/0003-Replace-default-browser.patch"; #Install Bromite browser
-    applyPatch "${PATCH_DIR}/android_vendor_lineage/0004-Add-extra-apks.patch"; #Add additional apks
-    if [ -n "${MICROG}" ]; then applyPatch "${PATCH_DIR}/android_vendor_lineage/0005-Add-microg-apks.patch"; fi; #Add microg apks
+    [[ ! "${WITH_GMS}" = true ]] && applyPatch "${PATCH_DIR}/android_vendor_lineage/0004-Add-extra-apks.patch"; #Add additional apks
+    [[ -n "${MICROG}" ]] && applyPatch "${PATCH_DIR}/android_vendor_lineage/0005-Add-microg-apks.patch"; #Add microg apks
   fi;
 
   #DEVICE
@@ -62,13 +62,13 @@ if [[ ${ANDROID_BUILD_TOP,,} =~ "lineage" ]]; then
   if enterAndClear "device/google/crosshatch"; then
     applyPatch "${PATCH_DIR}/android_device_google_crosshatch/0001-b1c1-Remove-modules.patch"; #Debloat
     applyPatch "${PATCH_DIR}/android_device_google_crosshatch/0002-b1c1-Remove-default-permissions.patch"; #Remove unused permissions
-    applyPatch "${PATCH_DIR}/android_device_google_crosshatch/0003-b1c1-Add-custom-avb-key.patch"; #Add support for AVB
+    [[ -n ${AVB} ]] && applyPatch "${PATCH_DIR}/android_device_google_crosshatch/0003-b1c1-Add-custom-avb-key.patch"; #Add support for AVB
   fi;
 
   if enterAndClear "device/google/redbull"; then
     applyPatch "${PATCH_DIR}/android_device_google_redbull/0001-redbull-Remove-modules.patch"; #Debloat
     applyPatch "${PATCH_DIR}/android_device_google_redbull/0002-redbull-Remove-default-permissions.patch"; #Remove unused permissions
-    applyPatch "${PATCH_DIR}/android_device_google_redbull/0003-redbull-Add-custom-avb-key.patch"; #Add support for AVB
+    [[ -n ${AVB} ]] && applyPatch "${PATCH_DIR}/android_device_google_redbull/0003-redbull-Add-custom-avb-key.patch"; #Add support for AVB
   fi;
 
   #KERNEL
