@@ -1,4 +1,4 @@
-From c342a8eefaa51acefbf98799cc6ae96ebaab8444 Mon Sep 17 00:00:00 2001
+From b53abfb363feece5dce49b307ca0928c0a88454a Mon Sep 17 00:00:00 2001
 From: danielk43 <11856117+danielk43@users.noreply.github.com>
 Date: Mon, 13 Feb 2023 00:52:09 -0500
 Subject: [PATCH 2/3] bramble: Update priv-apps
@@ -391,7 +391,7 @@ diff --git a/Android.bp b/Android.bp
 diff --git a/bramble-vendor.mk b/bramble-vendor.mk
 --- a/bramble-vendor.mk
 +++ b/bramble-vendor.mk
-@@ -215,8 +215,6 @@ PRODUCT_COPY_FILES += \
+@@ -216,8 +216,6 @@ PRODUCT_COPY_FILES += \
      vendor/google/bramble/proprietary/system_ext/etc/permissions/com.android.hotwordenrollment.common.util.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/com.android.hotwordenrollment.common.util.xml \
      vendor/google/bramble/proprietary/system_ext/etc/permissions/com.android.omadm.radioconfig.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/com.android.omadm.radioconfig.xml \
      vendor/google/bramble/proprietary/system_ext/etc/permissions/com.google.android.camera.extensions.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/com.google.android.camera.extensions.xml \

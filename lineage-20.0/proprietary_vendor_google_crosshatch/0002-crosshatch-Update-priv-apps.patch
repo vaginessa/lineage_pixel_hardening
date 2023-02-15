@@ -1,4 +1,4 @@
-From 69aa061550ac7e9940ca7c70ef027c44fb7cf862 Mon Sep 17 00:00:00 2001
+From ecaaf31c51c33ad661712fd3a75929708aed9f55 Mon Sep 17 00:00:00 2001
 From: danielk43 <11856117+danielk43@users.noreply.github.com>
 Date: Sun, 11 Dec 2022 14:55:49 -0500
 Subject: [PATCH 2/3] crosshatch: Update priv-apps
@@ -365,7 +365,7 @@ diff --git a/Android.bp b/Android.bp
 diff --git a/crosshatch-vendor.mk b/crosshatch-vendor.mk
 --- a/crosshatch-vendor.mk
 +++ b/crosshatch-vendor.mk
-@@ -200,8 +200,6 @@ PRODUCT_COPY_FILES += \
+@@ -201,8 +201,6 @@ PRODUCT_COPY_FILES += \
      vendor/google/crosshatch/proprietary/system_ext/etc/permissions/com.android.hotwordenrollment.common.util.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/com.android.hotwordenrollment.common.util.xml \
      vendor/google/crosshatch/proprietary/system_ext/etc/permissions/com.android.omadm.radioconfig.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/com.android.omadm.radioconfig.xml \
      vendor/google/crosshatch/proprietary/system_ext/etc/permissions/com.google.android.camera.extensions.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/com.google.android.camera.extensions.xml \
