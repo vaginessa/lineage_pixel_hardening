@@ -1,21 +1,21 @@
-From 20192dddd4326d71df6ae5bc611be3c8a3bef038 Mon Sep 17 00:00:00 2001
+From 6fbdcc060cefbda13ec8dc46b56a687f55f8acca Mon Sep 17 00:00:00 2001
 From: danielk43 <11856117+danielk43@users.noreply.github.com>
-Date: Mon, 13 Feb 2023 00:34:40 -0500
+Date: Fri, 17 Feb 2023 19:22:30 -0500
 Subject: [PATCH 5/5] Add microg apks
 
-Change-Id: I7206edd6b4c1b91f83181504466feec4863ea665
+Change-Id: I019c0b82d87335005735fb5e0ae8547974b3983c
 ---
- config/common_mobile.mk | 8 +++++++-
- 1 file changed, 7 insertions(+), 1 deletion(-)
+ config/common_mobile.mk | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
 diff --git a/config/common_mobile.mk b/config/common_mobile.mk
 --- a/config/common_mobile.mk
 +++ b/config/common_mobile.mk
-@@ -87,4 +87,10 @@ PRODUCT_PACKAGES += \
+@@ -86,3 +86,11 @@ PRODUCT_PACKAGES += \
+     FDroidPrivilegedExtension \
      additional_repos.xml \
      PdfViewer
- 
--
++
 +# MicroG
 +PRODUCT_PACKAGES += \
 +    GmsCore \
