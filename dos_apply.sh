@@ -15,7 +15,7 @@
 #You should have received a copy of the GNU General Public License
 #along with this program.  If not, see <https://www.gnu.org/licenses/>.
 umask 0022;
-set -euo pipefail;
+set -eo pipefail;
 
 export DOS_WORKSPACE_ROOT=${GIT_LOCAL}"/DivestOS-Build"; #XXX: THIS MUST BE CORRECT TO PATCH
 source "${DOS_WORKSPACE_ROOT}/Scripts/init.sh"
