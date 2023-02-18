@@ -50,7 +50,7 @@ if [[ ${ANDROID_BUILD_TOP,,} =~ "lineage" ]]; then
     applyPatch "${PATCH_DIR}/android_vendor_lineage/0002-Update-webview-providers.patch"; #Allowlist Bromite webview
     applyPatch "${PATCH_DIR}/android_vendor_lineage/0003-Replace-default-browser.patch"; #Install Bromite browser
     [[ ! "${WITH_GMS}" = true ]] && applyPatch "${PATCH_DIR}/android_vendor_lineage/0004-Add-extra-apks.patch"; #Add additional apks
-    [[ -n "${MICROG}" ]] && applyPatch "${PATCH_DIR}/android_vendor_lineage/0005-Add-microg-apks.patch"; #Add microg apks
+    [[ -n "${MICROG}" && ! "${WITH_GMS}" = true ]] && applyPatch "${PATCH_DIR}/android_vendor_lineage/0005-Add-microg-apks.patch"; #Add microg apks
     [[ -n "${OLD_VVM}" ]] && git revert --no-edit e0d3e2892dcfbe281e3db63e314b63274c8b1063 #Use older visual voicemail dialer cfg
   fi;
 
