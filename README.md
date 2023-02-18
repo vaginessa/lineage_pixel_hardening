@@ -1,4 +1,5 @@
-# android_patches
+# lineage_pixel_hardening
+## patches
 Patching for some Pixel devices on LineageOS-20.0 which provide extra features.  
 
 Uses the Divested-Mobile/DivestOS-Build project fork to source patching functions.  
@@ -74,6 +75,7 @@ Deblobbing privacy limitations:
 * GoogleFi disabled
 ## Usage
 Clone this repo, and danielk43/DivestOS-Build to same directory  
+Install [Git LFS](https://git-lfs.com)  
 Set these variables:
 * Required
     * GIT_LOCAL (Path leading to both android_patches and DivestOS repos. Must be in same dir for now)
@@ -86,11 +88,19 @@ Set these variables:
     * GMS_MAKEFILE (Specify path to makefile with apks in vendor/partner_gms)
 
 Copy the appropriate set of manifests to .repo/local_manifests (LOS only)  
+
+If AVB var is set, generate the private key + pkmd per [GrapheneOS instructions](https://grapheneos.org/build#generating-release-signing-keys)  
+
+Run only two AVB steps (generate pem + extract), substituting -scrypt with -nocrypt  
+Place avb.pem, avb_pkmd.bin in keys/crosshatch or keys/redbull depending on device  
+
 Prepare source:
 ```
 rm -f .repo/local_manifests/roomservice.xml && \
 repo forall -c "git am --abort; git add -A; git reset --hard" && \
-repo sync --force-sync -j$(nproc)
+repo sync --force-sync -j$(nproc) && \
+repo forall -c "git lfs pull" && \
+source build/envsetup.sh
 ```
 Run the script:
 ```
@@ -100,13 +110,10 @@ To also apply DOS patches (optional, working for LOS20 Google devices):
 ```
 ${GIT_LOCAL}/DivestOS-Build/Scripts/LineageOS-20.0/Patch.sh
 ```
-Some warnings in red are normal, if the Patch scripts run to completion.  
-If AVB var is set, generate the private key + pkmd per [GrapheneOS instructions](https://grapheneos.org/build#generating-release-signing-keys)  
+Some warnings in red for missing devices/repos are normal, if the Patch scripts run to completion.  
 
-Run only two AVB steps (generate pem + extract), substituting -scrypt with -nocrypt  
-Place avb.pem, avb_pkmd.bin in keys/crosshatch or keys/redbull depending on device  
-
-Continue the rest of the build as usual, flash avb_pkmd.bin after if necessary
+Continue the rest of the build as usual  
+Once finished, before installing the OS flash avb_pkmd.bin after if necessary  
 ## Notes
 Project is WIP  
 LOS20 included devices supported  
