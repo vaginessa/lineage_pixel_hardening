@@ -23,7 +23,7 @@ source "${DOS_WORKSPACE_ROOT}/Scripts/init.sh"
 #Last verified: 2023-02-12
 
 [[ -z ${ANDROID_BUILD_TOP} ]] && echo "ANDROID_BUILD_TOP not set. build/envsetup.sh must be sourced" && exit 1
-export PATCH_DIR="${GIT_LOCAL}/android_patches/$(basename ${ANDROID_BUILD_TOP})"
+export PATCH_DIR="${GIT_LOCAL}/lineage_pixel_hardening/$(basename ${ANDROID_BUILD_TOP})"
 
 #
 #START OF CHANGES

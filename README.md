@@ -78,7 +78,7 @@ Clone this repo, and danielk43/DivestOS-Build to same directory
 Install [Git LFS](https://git-lfs.com)  
 Set these variables:
 * Required
-    * GIT_LOCAL (Path leading to both android_patches and DivestOS repos. Must be in same dir for now)
+    * GIT_LOCAL (Path leading to both lineage_pixel_hardening and DivestOS repos. Must be in same dir for now)
 * Optional (LOS only)
     * AVB (Include patches for custom AVB key)
     * LINEAGE_BUILDTYPE (Set with this var for something besides UNOFFICIAL)
@@ -104,7 +104,7 @@ source build/envsetup.sh
 ```
 Run the script:
 ```
-${GIT_LOCAL}/android_patches/dos_apply.sh
+${GIT_LOCAL}/lineage_pixel_hardening/dos_apply.sh
 ```
 To also apply DOS patches (optional, working for LOS20 Google devices):
 ```
