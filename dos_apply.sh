@@ -17,19 +17,26 @@
 umask 0022;
 set -eo pipefail;
 
-export DOS_WORKSPACE_ROOT=${GIT_LOCAL}"/DivestOS-Build"; #XXX: THIS MUST BE CORRECT TO PATCH
-source "${DOS_WORKSPACE_ROOT}/Scripts/init.sh"
-
 #Last verified: 2023-02-12
 
-[[ -z ${ANDROID_BUILD_TOP} ]] && echo "ANDROID_BUILD_TOP not set. build/envsetup.sh must be sourced" && exit 1
-export PATCH_DIR="${GIT_LOCAL}/lineage_pixel_hardening/$(basename ${ANDROID_BUILD_TOP})"
+if [[ -n ${ANDROID_BUILD_TOP} ]]; then
+  echo "ANDROID_BUILD_TOP set, valid values are 'lineage-20' and 'lineage-19'"
+  export PROJECT_ROOT=${ANDROID_BUILD_TOP}
+else
+  echo "ANDROID_BUILD_TOP not set, using PWD for project root. must be named 'grapheneos-13'"
+  export PROJECT_ROOT=${PWD}
+fi
+
+export PATCH_DIR="${GIT_LOCAL}/lineage_pixel_hardening/${PROJECT_ROOT##*/}"
+
+export DOS_WORKSPACE_ROOT=${GIT_LOCAL}"/DivestOS-Build"; #XXX: THIS MUST BE CORRECT TO PATCH
+[[ ${PROJECT_ROOT##*/} =~ "lineage" ]] && source "${DOS_WORKSPACE_ROOT}/Scripts/init.sh" # Skip DOS scripts for GOS
 
 #
 #START OF CHANGES
 #
 
-if [[ ${ANDROID_BUILD_TOP,,} =~ "lineage" ]]; then
+if [[ ${PROJECT_ROOT,,} =~ "lineage" ]]; then
   #ROM
   if enterAndClear "build/make"; then
     [[ -n "${DOS_DEBLOBBER_REMOVE_FP} = true" ]] && applyPatch "${PATCH_DIR}/android_build/0001-Remove-fp.patch"; #Remove fingerprint module
@@ -95,24 +102,43 @@ if [[ ${ANDROID_BUILD_TOP,,} =~ "lineage" ]]; then
     applyPatch "${PATCH_DIR}/proprietary_vendor_google_crosshatch/0002-crosshatch-Update-priv-apps.patch"; #Deblob priv-apps
     applyPatch "${PATCH_DIR}/proprietary_vendor_google_crosshatch/0003-crosshatch-Update-apps.patch"; #Deblob apps
   fi;
-elif [[ ${ANDROID_BUILD_TOP,,} =~ "graphene" ]]; then
+elif [[ ${PROJECT_ROOT,,} =~ "graphene" ]]; then
   #ROM
-  if enterAndClear "frameworks/base"; then
-    applyPatch "${PATCH_DIR}/platform_frameworks_base/0001-Update-dns-references.patch"; #Use quad9 dns
-    applyPatch "${PATCH_DIR}/platform_frameworks_base/0002-Use-alternate-ntp-pool.patch"; #Use non-Android ntp pool
-  fi;
+  # if enterAndClear "frameworks/base"; then
+  #   applyPatch "${PATCH_DIR}/platform_frameworks_base/0001-Update-dns-references.patch"; #Use quad9 dns
+  #   applyPatch "${PATCH_DIR}/platform_frameworks_base/0002-Use-alternate-ntp-pool.patch"; #Use non-Android ntp pool
+  # fi;
 
-  if enterAndClear "packages/inputmethods/LatinIME"; then
-    applyPatch "${PATCH_DIR}/platform_packages_inputmethods_LatinIME/0001-Enable-gesture-input.patch"; #Reenable swipe keyboard
-  fi;
+  # if enterAndClear "packages/inputmethods/LatinIME"; then
+  #   applyPatch "${PATCH_DIR}/platform_packages_inputmethods_LatinIME/0001-Enable-gesture-input.patch"; #Reenable swipe keyboard
+  # fi;
 
-  if enterAndClear "packages/modules/Connectivity"; then
-    applyPatch "${PATCH_DIR}/platform_packages_modules_Connectivity/0001-Update-dns-references.patch"; #Use quad9 dns
-  fi;
+  # if enterAndClear "packages/modules/Connectivity"; then
+  #   applyPatch "${PATCH_DIR}/platform_packages_modules_Connectivity/0001-Update-dns-references.patch"; #Use quad9 dns
+  # fi;
 
-  if enterAndClear "script"; then
-    applyPatch "${PATCH_DIR}/script/0001-Alias-signify-cmd-if-applicable.patch"; #Add shim for signing on debian
-  fi;
+  # if enterAndClear "script"; then
+  #   applyPatch "${PATCH_DIR}/script/0001-Alias-signify-cmd-if-applicable.patch"; #Add shim for signing on debian
+  # fi;
+
+  # do this outside of DOS for now
+  cd frameworks/base
+  git am ${PATCH_DIR}/platform_frameworks_base/0001-Update-dns-references.patch
+  git am ${PATCH_DIR}/platform_frameworks_base/0002-Use-alternate-ntp-pool.patch
+  cd ${PROJECT_ROOT}
+
+  cd packages/inputmethods/LatinIME
+  git am ${PATCH_DIR}/platform_packages_inputmethods_LatinIME/0001-Enable-gesture-input.patch
+  cd ${PROJECT_ROOT}
+  
+  cd packages/modules/Connectivity
+  git am ${PATCH_DIR}/platform_packages_modules_Connectivity/0001-Update-dns-references.patch
+  cd ${PROJECT_ROOT}
+
+  cd script
+  git am ${PATCH_DIR}/script/0001-Alias-signify-cmd-if-applicable.patch
+  cd ${PROJECT_ROOT}
+
 fi
 
 #
