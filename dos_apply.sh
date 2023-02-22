@@ -20,13 +20,14 @@ set -eo pipefail;
 #Last verified: 2023-02-12
 
 if [[ -n ${ANDROID_BUILD_TOP} ]]; then
-  echo "ANDROID_BUILD_TOP set, valid values are 'lineage-20' and 'lineage-19'"
+  echo "ANDROID_BUILD_TOP set, valid basenames are 'lineage-20.0' and 'lineage-19.0'"
   export PROJECT_ROOT=${ANDROID_BUILD_TOP}
 else
   echo "ANDROID_BUILD_TOP not set, using PWD for project root. must be named 'grapheneos-13'"
   export PROJECT_ROOT=${PWD}
 fi
 
+echo PROJECT_ROOT=${PROJECT_ROOT}
 export PATCH_DIR="${GIT_LOCAL}/lineage_pixel_hardening/${PROJECT_ROOT##*/}"
 
 export DOS_WORKSPACE_ROOT=${GIT_LOCAL}"/DivestOS-Build"; #XXX: THIS MUST BE CORRECT TO PATCH
