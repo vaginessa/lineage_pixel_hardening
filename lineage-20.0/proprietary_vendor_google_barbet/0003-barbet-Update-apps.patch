@@ -1,12 +1,12 @@
-From 15f5cfb91e348d7553f9cc20d0a2f418150aa4e9 Mon Sep 17 00:00:00 2001
+From 5e9de1694b020f5428a499832871f5ade6717d8c Mon Sep 17 00:00:00 2001
 From: danielk43 <11856117+danielk43@users.noreply.github.com>
-Date: Mon, 27 Feb 2023 18:18:36 -0500
-Subject: [PATCH 3/3] redfin: Update apps
+Date: Mon, 27 Feb 2023 17:16:08 -0500
+Subject: [PATCH 3/3] barbet: Update apps
 
-Change-Id: I4e6abbcf4a3ab941bf959f5066965daebf47432a
+Change-Id: I77f466729d39f53d7fba63451c909ad786590bf3
 ---
  Android.bp       | 22 ----------------------
- redfin-vendor.mk |  2 --
+ barbet-vendor.mk |  2 --
  2 files changed, 24 deletions(-)
 
 diff --git a/Android.bp b/Android.bp
@@ -17,9 +17,9 @@ diff --git a/Android.bp b/Android.bp
  }
  
 -android_app_import {
--	name: "PixelCameraServicesRedfin",
+-	name: "PixelCameraServicesBarbet",
 -	owner: "google",
--	apk: "proprietary/product/app/PixelCameraServicesRedfin/PixelCameraServicesRedfin.apk",
+-	apk: "proprietary/product/app/PixelCameraServicesBarbet/PixelCameraServicesBarbet.apk",
 -	presigned: true,
 -	dex_preopt: {
 -		enabled: false,
@@ -41,14 +41,14 @@ diff --git a/Android.bp b/Android.bp
  android_app_import {
  	name: "uimremoteclient",
  	owner: "google",
-diff --git a/redfin-vendor.mk b/redfin-vendor.mk
---- a/redfin-vendor.mk
-+++ b/redfin-vendor.mk
+diff --git a/barbet-vendor.mk b/barbet-vendor.mk
+--- a/barbet-vendor.mk
++++ b/barbet-vendor.mk
 @@ -605,8 +605,6 @@ PRODUCT_COPY_FILES += \
-     vendor/google/redfin/proprietary/system_ext/lib64/vendor.qti.voiceprint@1.0.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib64/vendor.qti.voiceprint@1.0.so \
+     vendor/google/barbet/proprietary/system_ext/lib64/vendor.qti.voiceprint@1.0.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib64/vendor.qti.voiceprint@1.0.so \
  
  PRODUCT_PACKAGES += \
--    PixelCameraServicesRedfin \
+-    PixelCameraServicesBarbet \
 -    VZWAPNLib \
      uimremoteclient \
      uimremoteserver \

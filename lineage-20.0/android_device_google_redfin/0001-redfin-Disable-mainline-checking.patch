@@ -1,0 +1,23 @@
+From 56b287e594c52b86a28d225d10b6309d66ddb60f Mon Sep 17 00:00:00 2001
+From: danielk43 <11856117+danielk43@users.noreply.github.com>
+Date: Mon, 27 Feb 2023 17:24:27 -0500
+Subject: [PATCH] redfin: Disable mainline checking
+
+Change-Id: I0aa79f9ad082e68374eff5ddb28d11ea4f8d39d6
+---
+ aosp_redfin.mk | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/aosp_redfin.mk b/aosp_redfin.mk
+--- a/aosp_redfin.mk
++++ b/aosp_redfin.mk
+@@ -25,7 +25,7 @@ endif
+ $(call inherit-product, $(SRC_TARGET_DIR)/product/generic_system.mk)
+ 
+ # Enable mainline checking
+-PRODUCT_ENFORCE_ARTIFACT_PATH_REQUIREMENTS := strict
++#PRODUCT_ENFORCE_ARTIFACT_PATH_REQUIREMENTS := strict
+ 
+ #
+ # All components inherited here go to system_ext image
+

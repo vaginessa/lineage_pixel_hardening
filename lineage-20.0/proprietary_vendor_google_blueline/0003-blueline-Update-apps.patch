@@ -1,17 +1,18 @@
-From b9fa3e6bea008a788aeb295fe3cb8b3a2eb2ad2d Mon Sep 17 00:00:00 2001
+From 6cfb64ada36a249fa5e80849f717b654d472c918 Mon Sep 17 00:00:00 2001
 From: danielk43 <11856117+danielk43@users.noreply.github.com>
-Date: Sun, 4 Dec 2022 09:34:21 -0500
+Date: Mon, 27 Feb 2023 17:52:03 -0500
 Subject: [PATCH 3/3] blueline: Update apps
 
+Change-Id: I01764577b3073bf746684f809b77b32ffc9351b3
 ---
- Android.bp                                    |  66 ------------------
- blueline-vendor.mk                            |   6 --
- 2 files changed, 72 deletions(-)
+ Android.bp         | 77 ----------------------------------------------
+ blueline-vendor.mk |  7 -----
+ 2 files changed, 84 deletions(-)
 
 diff --git a/Android.bp b/Android.bp
 --- a/Android.bp
 +++ b/Android.bp
-@@ -97,72 +97,6 @@ android_app_import {
+@@ -97,83 +97,6 @@ android_app_import {
  	privileged: true,
  }
  
@@ -81,13 +82,24 @@ diff --git a/Android.bp b/Android.bp
 -	product_specific: true,
 -}
 -
+-android_app_import {
+-	name: "VZWAPNLib",
+-	owner: "google",
+-	apk: "proprietary/product/app/VZWAPNLib/VZWAPNLib.apk",
+-	presigned: true,
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	product_specific: true,
+-}
+-
  android_app_import {
  	name: "com.qualcomm.qti.services.secureui",
  	owner: "google",
 diff --git a/blueline-vendor.mk b/blueline-vendor.mk
 --- a/blueline-vendor.mk
 +++ b/blueline-vendor.mk
-@@ -298,12 +298,6 @@ PRODUCT_PACKAGES += \
+@@ -300,13 +300,6 @@ PRODUCT_PACKAGES += \
      uimremoteserver \
      CNEService \
      qcrilmsgtunnel \
@@ -97,6 +109,7 @@ diff --git a/blueline-vendor.mk b/blueline-vendor.mk
 -    MobileFeliCaWebPlugin \
 -    MobileFeliCaWebPluginBoot \
 -    PixelCameraServicesBlueline \
+-    VZWAPNLib \
      com.qualcomm.qti.services.secureui \
      RilConfigService \
      grilservice \

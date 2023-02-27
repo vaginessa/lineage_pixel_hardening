@@ -1,0 +1,23 @@
+From 2adc4c2d599b35dbf1ddffc14a1f8a4e4e3f6a1a Mon Sep 17 00:00:00 2001
+From: danielk43 <11856117+danielk43@users.noreply.github.com>
+Date: Mon, 27 Feb 2023 17:20:15 -0500
+Subject: [PATCH] barbet: Disable mainline checking
+
+Change-Id: I873c87f5f0bc6b5dd502e87a55ea7ae197c99969
+---
+ aosp_barbet.mk | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/aosp_barbet.mk b/aosp_barbet.mk
+--- a/aosp_barbet.mk
++++ b/aosp_barbet.mk
+@@ -21,7 +21,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+ $(call inherit-product, $(SRC_TARGET_DIR)/product/generic_system.mk)
+ 
+ # Enable mainline checking
+-PRODUCT_ENFORCE_ARTIFACT_PATH_REQUIREMENTS := strict
++#PRODUCT_ENFORCE_ARTIFACT_PATH_REQUIREMENTS := strict
+ 
+ #
+ # All components inherited here go to system_ext image
+

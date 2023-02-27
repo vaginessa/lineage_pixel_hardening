@@ -1,16 +1,18 @@
-From 53719e8a48a1af12b73cf46007a87418b49d007a Mon Sep 17 00:00:00 2001
+From 1d4650857c1a6ff073d2cd53bc02ee534932383d Mon Sep 17 00:00:00 2001
 From: danielk43 <11856117+danielk43@users.noreply.github.com>
-Date: Sun, 4 Dec 2022 09:40:21 -0500
+Date: Mon, 27 Feb 2023 18:28:55 -0500
 Subject: [PATCH 1/3] redfin: Add gesture input
 
+Change-Id: Ifd8984f4dcce0ae9ed745d542bf36ad6cb7dbb5b
 ---
- .../system_ext/lib64/libjni_latinimegoogle.so | Bin 0 -> 1112352 bytes
+ .../product/lib64/libjni_latinimegoogle.so    | Bin 0 -> 1112352 bytes
  redfin-vendor.mk                              |   1 +
  2 files changed, 1 insertion(+)
- create mode 100644 proprietary/system_ext/lib64/libjni_latinimegoogle.so
+ create mode 100644 proprietary/product/lib64/libjni_latinimegoogle.so
 
-diff --git a/proprietary/system_ext/lib64/libjni_latinimegoogle.so b/proprietary/system_ext/lib64/libjni_latinimegoogle.so
+diff --git a/proprietary/product/lib64/libjni_latinimegoogle.so b/proprietary/product/lib64/libjni_latinimegoogle.so
 new file mode 100644
+index 0000000000000000000000000000000000000000..fd953a66de91d7c80cd1d62cff67d44a4d4d79ef
 GIT binary patch
 literal 1112352
 zcmV+a{{R4gMNCEl0RaF200000000030Ji`E0000`+XVms0000$000000001>^AG?4
@@ -21412,14 +21414,17 @@ literal 0
 KcmV+b0RR6000031
 
 diff --git a/redfin-vendor.mk b/redfin-vendor.mk
+index a25006c..c2b7d86 100644
 --- a/redfin-vendor.mk
 +++ b/redfin-vendor.mk
-@@ -472,6 +472,7 @@ PRODUCT_COPY_FILES += \
-     vendor/google/redfin/proprietary/system_ext/lib64/libimscamera_jni.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib64/libimscamera_jni.so \
-     vendor/google/redfin/proprietary/system_ext/lib64/libimsmedia_jni.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib64/libimsmedia_jni.so \
-     vendor/google/redfin/proprietary/system_ext/lib64/libjnihelpers.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib64/libjnihelpers.so \
-+    vendor/google/redfin/proprietary/system_ext/lib64/libjni_latinimegoogle.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib64/libjni_latinimegoogle.so \
-     vendor/google/redfin/proprietary/system_ext/lib64/liblayerext.qti.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib64/liblayerext.qti.so \
-     vendor/google/redfin/proprietary/system_ext/lib64/liblistensoundmodel2.qti.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib64/liblistensoundmodel2.qti.so \
-     vendor/google/redfin/proprietary/system_ext/lib64/libloc2jnibridge.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib64/libloc2jnibridge.so \
+@@ -211,6 +211,7 @@ PRODUCT_COPY_FILES += \
+     vendor/google/redfin/proprietary/product/etc/sysconfig/pixel_experience_2020_midyear.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/pixel_experience_2020_midyear.xml \
+     vendor/google/redfin/proprietary/product/lib/libdmengine.so:$(TARGET_COPY_OUT_PRODUCT)/lib/libdmengine.so \
+     vendor/google/redfin/proprietary/product/lib/libdmjavaplugin.so:$(TARGET_COPY_OUT_PRODUCT)/lib/libdmjavaplugin.so \
++    vendor/google/redfin/proprietary/product/lib64/libjni_latinimegoogle.so:$(TARGET_COPY_OUT_PRODUCT)/lib64/libjni_latinimegoogle.so \
+     vendor/google/redfin/proprietary/system_ext/etc/perf/wlc_model.tflite:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/perf/wlc_model.tflite \
+     vendor/google/redfin/proprietary/system_ext/etc/permissions/com.android.hotwordenrollment.common.util.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/com.android.hotwordenrollment.common.util.xml \
+     vendor/google/redfin/proprietary/system_ext/etc/permissions/com.android.omadm.radioconfig.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/com.android.omadm.radioconfig.xml \
+-- 
+2.30.2
 

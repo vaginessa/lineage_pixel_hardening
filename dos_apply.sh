@@ -64,6 +64,10 @@ if [[ ${PROJECT_ROOT,,} =~ "lineage" ]]; then
 
   #DEVICE
 
+  if enterAndClear "device/google/barbet"; then
+    applyPatch "${PATCH_DIR}/android_device_google_barbet/0001-barbet-Disable-mainline-checking.patch"; #Allow extra apks at build time
+  fi;
+
   if enterAndClear "device/google/bramble"; then
     applyPatch "${PATCH_DIR}/android_device_google_bramble/0001-bramble-Disable-mainline-checking.patch"; #Allow extra apks at build time
   fi;
@@ -80,6 +84,10 @@ if [[ ${PROJECT_ROOT,,} =~ "lineage" ]]; then
     [[ -n ${AVB} ]] && applyPatch "${PATCH_DIR}/android_device_google_redbull/0003-redbull-Add-custom-avb-key.patch"; #Add support for AVB
   fi;
 
+  if enterAndClear "device/google/redfin"; then
+    applyPatch "${PATCH_DIR}/android_device_google_redfin/0001-redfin-Disable-mainline-checking.patch"; #Allow extra apks at build time
+  fi;
+
   #KERNEL
 
   if enterAndClear "kernel/google/redbull"; then
@@ -92,6 +100,18 @@ if [[ ${PROJECT_ROOT,,} =~ "lineage" ]]; then
 
   #VENDOR
 
+  if enterAndClear "vendor/google/barbet"; then
+    git am "${PATCH_DIR}/proprietary_vendor_google_barbet/0001-barbet-Add-gesture-input.patch";
+    applyPatch "${PATCH_DIR}/proprietary_vendor_google_barbet/0002-barbet-Update-priv-apps.patch"; #Deblob priv-apps
+    applyPatch "${PATCH_DIR}/proprietary_vendor_google_barbet/0003-barbet-Update-apps.patch"; #Deblob apps
+  fi;
+
+  if enterAndClear "vendor/google/blueline"; then
+    git am "${PATCH_DIR}/proprietary_vendor_google_blueline/0001-blueline-Add-gesture-input.patch";
+    applyPatch "${PATCH_DIR}/proprietary_vendor_google_blueline/0002-blueline-Update-priv-apps.patch"; #Deblob priv-apps
+    applyPatch "${PATCH_DIR}/proprietary_vendor_google_blueline/0003-blueline-Update-apps.patch"; #Deblob apps
+  fi;
+
   if enterAndClear "vendor/google/bramble"; then
     git am "${PATCH_DIR}/proprietary_vendor_google_bramble/0001-bramble-Add-gesture-input.patch";
     applyPatch "${PATCH_DIR}/proprietary_vendor_google_bramble/0002-bramble-Update-priv-apps.patch"; #Deblob priv-apps
@@ -102,6 +122,12 @@ if [[ ${PROJECT_ROOT,,} =~ "lineage" ]]; then
     git am "${PATCH_DIR}/proprietary_vendor_google_crosshatch/0001-crosshatch-Add-gesture-input.patch";
     applyPatch "${PATCH_DIR}/proprietary_vendor_google_crosshatch/0002-crosshatch-Update-priv-apps.patch"; #Deblob priv-apps
     applyPatch "${PATCH_DIR}/proprietary_vendor_google_crosshatch/0003-crosshatch-Update-apps.patch"; #Deblob apps
+  fi;
+
+  if enterAndClear "vendor/google/redfin"; then
+    git am "${PATCH_DIR}/proprietary_vendor_google_redfin/0001-redfin-Add-gesture-input.patch";
+    applyPatch "${PATCH_DIR}/proprietary_vendor_google_redfin/0002-redfin-Update-priv-apps.patch"; #Deblob priv-apps
+    applyPatch "${PATCH_DIR}/proprietary_vendor_google_redfin/0003-redfin-Update-apps.patch"; #Deblob apps
   fi;
 elif [[ ${PROJECT_ROOT,,} =~ "graphene" ]]; then
   #ROM
