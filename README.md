@@ -112,7 +112,9 @@ ${GIT_LOCAL}/DivestOS-Build/Scripts/LineageOS-20.0/Patch.sh
 ```
 Some warnings in red for missing devices/repos are normal, if the Patch scripts run to completion.  
 
-Continue the rest of the build as usual  
+Continue the rest of the build as usual, using the [LineageOS instructions](https://wiki.lineageos.org/signing_builds#generating-the-keys) for signed builds  
+If generating keys, make sure to also add bluetooth and sdksandbox to the key generation loop, and remove testkey  
+
 Once finished, before installing the OS flash avb_pkmd.bin after if necessary  
 ## Notes
 Project is WIP  
