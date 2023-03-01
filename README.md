@@ -8,13 +8,13 @@ Uses the LineageOS4MicroG/android_vendor_partner_gms project fork for extra apks
 Combine with DOS source and kernel patches for LineageOS hardening without rebranding, customizable apks.
 * Patches from this repo:
     * Restore gesture input (swipe typing) on native AOSP keyboard
-    * Enable verified boot (AVB) to re-lock bootloader
+    * Enable verified boot (AVB) to re-lock bootloader (optional)
     * Add MicroG restricted signature spoofing and installation (optional)
     * Replace default browser and webview with Bromite and Mulch
     * Add FDroid, AuroraStore, and privileged extensions
     * Add GrapheneOS PDFViewer
     * Vendor deblobbing specific to Pixel
-    * Disable Google Assistant
+    * Disable Google Assistant, RCS, CNE, sound trigger
     * Use non-Android NTP server
     * Restore pre-November 2022 visual voicemail dialer config (optional)
 * DivestOS patches:
@@ -92,7 +92,17 @@ Copy the appropriate set of manifests to .repo/local_manifests (LOS only)
 If AVB var is set, generate the private key + pkmd per [GrapheneOS instructions](https://grapheneos.org/build#generating-release-signing-keys)  
 
 Run only two AVB steps (generate pem + extract), substituting -scrypt with -nocrypt  
-Place avb.pem, avb_pkmd.bin in keys/crosshatch or keys/redbull depending on device  
+Place avb.pem, avb_pkmd.bin in:
+* keys/crosshatch
+    * blueline
+    * crosshatch
+* keys/floral
+    * coral
+    * flame
+* keys/redbull
+    * barbet
+    * bramble
+    * redfin
 
 Prepare source:
 ```
