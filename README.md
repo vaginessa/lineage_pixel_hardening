@@ -130,4 +130,3 @@ Once finished, before installing the OS flash avb_pkmd.bin after if necessary
 Project is WIP  
 LOS20 included devices supported  
 GOS13 all devices partially supported (no DOS patching, manual update of gesture input lib)  
-LOS19 unsupported/untested

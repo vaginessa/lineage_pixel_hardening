@@ -17,10 +17,8 @@
 umask 0022;
 set -eo pipefail;
 
-#Last verified: 2023-02-12
-
 if [[ -n ${ANDROID_BUILD_TOP} ]]; then
-  echo "ANDROID_BUILD_TOP set, valid basenames are 'lineage-20.0' and 'lineage-19.1'"
+  echo "ANDROID_BUILD_TOP set, must be named 'lineage-20.0'"
   export PROJECT_ROOT=${ANDROID_BUILD_TOP}
 else
   echo "ANDROID_BUILD_TOP not set, using PWD for project root. must be named 'grapheneos-13'"

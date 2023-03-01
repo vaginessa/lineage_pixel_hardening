@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<manifest>
-
-  <project path="vendor/google" name="TheMuppets/proprietary_vendor_google" clone-depth="1" />
-
-</manifest>
