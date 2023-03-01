@@ -1,0 +1,36 @@
+From 5a3bba35a017b9bdc97d562398ad7fc7ce0fef36 Mon Sep 17 00:00:00 2001
+From: danielk43 <11856117+danielk43@users.noreply.github.com>
+Date: Tue, 28 Feb 2023 20:40:35 -0500
+Subject: [PATCH 1/4] floral: Disable mainline checking
+
+Change-Id: I5a902b6a59dab54f53d905d7bc43499f1bce20ca
+---
+ aosp_coral.mk | 2 +-
+ aosp_flame.mk | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/aosp_coral.mk b/aosp_coral.mk
+--- a/aosp_coral.mk
++++ b/aosp_coral.mk
+@@ -21,7 +21,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+ $(call inherit-product, $(SRC_TARGET_DIR)/product/generic_system.mk)
+ 
+ # Enable mainline checking
+-PRODUCT_ENFORCE_ARTIFACT_PATH_REQUIREMENTS := strict
++#PRODUCT_ENFORCE_ARTIFACT_PATH_REQUIREMENTS := strict
+ 
+ #
+ # All components inherited here go to system_ext image
+diff --git a/aosp_flame.mk b/aosp_flame.mk
+--- a/aosp_flame.mk
++++ b/aosp_flame.mk
+@@ -21,7 +21,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+ $(call inherit-product, $(SRC_TARGET_DIR)/product/generic_system.mk)
+ 
+ # Enable mainline checking
+-PRODUCT_ENFORCE_ARTIFACT_PATH_REQUIREMENTS := strict
++#PRODUCT_ENFORCE_ARTIFACT_PATH_REQUIREMENTS := strict
+ 
+ #
+ # All components inherited here go to system_ext image
+

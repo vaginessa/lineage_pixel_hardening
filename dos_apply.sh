@@ -20,7 +20,7 @@ set -eo pipefail;
 #Last verified: 2023-02-12
 
 if [[ -n ${ANDROID_BUILD_TOP} ]]; then
-  echo "ANDROID_BUILD_TOP set, valid basenames are 'lineage-20.0' and 'lineage-19.0'"
+  echo "ANDROID_BUILD_TOP set, valid basenames are 'lineage-20.0' and 'lineage-19.1'"
   export PROJECT_ROOT=${ANDROID_BUILD_TOP}
 else
   echo "ANDROID_BUILD_TOP not set, using PWD for project root. must be named 'grapheneos-13'"
@@ -72,6 +72,13 @@ if [[ ${PROJECT_ROOT,,} =~ "lineage" ]]; then
     applyPatch "${PATCH_DIR}/android_device_google_bramble/0001-bramble-Disable-mainline-checking.patch"; #Allow extra apks at build time
   fi;
 
+  if enterAndClear "device/google/coral"; then
+    applyPatch "${PATCH_DIR}/android_device_google_coral/0001-floral-Disable-mainline-checking.patch"; #Allow extra apks at build time
+    applyPatch "${PATCH_DIR}/android_device_google_coral/0002-floral-Remove-modules.patch"; #Debloat
+    applyPatch "${PATCH_DIR}/android_device_google_coral/0003-floral-Remove-default-permissions.patch"; #Remove unused permissions
+    [[ -n ${AVB} ]] && applyPatch "${PATCH_DIR}/android_device_google_coral/0004-floral-Add-custom-avb-key.patch"; #Add support for AVB
+  fi;
+
   if enterAndClear "device/google/crosshatch"; then
     applyPatch "${PATCH_DIR}/android_device_google_crosshatch/0001-b1c1-Remove-modules.patch"; #Debloat
     applyPatch "${PATCH_DIR}/android_device_google_crosshatch/0002-b1c1-Remove-default-permissions.patch"; #Remove unused permissions
@@ -92,6 +99,10 @@ if [[ ${PROJECT_ROOT,,} =~ "lineage" ]]; then
 
   if enterAndClear "kernel/google/redbull"; then
     "${GIT_LOCAL}"/DivestOS-Build/Scripts/"${BUILD_WORKING_DIR}"/CVE_Patchers/android_kernel_google_redbull.sh
+  fi;
+
+  if enterAndClear "kernel/google/msm-4.14"; then
+    "${GIT_LOCAL}"/DivestOS-Build/Scripts/"${BUILD_WORKING_DIR}"/CVE_Patchers/android_kernel_google_msm-4.14.sh
   fi;
 
   if enterAndClear "kernel/google/msm-4.9"; then
@@ -118,10 +129,22 @@ if [[ ${PROJECT_ROOT,,} =~ "lineage" ]]; then
     applyPatch "${PATCH_DIR}/proprietary_vendor_google_bramble/0003-bramble-Update-apps.patch"; #Deblob apps
   fi;
 
+  if enterAndClear "vendor/google/coral"; then
+    git am "${PATCH_DIR}/proprietary_vendor_google_coral/0001-coral-Add-gesture-input.patch";
+    applyPatch "${PATCH_DIR}/proprietary_vendor_google_coral/0002-coral-Update-priv-apps.patch"; #Deblob priv-apps
+    applyPatch "${PATCH_DIR}/proprietary_vendor_google_coral/0003-coral-Update-apps.patch"; #Deblob apps
+  fi;
+
   if enterAndClear "vendor/google/crosshatch"; then
     git am "${PATCH_DIR}/proprietary_vendor_google_crosshatch/0001-crosshatch-Add-gesture-input.patch";
     applyPatch "${PATCH_DIR}/proprietary_vendor_google_crosshatch/0002-crosshatch-Update-priv-apps.patch"; #Deblob priv-apps
     applyPatch "${PATCH_DIR}/proprietary_vendor_google_crosshatch/0003-crosshatch-Update-apps.patch"; #Deblob apps
+  fi;
+
+  if enterAndClear "vendor/google/flame"; then
+    git am "${PATCH_DIR}/proprietary_vendor_google_flame/0001-flame-Add-gesture-input.patch";
+    applyPatch "${PATCH_DIR}/proprietary_vendor_google_flame/0002-flame-Update-priv-apps.patch"; #Deblob priv-apps
+    applyPatch "${PATCH_DIR}/proprietary_vendor_google_flame/0003-flame-Update-apps.patch"; #Deblob apps
   fi;
 
   if enterAndClear "vendor/google/redfin"; then

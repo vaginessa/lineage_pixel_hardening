@@ -1,0 +1,56 @@
+From b8da03a24a29e8c3886a973a5b8bd0b7f37ef2b3 Mon Sep 17 00:00:00 2001
+From: danielk43 <11856117+danielk43@users.noreply.github.com>
+Date: Tue, 28 Feb 2023 20:09:46 -0500
+Subject: [PATCH 3/3] coral: Update apps
+
+Change-Id: I41344a525a3b10ca990d9c6d172cb5a188405e71
+---
+ Android.bp      | 22 ----------------------
+ coral-vendor.mk |  2 --
+ 2 files changed, 24 deletions(-)
+
+diff --git a/Android.bp b/Android.bp
+--- a/Android.bp
++++ b/Android.bp
+@@ -5,28 +5,6 @@
+ soong_namespace {
+ }
+ 
+-android_app_import {
+-	name: "PixelCameraServicesCoral",
+-	owner: "google",
+-	apk: "proprietary/product/app/PixelCameraServicesCoral/PixelCameraServicesCoral.apk",
+-	presigned: true,
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	product_specific: true,
+-}
+-
+-android_app_import {
+-	name: "VZWAPNLib",
+-	owner: "google",
+-	apk: "proprietary/product/app/VZWAPNLib/VZWAPNLib.apk",
+-	presigned: true,
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	product_specific: true,
+-}
+-
+ android_app_import {
+ 	name: "uimremoteclient",
+ 	owner: "google",
+diff --git a/coral-vendor.mk b/coral-vendor.mk
+--- a/coral-vendor.mk
++++ b/coral-vendor.mk
+@@ -467,8 +467,6 @@ PRODUCT_COPY_FILES += \
+     vendor/google/coral/proprietary/system_ext/lib64/vendor.qti.qspmhal@1.0.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib64/vendor.qti.qspmhal@1.0.so \
+ 
+ PRODUCT_PACKAGES += \
+-    PixelCameraServicesCoral \
+-    VZWAPNLib \
+     uimremoteclient \
+     uimremoteserver \
+     CarrierSettings \
+

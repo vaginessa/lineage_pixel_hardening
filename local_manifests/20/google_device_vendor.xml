@@ -5,11 +5,14 @@
   <project path="device/google/barbet" name="LineageOS/android_device_google_barbet" revision="lineage-20" />
   <project path="device/google/blueline" name="LineageOS/android_device_google_blueline" revision="lineage-20" />
   <project path="device/google/bramble" name="LineageOS/android_device_google_bramble" revision="lineage-20" />
+  <project path="device/google/coral" name="LineageOS/android_device_google_coral" revision="lineage-20" />
   <project path="device/google/crosshatch" name="LineageOS/android_device_google_crosshatch" revision="lineage-20" />
+  <project path="device/google/flame" name="LineageOS/android_device_google_flame" revision="lineage-20" />
   <project path="device/google/redbull" name="LineageOS/android_device_google_redbull" revision="lineage-20" />
   <project path="device/google/redfin" name="LineageOS/android_device_google_redfin" revision="lineage-20" />
 
   <!-- Kernels -->
+  <project path="kernel/google/msm-4.14" name="LineageOS/android_kernel_google_msm-4.14" revision="lineage-20" />
   <project path="kernel/google/msm-4.9" name="LineageOS/android_kernel_google_msm-4.9" revision="lineage-20" />
   <project path="kernel/google/redbull" name="LineageOS/android_kernel_google_redbull" revision="lineage-20" />
 
@@ -17,7 +20,9 @@
   <project path="vendor/google/barbet" name="TheMuppets/proprietary_vendor_google_barbet" revision="lineage-20" clone-depth="1" />
   <project path="vendor/google/blueline" name="TheMuppets/proprietary_vendor_google_blueline" revision="lineage-20" clone-depth="1" />
   <project path="vendor/google/bramble" name="TheMuppets/proprietary_vendor_google_bramble" revision="lineage-20" clone-depth="1" />
+  <project path="vendor/google/coral" name="TheMuppets/proprietary_vendor_google_coral" revision="lineage-20" clone-depth="1" />
   <project path="vendor/google/crosshatch" name="TheMuppets/proprietary_vendor_google_crosshatch" revision="lineage-20" clone-depth="1" />
+  <project path="vendor/google/flame" name="TheMuppets/proprietary_vendor_google_flame" revision="lineage-20" clone-depth="1" />
   <project path="vendor/google/redfin" name="TheMuppets/proprietary_vendor_google_redfin" revision="lineage-20" clone-depth="1" />
 
 </manifest>
