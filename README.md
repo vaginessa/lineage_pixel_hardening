@@ -89,20 +89,9 @@ Set these variables:
 
 Copy the appropriate set of manifests to .repo/local_manifests (LOS only)  
 
-If AVB var is set, generate the private key + pkmd per [GrapheneOS instructions](https://grapheneos.org/build#generating-release-signing-keys)  
+If AVB var is set, generate the private key + pkmd per [GrapheneOS instructions](https://grapheneos.org/build#generating-release-signing-keys) under keys/$device  
 
 Run only two AVB steps (generate pem + extract), substituting -scrypt with -nocrypt  
-Place avb.pem, avb_pkmd.bin in:
-* keys/crosshatch
-    * blueline
-    * crosshatch
-* keys/floral
-    * coral
-    * flame
-* keys/redbull
-    * barbet
-    * bramble
-    * redfin
 
 Prepare source:
 ```

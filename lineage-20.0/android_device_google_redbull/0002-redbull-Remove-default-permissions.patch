@@ -1,4 +1,4 @@
-From 715d6c12d62030c3eca940d06913a22285810a48 Mon Sep 17 00:00:00 2001
+From a5bdd09161c8cc397d89d0fb37ddb61759f149ae Mon Sep 17 00:00:00 2001
 From: danielk43 <11856117+danielk43@users.noreply.github.com>
 Date: Mon, 5 Dec 2022 16:39:56 -0500
 Subject: [PATCH 2/3] redbull: Remove default-permissions

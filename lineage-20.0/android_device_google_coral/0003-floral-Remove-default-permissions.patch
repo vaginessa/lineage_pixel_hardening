@@ -1,4 +1,4 @@
-From 5c45e2bacb65a7726537649284a2feafa2c38848 Mon Sep 17 00:00:00 2001
+From 78ebec871c8d602c18e1f2639f0e6a84d7bf23ff Mon Sep 17 00:00:00 2001
 From: danielk43 <11856117+danielk43@users.noreply.github.com>
 Date: Tue, 28 Feb 2023 19:49:12 -0500
 Subject: [PATCH 3/4] floral: Remove default-permissions

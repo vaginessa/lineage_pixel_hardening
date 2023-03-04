@@ -1,4 +1,4 @@
-From 356d85f35190bfe6df839dfae62abd44d683225a Mon Sep 17 00:00:00 2001
+From 753f6276c1d652b3dc33bfbd631021b4cd656650 Mon Sep 17 00:00:00 2001
 From: danielk43 <11856117+danielk43@users.noreply.github.com>
 Date: Thu, 23 Jun 2022 17:56:20 -0400
 Subject: [PATCH 3/3] b1c1: Add custom avb key
@@ -18,7 +18,7 @@ diff --git a/BoardConfig-common.mk b/BoardConfig-common.mk
  BOARD_AVB_VBMETA_SYSTEM := system system_ext product
 -BOARD_AVB_VBMETA_SYSTEM_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem
 -BOARD_AVB_VBMETA_SYSTEM_ALGORITHM := SHA256_RSA2048
-+BOARD_AVB_VBMETA_SYSTEM_KEY_PATH := keys/crosshatch/avb.pem
++BOARD_AVB_VBMETA_SYSTEM_KEY_PATH := keys/$(PRODUCT_DEVICE)/avb.pem
 +BOARD_AVB_VBMETA_SYSTEM_ALGORITHM := SHA256_RSA4096
  BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
  BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX_LOCATION := 1
@@ -32,5 +32,5 @@ diff --git a/BoardConfigLineage.mk b/BoardConfigLineage.mk
  # Verified Boot
 -BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
 +BOARD_AVB_ALGORITHM := SHA256_RSA4096
-+BOARD_AVB_KEY_PATH := keys/crosshatch/avb.pem
++BOARD_AVB_KEY_PATH := keys/$(PRODUCT_DEVICE)/avb.pem
 
