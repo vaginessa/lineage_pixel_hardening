@@ -9,14 +9,12 @@
   <remove-project name="LineageOS/android_external_chromium-webview_prebuilt_x86" />
   <remove-project name="LineageOS/android_packages_apps_Aperture" />
   <remove-project name="LineageOS/android_packages_apps_Camera2" />
-  <remove-project name="LineageOS/android_packages_apps_Dialer" />
   <remove-project name="LineageOS/android_packages_apps_Jelly" />
 
   <project path="external/chromium" name="danielk43/android_external_chromium" remote="gitlab" clone-depth="1" />
   <project path="external/chromium-webview" name="divested-mobile/mulch" remote="gitlab" revision="master" clone-depth="1" />
   <project path="external/hardened_malloc" name="GrapheneOS/hardened_malloc" revision="13" />
   <project path="external/SecureCamera" name="GrapheneOS/platform_external_Camera" revision="13" clone-depth="1" />
-  <project path="packages/apps/Dialer" name="GrapheneOS/platform_packages_apps_Dialer" revision="13" />
   <project path="vendor/partner_gms" name="danielk43/android_vendor_partner_gms" revision="main" clone-depth="1" />
 
 </manifest>
