@@ -11,12 +11,12 @@ Combine with DOS source and kernel patches for LineageOS hardening without rebra
     * Enable verified boot (AVB) to re-lock bootloader (optional)
     * Add MicroG restricted signature spoofing and installation (optional)
     * Replace default browser and webview with Bromite and Mulch
+    * Replace Dialer app with GrapheneOS
     * Add FDroid, AuroraStore, and privileged extensions
     * Add GrapheneOS PDFViewer
     * Vendor deblobbing specific to Pixel
     * Disable Google Assistant, RCS, CNE, sound trigger
     * Use non-Android NTP server
-    * Restore pre-November 2022 visual voicemail dialer config (optional)
 * DivestOS patches:
     * Kernel and Defconfig hardening
     * Enhance location services

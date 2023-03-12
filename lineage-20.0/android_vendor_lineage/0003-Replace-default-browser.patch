@@ -1,7 +1,7 @@
-From 64560b6b9f672b7966a3dbfc3cd859cdedf313bc Mon Sep 17 00:00:00 2001
+From a8a52fb9c67b4cccc83c9a782ea885f2b5a9056e Mon Sep 17 00:00:00 2001
 From: danielk43 <11856117+danielk43@users.noreply.github.com>
 Date: Mon, 13 Feb 2023 00:19:33 -0500
-Subject: [PATCH 3/5] Replace default browser
+Subject: [PATCH 3/6] Replace default browser
 
 Change-Id: I4981807d038cf08d1fc126ecf10121c1a7c73d6b
 ---
