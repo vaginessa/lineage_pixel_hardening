@@ -1,9 +1,9 @@
-From 050aca8f54163941ced8d66cd5c3a0f50c893646 Mon Sep 17 00:00:00 2001
+From a4d95c187dc68fdab855b49dd75cdbec8c1e97fe Mon Sep 17 00:00:00 2001
 From: danielk43 <11856117+danielk43@users.noreply.github.com>
-Date: Mon, 13 Feb 2023 00:52:32 -0500
+Date: Mon, 20 Mar 2023 17:04:58 -0400
 Subject: [PATCH 3/3] bramble: Update apps
 
-Change-Id: I008cae1c8ec51737f5fa86cf02679bf90c2bf9b5
+Change-Id: I7442af6b614ea63cab268aae65d312a0ab7853fc
 ---
  Android.bp        | 22 ----------------------
  bramble-vendor.mk |  2 --
@@ -44,7 +44,7 @@ diff --git a/Android.bp b/Android.bp
 diff --git a/bramble-vendor.mk b/bramble-vendor.mk
 --- a/bramble-vendor.mk
 +++ b/bramble-vendor.mk
-@@ -609,8 +609,6 @@ PRODUCT_COPY_FILES += \
+@@ -637,8 +637,6 @@ PRODUCT_COPY_FILES += \
      vendor/google/bramble/proprietary/system_ext/lib64/vendor.qti.voiceprint@1.0.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib64/vendor.qti.voiceprint@1.0.so \
  
  PRODUCT_PACKAGES += \

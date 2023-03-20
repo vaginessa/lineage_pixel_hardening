@@ -1,9 +1,9 @@
-From 15f5cfb91e348d7553f9cc20d0a2f418150aa4e9 Mon Sep 17 00:00:00 2001
+From 0e7c9d7a2ec50d769e4d87122b9f728c2d3dbf66 Mon Sep 17 00:00:00 2001
 From: danielk43 <11856117+danielk43@users.noreply.github.com>
-Date: Mon, 27 Feb 2023 18:18:36 -0500
+Date: Mon, 20 Mar 2023 17:10:16 -0400
 Subject: [PATCH 3/3] redfin: Update apps
 
-Change-Id: I4e6abbcf4a3ab941bf959f5066965daebf47432a
+Change-Id: I6efb9e5f48c20e33095ab5fd7c1cc6fd7e43d194
 ---
  Android.bp       | 22 ----------------------
  redfin-vendor.mk |  2 --
@@ -44,7 +44,7 @@ diff --git a/Android.bp b/Android.bp
 diff --git a/redfin-vendor.mk b/redfin-vendor.mk
 --- a/redfin-vendor.mk
 +++ b/redfin-vendor.mk
-@@ -605,8 +605,6 @@ PRODUCT_COPY_FILES += \
+@@ -637,8 +637,6 @@ PRODUCT_COPY_FILES += \
      vendor/google/redfin/proprietary/system_ext/lib64/vendor.qti.voiceprint@1.0.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib64/vendor.qti.voiceprint@1.0.so \
  
  PRODUCT_PACKAGES += \

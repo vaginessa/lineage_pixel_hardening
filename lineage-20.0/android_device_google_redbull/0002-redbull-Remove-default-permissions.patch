@@ -1,19 +1,33 @@
-From a5bdd09161c8cc397d89d0fb37ddb61759f149ae Mon Sep 17 00:00:00 2001
+From b7d66627d7d99975fb62449a62352b0ed7305829 Mon Sep 17 00:00:00 2001
 From: danielk43 <11856117+danielk43@users.noreply.github.com>
-Date: Mon, 5 Dec 2022 16:39:56 -0500
+Date: Mon, 20 Mar 2023 16:48:43 -0400
 Subject: [PATCH 2/3] redbull: Remove default-permissions
 
+Change-Id: Ib3601d4e90b85b83c95ba0d84d0f04f53e6b8b60
 ---
- default-permissions.xml | 157 ----------------------------------------
+ Android.mk              |   2 +-
+ default-permissions.xml | 162 ----------------------------------------
  device-common.mk        |   1 -
- 2 files changed, 158 deletions(-)
+ 3 files changed, 1 insertion(+), 164 deletions(-)
  delete mode 100644 default-permissions.xml
 
+diff --git a/Android.mk b/Android.mk
+--- a/Android.mk
++++ b/Android.mk
+@@ -16,7 +16,7 @@
+ 
+ LOCAL_PATH := $(call my-dir)
+ 
+-$(eval $(call declare-copy-files-license-metadata,device/google/redbull,default-permissions.xml,SPDX-license-identifier-Apache-2.0,notice,build/soong/licenses/LICENSE,))
++$(eval $(call declare-copy-files-license-metadata,device/google/redbull,SPDX-license-identifier-Apache-2.0,notice,build/soong/licenses/LICENSE,))
+ $(eval $(call declare-copy-files-license-metadata,device/google/redbull,libnfc-nci.conf,SPDX-license-identifier-Apache-2.0,notice,build/soong/licenses/LICENSE,))
+ $(eval $(call declare-copy-files-license-metadata,device/google/redbull,fstab.postinstall,SPDX-license-identifier-Apache-2.0,notice,build/soong/licenses/LICENSE,))
+ $(eval $(call declare-copy-files-license-metadata,device/google/redbull,ueventd.rc,SPDX-license-identifier-Apache-2.0,notice,build/soong/licenses/LICENSE,))
 diff --git a/default-permissions.xml b/default-permissions.xml
 deleted file mode 100644
 --- a/default-permissions.xml
 +++ /dev/null
-@@ -1,157 +0,0 @@
+@@ -1,162 +0,0 @@
 -<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
 -
 -<!-- Copyright (C) 2019 Google Inc.
@@ -167,6 +181,11 @@ deleted file mode 100644
 -    </exception>
 -    <exception
 -        package="com.google.android.apps.turbo">
+-        <!-- Notifications -->
+-        <permission name="android.permission.POST_NOTIFICATIONS" fixed="false"/>
+-    </exception>
+-    <exception
+-        package="com.google.android.euicc">
 -        <!-- Notifications -->
 -        <permission name="android.permission.POST_NOTIFICATIONS" fixed="false"/>
 -    </exception>

@@ -1,4 +1,4 @@
-From 1d4650857c1a6ff073d2cd53bc02ee534932383d Mon Sep 17 00:00:00 2001
+From 72f1cd3356e3494726838c815090e2f13e0e6571 Mon Sep 17 00:00:00 2001
 From: danielk43 <11856117+danielk43@users.noreply.github.com>
 Date: Mon, 27 Feb 2023 18:28:55 -0500
 Subject: [PATCH 1/3] redfin: Add gesture input
@@ -21414,10 +21414,10 @@ literal 0
 KcmV+b0RR6000031
 
 diff --git a/redfin-vendor.mk b/redfin-vendor.mk
-index a25006c..c2b7d86 100644
+index 08d4539..8d81a4a 100644
 --- a/redfin-vendor.mk
 +++ b/redfin-vendor.mk
-@@ -211,6 +211,7 @@ PRODUCT_COPY_FILES += \
+@@ -245,6 +245,7 @@ PRODUCT_COPY_FILES += \
      vendor/google/redfin/proprietary/product/etc/sysconfig/pixel_experience_2020_midyear.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/pixel_experience_2020_midyear.xml \
      vendor/google/redfin/proprietary/product/lib/libdmengine.so:$(TARGET_COPY_OUT_PRODUCT)/lib/libdmengine.so \
      vendor/google/redfin/proprietary/product/lib/libdmjavaplugin.so:$(TARGET_COPY_OUT_PRODUCT)/lib/libdmjavaplugin.so \
