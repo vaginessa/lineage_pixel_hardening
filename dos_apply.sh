@@ -55,9 +55,9 @@ if [[ ${PROJECT_ROOT,,} =~ "lineage" ]]; then
     applyPatch "${PATCH_DIR}/android_vendor_lineage/0001-Allow-custom-build-types.patch"; #Remove restriction for build type
     applyPatch "${PATCH_DIR}/android_vendor_lineage/0002-Update-webview-providers.patch"; #Allowlist Bromite webview
     applyPatch "${PATCH_DIR}/android_vendor_lineage/0003-Replace-default-browser.patch"; #Install Bromite browser
-    applyPatch "${PATCH_DIR}/android_vendor_lineage/0004-Replace-vvm-config.patch"; #Remove visual voicemail config overlay
-    [[ ! "${WITH_GMS}" = true ]] && applyPatch "${PATCH_DIR}/android_vendor_lineage/0005-Add-extra-apks.patch"; #Add additional apks
-    [[ -n "${MICROG}" && ! "${WITH_GMS}" = true ]] && applyPatch "${PATCH_DIR}/android_vendor_lineage/0006-Add-microg-apks.patch"; #Add microg apks
+    [[ ! "${WITH_GMS}" = true ]] && applyPatch "${PATCH_DIR}/android_vendor_lineage/0004-Add-extra-apks.patch"; #Add additional apks
+    [[ -n "${MICROG}" && ! "${WITH_GMS}" = true ]] && applyPatch "${PATCH_DIR}/android_vendor_lineage/0005-Add-microg-apks.patch"; #Add microg apks
+    curl https://raw.githubusercontent.com/GrapheneOS/platform_packages_apps_Dialer/13/java/com/android/voicemail/impl/res/xml/vvm_config.xml -o overlay/common/packages/apps/Dialer/java/com/android/voicemail/impl/res/xml/vvm_config.xml # Use GOS visual vm cfg
   fi;
 
   #DEVICE

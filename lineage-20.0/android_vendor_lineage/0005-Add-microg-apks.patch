@@ -1,21 +1,21 @@
-From 7fe84462de3dfbdddd8b1588da7c6707f3e48476 Mon Sep 17 00:00:00 2001
+From 17a2bec9ccec6dd50881e2b286b9b771b6161972 Mon Sep 17 00:00:00 2001
 From: danielk43 <11856117+danielk43@users.noreply.github.com>
-Date: Fri, 17 Feb 2023 19:22:30 -0500
-Subject: [PATCH 6/6] Add microg apks
+Date: Tue, 16 May 2023 09:54:17 -0400
+Subject: [PATCH 5/5] Add microg apks
 
-Change-Id: I019c0b82d87335005735fb5e0ae8547974b3983c
+Change-Id: Id8b39b5a73e92bf1998ce5cfb98fd1b2256e478d
 ---
  config/common_mobile.mk | 8 ++++++++
  1 file changed, 8 insertions(+)
 
 diff --git a/config/common_mobile.mk b/config/common_mobile.mk
+index a95846ed..93d35020 100644
 --- a/config/common_mobile.mk
 +++ b/config/common_mobile.mk
-@@ -86,3 +86,11 @@ PRODUCT_PACKAGES += \
-     FDroidPrivilegedExtension \
+@@ -110,3 +110,11 @@ PRODUCT_PACKAGES += \
      additional_repos.xml \
      PdfViewer
-+
+ 
 +# MicroG
 +PRODUCT_PACKAGES += \
 +    GmsCore \
@@ -23,4 +23,7 @@ diff --git a/config/common_mobile.mk b/config/common_mobile.mk
 +    FakeStore \
 +    LocalNlpBackend \
 +    NominatimGeocoderBackend
++
+-- 
+2.30.2
 

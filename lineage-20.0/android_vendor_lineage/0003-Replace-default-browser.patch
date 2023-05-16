@@ -1,7 +1,7 @@
-From aa75678d56b4dce2f6c17f27ba5e2c321d5bb0dd Mon Sep 17 00:00:00 2001
+From 71222dc384773bd7a60ad88203fb215ccf0b30b8 Mon Sep 17 00:00:00 2001
 From: danielk43 <11856117+danielk43@users.noreply.github.com>
 Date: Mon, 13 Feb 2023 00:19:33 -0500
-Subject: [PATCH 3/6] Replace default browser
+Subject: [PATCH 3/5] Replace default browser
 
 Change-Id: I4981807d038cf08d1fc126ecf10121c1a7c73d6b
 ---
@@ -9,6 +9,7 @@ Change-Id: I4981807d038cf08d1fc126ecf10121c1a7c73d6b
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/config/common_mobile.mk b/config/common_mobile.mk
+index 42acb953..d78415f1 100644
 --- a/config/common_mobile.mk
 +++ b/config/common_mobile.mk
 @@ -19,7 +19,7 @@ PRODUCT_PACKAGES += \
@@ -20,4 +21,6 @@ diff --git a/config/common_mobile.mk b/config/common_mobile.mk
      Profiles \
      Seedvault
  
+-- 
+2.30.2
 
