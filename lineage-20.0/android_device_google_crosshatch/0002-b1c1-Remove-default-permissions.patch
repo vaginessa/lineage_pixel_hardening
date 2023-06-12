@@ -1,4 +1,4 @@
-From b47e44b6e019784005a99070bdc7b1f2a3d80777 Mon Sep 17 00:00:00 2001
+From de91aac83caea3704744620c527e82d5ca1b656f Mon Sep 17 00:00:00 2001
 From: danielk43 <11856117+danielk43@users.noreply.github.com>
 Date: Mon, 5 Dec 2022 17:00:52 -0500
 Subject: [PATCH 2/3] b1c1: Remove default-permissions

@@ -1,16 +1,16 @@
-From b89715173d77614c2e4dec411b54cd529fb227aa Mon Sep 17 00:00:00 2001
+From 27db3602451523fc68fbf52799555ffdacd80a95 Mon Sep 17 00:00:00 2001
 From: danielk43 <11856117+danielk43@users.noreply.github.com>
-Date: Tue, 28 Feb 2023 19:46:40 -0500
+Date: Mon, 12 Jun 2023 08:47:30 -0400
 Subject: [PATCH 2/4] floral: Remove modules
 
-Change-Id: I6bd728f019769db351edaeb4f3389eb44b373b25
+Change-Id: I180756d57bab206cfc0537d580ee568fb82e6e34
 ---
- BoardConfig-common.mk                         |  4 ++--
- device-lineage.mk                             | 24 -------------------
- device.mk                                     |  6 ++---
+ BoardConfig-common.mk                         |  4 +--
+ device-lineage.mk                             | 28 -------------------
+ device.mk                                     |  6 ++--
  .../base/core/res/res/values/config.xml       |  2 +-
  product.prop                                  |  2 +-
- 5 files changed, 7 insertions(+), 31 deletions(-)
+ 5 files changed, 7 insertions(+), 35 deletions(-)
 
 diff --git a/BoardConfig-common.mk b/BoardConfig-common.mk
 --- a/BoardConfig-common.mk
@@ -36,7 +36,7 @@ diff --git a/BoardConfig-common.mk b/BoardConfig-common.mk
 diff --git a/device-lineage.mk b/device-lineage.mk
 --- a/device-lineage.mk
 +++ b/device-lineage.mk
-@@ -21,33 +21,10 @@ PRODUCT_PRODUCT_PROPERTIES += \
+@@ -21,36 +21,9 @@ PRODUCT_PRODUCT_PROPERTIES += \
      ro.vendor.camera.extensions.package=com.google.android.apps.camera.services \
      ro.vendor.camera.extensions.service=com.google.android.apps.camera.services.extensions.service.PixelExtensions
  
@@ -51,10 +51,13 @@ diff --git a/device-lineage.mk b/device-lineage.mk
 -# Google Assistant
 -PRODUCT_PRODUCT_PROPERTIES += ro.opa.eligible_device=true
 -
- # LiveDisplay
- PRODUCT_PACKAGES += \
-     vendor.lineage.livedisplay@2.0-service-sdm
+ # Lineage Health
+ include hardware/google/pixel/lineage_health/device.mk
  
+-# LiveDisplay
+-PRODUCT_PACKAGES += \
+-    vendor.lineage.livedisplay@2.0-service-sdm
+-
 -# Parts
 -PRODUCT_PACKAGES += \
 -    GoogleParts
@@ -70,7 +73,7 @@ diff --git a/device-lineage.mk b/device-lineage.mk
  # Build necessary packages for system_ext
  
  # Display
-@@ -169,7 +146,6 @@ PRODUCT_PACKAGES += \
+@@ -172,7 +145,6 @@ PRODUCT_PACKAGES += \
  PRODUCT_PACKAGES += \
      android.frameworks.sensorservice@1.0.vendor \
      android.hardware.authsecret@1.0.vendor \

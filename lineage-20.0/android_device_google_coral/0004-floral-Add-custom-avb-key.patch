@@ -1,4 +1,4 @@
-From c4510e90e49fbcc3ab985b627f001f947a235204 Mon Sep 17 00:00:00 2001
+From 9a431086247981a5b31f35e2bb29500f99705ffc Mon Sep 17 00:00:00 2001
 From: danielk43 <11856117+danielk43@users.noreply.github.com>
 Date: Tue, 28 Feb 2023 19:52:46 -0500
 Subject: [PATCH 4/4] floral: Add custom avb key
@@ -26,7 +26,7 @@ diff --git a/BoardConfig-common.mk b/BoardConfig-common.mk
 diff --git a/BoardConfigLineage.mk b/BoardConfigLineage.mk
 --- a/BoardConfigLineage.mk
 +++ b/BoardConfigLineage.mk
-@@ -41,4 +41,6 @@ BOARD_SEPOLICY_DIRS += device/google/coral/sepolicy-lineage/dynamic
+@@ -45,4 +45,6 @@ BOARD_SEPOLICY_DIRS += device/google/coral/sepolicy-lineage/dynamic
  BOARD_SEPOLICY_DIRS += device/google/coral/sepolicy-lineage/vendor
  
  # Verified Boot

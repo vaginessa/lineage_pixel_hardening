@@ -1,9 +1,9 @@
-From 07f8c2a20e42a0e177c9bc35d925708caf333075 Mon Sep 17 00:00:00 2001
+From 3d5942cc93b8c7b8617bc1e6cc5a585c7b295fd4 Mon Sep 17 00:00:00 2001
 From: danielk43 <11856117+danielk43@users.noreply.github.com>
-Date: Tue, 28 Feb 2023 20:08:30 -0500
+Date: Mon, 12 Jun 2023 09:06:19 -0400
 Subject: [PATCH 2/3] coral: Update priv-apps
 
-Change-Id: I41c1e99603e1007b6cd9e311271dd6aab972297d
+Change-Id: Ia00fdd13078a8cb0e3f348c0b0a1d07d5839a423
 ---
  Android.bp      | 312 ------------------------------------------------
  coral-vendor.mk |  34 ------
@@ -374,16 +374,17 @@ diff --git a/coral-vendor.mk b/coral-vendor.mk
      vendor/google/coral/proprietary/system_ext/etc/permissions/com.qualcomm.qcrilmsgtunnel.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/com.qualcomm.qcrilmsgtunnel.xml \
      vendor/google/coral/proprietary/system_ext/etc/permissions/com.qualcomm.qmapbridge.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/com.qualcomm.qmapbridge.xml \
      vendor/google/coral/proprietary/system_ext/etc/permissions/com.qualcomm.qti.imscmservice-V2.0-java.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/com.qualcomm.qti.imscmservice-V2.0-java.xml \
-@@ -470,51 +465,22 @@ PRODUCT_COPY_FILES += \
+@@ -468,9 +463,6 @@ PRODUCT_COPY_FILES += \
      vendor/google/coral/proprietary/system_ext/lib64/vendor.qti.latency@2.0.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib64/vendor.qti.latency@2.0.so \
      vendor/google/coral/proprietary/system_ext/lib64/vendor.qti.mstatservice@1.0.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib64/vendor.qti.mstatservice@1.0.so \
      vendor/google/coral/proprietary/system_ext/lib64/vendor.qti.qspmhal@1.0.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib64/vendor.qti.qspmhal@1.0.so \
 -    vendor/google/coral/proprietary/system_ext/priv-app/EuiccGoogle/esim-a1.img:$(TARGET_COPY_OUT_SYSTEM_EXT)/priv-app/EuiccGoogle/esim-a1.img \
 -    vendor/google/coral/proprietary/system_ext/priv-app/EuiccGoogle/esim-a2.img:$(TARGET_COPY_OUT_SYSTEM_EXT)/priv-app/EuiccGoogle/esim-a2.img \
--    vendor/google/coral/proprietary/system_ext/priv-app/EuiccSupportPixel/esim-full-v1.img:$(TARGET_COPY_OUT_SYSTEM_EXT)/priv-app/EuiccSupportPixel/esim-full-v1.img
+-    vendor/google/coral/proprietary/system_ext/priv-app/EuiccSupportPixel/esim-full-v1.img:$(TARGET_COPY_OUT_SYSTEM_EXT)/priv-app/EuiccSupportPixel/esim-full-v1.img \
+     vendor/google/coral/proprietary/vendor/firmware/citadel/FIH-RC1-dev-fusing.ec.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/citadel/FIH-RC1-dev-fusing.ec.bin
  
  PRODUCT_PACKAGES += \
-     PixelCameraServicesCoral \
+@@ -478,42 +470,16 @@ PRODUCT_PACKAGES += \
      VZWAPNLib \
      uimremoteclient \
      uimremoteserver \

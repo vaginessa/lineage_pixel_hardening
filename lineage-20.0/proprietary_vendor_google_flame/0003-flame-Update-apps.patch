@@ -1,9 +1,9 @@
-From 0d6c04ba305d4e19a3271eeeeb9c01e38b7b43f3 Mon Sep 17 00:00:00 2001
+From 42cb03492dc5abf1191ef05d6f6545f42e7633b4 Mon Sep 17 00:00:00 2001
 From: danielk43 <11856117+danielk43@users.noreply.github.com>
-Date: Tue, 28 Feb 2023 20:16:04 -0500
+Date: Mon, 12 Jun 2023 09:13:18 -0400
 Subject: [PATCH 3/3] flame: Update apps
 
-Change-Id: I536562982e2b83d1659e4b8b3de3a3d34d89b5d6
+Change-Id: I49ca709242ac7ce492e9013478e72ac51b6cf9c8
 ---
  Android.bp      | 22 ----------------------
  flame-vendor.mk |  2 --
@@ -44,8 +44,8 @@ diff --git a/Android.bp b/Android.bp
 diff --git a/flame-vendor.mk b/flame-vendor.mk
 --- a/flame-vendor.mk
 +++ b/flame-vendor.mk
-@@ -467,8 +467,6 @@ PRODUCT_COPY_FILES += \
-     vendor/google/flame/proprietary/system_ext/lib64/vendor.qti.qspmhal@1.0.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib64/vendor.qti.qspmhal@1.0.so \
+@@ -466,8 +466,6 @@ PRODUCT_COPY_FILES += \
+     vendor/google/flame/proprietary/vendor/firmware/citadel/FIH-RC1-dev-fusing.ec.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/citadel/FIH-RC1-dev-fusing.ec.bin
  
  PRODUCT_PACKAGES += \
 -    PixelCameraServicesFlame \

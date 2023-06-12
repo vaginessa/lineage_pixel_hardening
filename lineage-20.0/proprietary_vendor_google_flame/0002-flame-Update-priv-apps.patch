@@ -1,9 +1,9 @@
-From 9b924fe3b66a5c822c8fa7569ac6ffca592c55b0 Mon Sep 17 00:00:00 2001
+From eacf5f9ccb00fd4fb0282c59edf77ea189717cd0 Mon Sep 17 00:00:00 2001
 From: danielk43 <11856117+danielk43@users.noreply.github.com>
-Date: Tue, 28 Feb 2023 20:15:42 -0500
+Date: Mon, 12 Jun 2023 09:12:45 -0400
 Subject: [PATCH 2/3] flame: Update priv-apps
 
-Change-Id: Icf4eeb80dfc7f4df38a1bf8e9844bdfe8ad63889
+Change-Id: I60a2dbf5032d17f9a78c83f89970cc6ed26a427d
 ---
  Android.bp      | 312 ------------------------------------------------
  flame-vendor.mk |  34 ------
@@ -374,16 +374,17 @@ diff --git a/flame-vendor.mk b/flame-vendor.mk
      vendor/google/flame/proprietary/system_ext/etc/permissions/com.qualcomm.qcrilmsgtunnel.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/com.qualcomm.qcrilmsgtunnel.xml \
      vendor/google/flame/proprietary/system_ext/etc/permissions/com.qualcomm.qmapbridge.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/com.qualcomm.qmapbridge.xml \
      vendor/google/flame/proprietary/system_ext/etc/permissions/com.qualcomm.qti.imscmservice-V2.0-java.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/com.qualcomm.qti.imscmservice-V2.0-java.xml \
-@@ -470,51 +465,22 @@ PRODUCT_COPY_FILES += \
+@@ -468,9 +463,6 @@ PRODUCT_COPY_FILES += \
      vendor/google/flame/proprietary/system_ext/lib64/vendor.qti.latency@2.0.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib64/vendor.qti.latency@2.0.so \
      vendor/google/flame/proprietary/system_ext/lib64/vendor.qti.mstatservice@1.0.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib64/vendor.qti.mstatservice@1.0.so \
      vendor/google/flame/proprietary/system_ext/lib64/vendor.qti.qspmhal@1.0.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib64/vendor.qti.qspmhal@1.0.so \
 -    vendor/google/flame/proprietary/system_ext/priv-app/EuiccGoogle/esim-a1.img:$(TARGET_COPY_OUT_SYSTEM_EXT)/priv-app/EuiccGoogle/esim-a1.img \
 -    vendor/google/flame/proprietary/system_ext/priv-app/EuiccGoogle/esim-a2.img:$(TARGET_COPY_OUT_SYSTEM_EXT)/priv-app/EuiccGoogle/esim-a2.img \
--    vendor/google/flame/proprietary/system_ext/priv-app/EuiccSupportPixel/esim-full-v1.img:$(TARGET_COPY_OUT_SYSTEM_EXT)/priv-app/EuiccSupportPixel/esim-full-v1.img
+-    vendor/google/flame/proprietary/system_ext/priv-app/EuiccSupportPixel/esim-full-v1.img:$(TARGET_COPY_OUT_SYSTEM_EXT)/priv-app/EuiccSupportPixel/esim-full-v1.img \
+     vendor/google/flame/proprietary/vendor/firmware/citadel/FIH-RC1-dev-fusing.ec.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/citadel/FIH-RC1-dev-fusing.ec.bin
  
  PRODUCT_PACKAGES += \
-     PixelCameraServicesFlame \
+@@ -478,42 +470,16 @@ PRODUCT_PACKAGES += \
      VZWAPNLib \
      uimremoteclient \
      uimremoteserver \

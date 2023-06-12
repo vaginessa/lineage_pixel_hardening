@@ -1,9 +1,9 @@
-From b8da03a24a29e8c3886a973a5b8bd0b7f37ef2b3 Mon Sep 17 00:00:00 2001
+From 28fe50dd99c240d492c65b7f8451d1329a79b2a6 Mon Sep 17 00:00:00 2001
 From: danielk43 <11856117+danielk43@users.noreply.github.com>
-Date: Tue, 28 Feb 2023 20:09:46 -0500
+Date: Mon, 12 Jun 2023 09:07:20 -0400
 Subject: [PATCH 3/3] coral: Update apps
 
-Change-Id: I41344a525a3b10ca990d9c6d172cb5a188405e71
+Change-Id: I9b4b34792f9a620af50097cbd5f4b9b7868f0d18
 ---
  Android.bp      | 22 ----------------------
  coral-vendor.mk |  2 --
@@ -44,8 +44,8 @@ diff --git a/Android.bp b/Android.bp
 diff --git a/coral-vendor.mk b/coral-vendor.mk
 --- a/coral-vendor.mk
 +++ b/coral-vendor.mk
-@@ -467,8 +467,6 @@ PRODUCT_COPY_FILES += \
-     vendor/google/coral/proprietary/system_ext/lib64/vendor.qti.qspmhal@1.0.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib64/vendor.qti.qspmhal@1.0.so \
+@@ -466,8 +466,6 @@ PRODUCT_COPY_FILES += \
+     vendor/google/coral/proprietary/vendor/firmware/citadel/FIH-RC1-dev-fusing.ec.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/citadel/FIH-RC1-dev-fusing.ec.bin
  
  PRODUCT_PACKAGES += \
 -    PixelCameraServicesCoral \
