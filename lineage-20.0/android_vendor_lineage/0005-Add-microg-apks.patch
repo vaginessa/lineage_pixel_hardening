@@ -1,4 +1,4 @@
-From 17a2bec9ccec6dd50881e2b286b9b771b6161972 Mon Sep 17 00:00:00 2001
+From a20afc450dfc28ce3e48fac3aecc641fd3fdae55 Mon Sep 17 00:00:00 2001
 From: danielk43 <11856117+danielk43@users.noreply.github.com>
 Date: Tue, 16 May 2023 09:54:17 -0400
 Subject: [PATCH 5/5] Add microg apks
@@ -9,10 +9,9 @@ Change-Id: Id8b39b5a73e92bf1998ce5cfb98fd1b2256e478d
  1 file changed, 8 insertions(+)
 
 diff --git a/config/common_mobile.mk b/config/common_mobile.mk
-index a95846ed..93d35020 100644
 --- a/config/common_mobile.mk
 +++ b/config/common_mobile.mk
-@@ -110,3 +110,11 @@ PRODUCT_PACKAGES += \
+@@ -100,3 +100,11 @@ PRODUCT_PACKAGES += \
      additional_repos.xml \
      PdfViewer
  
@@ -24,6 +23,4 @@ index a95846ed..93d35020 100644
 +    LocalNlpBackend \
 +    NominatimGeocoderBackend
 +
--- 
-2.30.2
 

@@ -1,4 +1,4 @@
-From fc808f80e012fc7a78a84828bf6f3c2959ef11e5 Mon Sep 17 00:00:00 2001
+From 4e8376ee1ca5fb4a4d8ee5e5bfaa3a9b6a633ec6 Mon Sep 17 00:00:00 2001
 From: danielk43 <11856117+danielk43@users.noreply.github.com>
 Date: Tue, 16 May 2023 09:53:17 -0400
 Subject: [PATCH 4/5] Add extra apks
@@ -9,10 +9,9 @@ Change-Id: I52d9a984256487b39a650ca18a8faf5eef9826ad
  1 file changed, 10 insertions(+)
 
 diff --git a/config/common_mobile.mk b/config/common_mobile.mk
-index d78415f1..a95846ed 100644
 --- a/config/common_mobile.mk
 +++ b/config/common_mobile.mk
-@@ -100,3 +100,13 @@ PRODUCT_PACKAGES += \
+@@ -90,3 +90,13 @@ PRODUCT_PACKAGES += \
      LineageBlackTheme \
      ThemePicker \
      ThemesStub
@@ -26,6 +25,4 @@ index d78415f1..a95846ed 100644
 +    additional_repos.xml \
 +    PdfViewer
 +
--- 
-2.30.2
 
