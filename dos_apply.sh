@@ -108,48 +108,16 @@ if [[ ${PROJECT_ROOT,,} =~ "lineage" ]]; then
   fi;
 
   #VENDOR
-
-  if enterAndClear "vendor/google/barbet"; then
-    git am "${PATCH_DIR}/proprietary_vendor_google_barbet/0001-barbet-Add-gesture-input.patch";
-    applyPatch "${PATCH_DIR}/proprietary_vendor_google_barbet/0002-barbet-Update-priv-apps.patch"; #Deblob priv-apps
-    applyPatch "${PATCH_DIR}/proprietary_vendor_google_barbet/0003-barbet-Update-apps.patch"; #Deblob apps
-  fi;
-
-  if enterAndClear "vendor/google/blueline"; then
-    git am "${PATCH_DIR}/proprietary_vendor_google_blueline/0001-blueline-Add-gesture-input.patch";
-    applyPatch "${PATCH_DIR}/proprietary_vendor_google_blueline/0002-blueline-Update-priv-apps.patch"; #Deblob priv-apps
-    applyPatch "${PATCH_DIR}/proprietary_vendor_google_blueline/0003-blueline-Update-apps.patch"; #Deblob apps
-  fi;
-
-  if enterAndClear "vendor/google/bramble"; then
-    git am "${PATCH_DIR}/proprietary_vendor_google_bramble/0001-bramble-Add-gesture-input.patch";
-    applyPatch "${PATCH_DIR}/proprietary_vendor_google_bramble/0002-bramble-Update-priv-apps.patch"; #Deblob priv-apps
-    applyPatch "${PATCH_DIR}/proprietary_vendor_google_bramble/0003-bramble-Update-apps.patch"; #Deblob apps
-  fi;
-
-  if enterAndClear "vendor/google/coral"; then
-    git am "${PATCH_DIR}/proprietary_vendor_google_coral/0001-coral-Add-gesture-input.patch";
-    applyPatch "${PATCH_DIR}/proprietary_vendor_google_coral/0002-coral-Update-priv-apps.patch"; #Deblob priv-apps
-    applyPatch "${PATCH_DIR}/proprietary_vendor_google_coral/0003-coral-Update-apps.patch"; #Deblob apps
-  fi;
-
-  if enterAndClear "vendor/google/crosshatch"; then
-    git am "${PATCH_DIR}/proprietary_vendor_google_crosshatch/0001-crosshatch-Add-gesture-input.patch";
-    applyPatch "${PATCH_DIR}/proprietary_vendor_google_crosshatch/0002-crosshatch-Update-priv-apps.patch"; #Deblob priv-apps
-    applyPatch "${PATCH_DIR}/proprietary_vendor_google_crosshatch/0003-crosshatch-Update-apps.patch"; #Deblob apps
-  fi;
-
-  if enterAndClear "vendor/google/flame"; then
-    git am "${PATCH_DIR}/proprietary_vendor_google_flame/0001-flame-Add-gesture-input.patch";
-    applyPatch "${PATCH_DIR}/proprietary_vendor_google_flame/0002-flame-Update-priv-apps.patch"; #Deblob priv-apps
-    applyPatch "${PATCH_DIR}/proprietary_vendor_google_flame/0003-flame-Update-apps.patch"; #Deblob apps
-  fi;
-
-  if enterAndClear "vendor/google/redfin"; then
-    git am "${PATCH_DIR}/proprietary_vendor_google_redfin/0001-redfin-Add-gesture-input.patch";
-    applyPatch "${PATCH_DIR}/proprietary_vendor_google_redfin/0002-redfin-Update-priv-apps.patch"; #Deblob priv-apps
-    applyPatch "${PATCH_DIR}/proprietary_vendor_google_redfin/0003-redfin-Update-apps.patch"; #Deblob apps
-  fi;
+  cd ${PROJECT_ROOT}
+  for codename in barbet blueline bramble coral crosshatch flame redfin
+  do
+    if [[ -d vendor/google/"$codename" ]]; then
+      cd vendor/google/"$codename"
+      git am "${PATCH_DIR}/proprietary_vendor_google_$codename/0001-$codename-Add-gesture-input.patch";
+      printf "\nPRODUCT_COPY_FILES += \\ \n    vendor/google/$codename/proprietary/product/lib64/libjni_latinimegoogle.so:\$(TARGET_COPY_OUT_PRODUCT)/lib64/libjni_latinimegoogle.so" | tee -a $codename-vendor.mk
+      cd ${PROJECT_ROOT}
+    fi;
+  done
 elif [[ ${PROJECT_ROOT,,} =~ "graphene" ]]; then
   #ROM
   # if enterAndClear "frameworks/base"; then
