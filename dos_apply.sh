@@ -36,76 +36,76 @@ export DOS_WORKSPACE_ROOT=${GIT_LOCAL}"/DivestOS-Build"; #XXX: THIS MUST BE CORR
 #
 
 if [[ ${PROJECT_ROOT,,} =~ "lineage" ]]; then
-  #ROM
-  if enterAndClear "build/make"; then
-    [[ -n "${DOS_DEBLOBBER_REMOVE_FP} = true" ]] && applyPatch "${PATCH_DIR}/android_build/0001-Remove-fp.patch"; #Remove fingerprint module
-    [[ -n ${AVB} ]] && applyPatch "${PATCH_DIR}/android_build/0002-Patch-makefile-for-custom-avb.patch"; #Add support for custom AVB key
-  fi;
-
-  if enterAndClear "frameworks/base"; then
-    [[ -n "${MICROG}" || "${WITH_GMS}" = true ]] && applyPatch "${PATCH_DIR}/android_frameworks_base/0001-Apply-restricted-sig-spoof.patch"; #Support restricted sig spoofing
-    applyPatch "${PATCH_DIR}/android_frameworks_base/0002-Use-alternate-ntp-pool.patch"; #Use non-Android ntp pool
-  fi;
-
-  if enterAndClear "hardware/google/pixel"; then
-    applyPatch "${PATCH_DIR}/android_hardware_google_pixel/0001-Remove-wifi-ext.patch"; #Remove wifi-ext
-  fi;
-
-  if enterAndClear "vendor/lineage"; then
-    applyPatch "${PATCH_DIR}/android_vendor_lineage/0001-Allow-custom-build-types.patch"; #Remove restriction for build type
-    applyPatch "${PATCH_DIR}/android_vendor_lineage/0002-Update-webview-providers.patch"; #Allowlist Bromite webview
-    applyPatch "${PATCH_DIR}/android_vendor_lineage/0003-Replace-default-browser.patch"; #Install Bromite browser
-    [[ ! "${WITH_GMS}" = true ]] && applyPatch "${PATCH_DIR}/android_vendor_lineage/0004-Add-extra-apks.patch"; #Add additional apks
-    [[ -n "${MICROG}" && ! "${WITH_GMS}" = true ]] && applyPatch "${PATCH_DIR}/android_vendor_lineage/0005-Add-microg-apks.patch"; #Add microg apks
-    curl https://raw.githubusercontent.com/GrapheneOS/platform_packages_apps_Dialer/13/java/com/android/voicemail/impl/res/xml/vvm_config.xml -o overlay/common/packages/apps/Dialer/java/com/android/voicemail/impl/res/xml/vvm_config.xml && git commit -am "GrapheneOS VVM"
-  fi;
-
-  #DEVICE
-
-  if enterAndClear "device/google/barbet"; then
-    applyPatch "${PATCH_DIR}/android_device_google_barbet/0001-barbet-Disable-mainline-checking.patch"; #Allow extra apks at build time
-  fi;
-
-  if enterAndClear "device/google/bramble"; then
-    applyPatch "${PATCH_DIR}/android_device_google_bramble/0001-bramble-Disable-mainline-checking.patch"; #Allow extra apks at build time
-  fi;
-
-  if enterAndClear "device/google/coral"; then
-    applyPatch "${PATCH_DIR}/android_device_google_coral/0001-floral-Disable-mainline-checking.patch"; #Allow extra apks at build time
-    applyPatch "${PATCH_DIR}/android_device_google_coral/0002-floral-Remove-modules.patch"; #Debloat
-    applyPatch "${PATCH_DIR}/android_device_google_coral/0003-floral-Remove-default-permissions.patch"; #Remove unused permissions
-    [[ -n ${AVB} ]] && applyPatch "${PATCH_DIR}/android_device_google_coral/0004-floral-Add-custom-avb-key.patch"; #Add support for AVB
-  fi;
-
-  if enterAndClear "device/google/crosshatch"; then
-    applyPatch "${PATCH_DIR}/android_device_google_crosshatch/0001-b1c1-Remove-modules.patch"; #Debloat
-    applyPatch "${PATCH_DIR}/android_device_google_crosshatch/0002-b1c1-Remove-default-permissions.patch"; #Remove unused permissions
-    [[ -n ${AVB} ]] && applyPatch "${PATCH_DIR}/android_device_google_crosshatch/0003-b1c1-Add-custom-avb-key.patch"; #Add support for AVB
-  fi;
-
-  if enterAndClear "device/google/redbull"; then
-    applyPatch "${PATCH_DIR}/android_device_google_redbull/0001-redbull-Remove-modules.patch"; #Debloat
-    applyPatch "${PATCH_DIR}/android_device_google_redbull/0002-redbull-Remove-default-permissions.patch"; #Remove unused permissions
-    [[ -n ${AVB} ]] && applyPatch "${PATCH_DIR}/android_device_google_redbull/0003-redbull-Add-custom-avb-key.patch"; #Add support for AVB
-  fi;
-
-  if enterAndClear "device/google/redfin"; then
-    applyPatch "${PATCH_DIR}/android_device_google_redfin/0001-redfin-Disable-mainline-checking.patch"; #Allow extra apks at build time
-  fi;
-
-  #KERNEL
-
-  if enterAndClear "kernel/google/redbull"; then
-    "${GIT_LOCAL}"/DivestOS-Build/Scripts/"${BUILD_WORKING_DIR}"/CVE_Patchers/android_kernel_google_redbull.sh
-  fi;
-
-  if enterAndClear "kernel/google/msm-4.14"; then
-    "${GIT_LOCAL}"/DivestOS-Build/Scripts/"${BUILD_WORKING_DIR}"/CVE_Patchers/android_kernel_google_msm-4.14.sh
-  fi;
-
-  if enterAndClear "kernel/google/msm-4.9"; then
-    "${GIT_LOCAL}"/DivestOS-Build/Scripts/"${BUILD_WORKING_DIR}"/CVE_Patchers/android_kernel_google_msm-4.9.sh
-  fi;
+#  #ROM
+#  if enterAndClear "build/make"; then
+#    [[ -n "${DOS_DEBLOBBER_REMOVE_FP} = true" ]] && applyPatch "${PATCH_DIR}/android_build/0001-Remove-fp.patch"; #Remove fingerprint module
+#    [[ -n ${AVB} ]] && applyPatch "${PATCH_DIR}/android_build/0002-Patch-makefile-for-custom-avb.patch"; #Add support for custom AVB key
+#  fi;
+#
+#  if enterAndClear "frameworks/base"; then
+#    [[ -n "${MICROG}" || "${WITH_GMS}" = true ]] && applyPatch "${PATCH_DIR}/android_frameworks_base/0001-Apply-restricted-sig-spoof.patch"; #Support restricted sig spoofing
+#    applyPatch "${PATCH_DIR}/android_frameworks_base/0002-Use-alternate-ntp-pool.patch"; #Use non-Android ntp pool
+#  fi;
+#
+#  if enterAndClear "hardware/google/pixel"; then
+#    applyPatch "${PATCH_DIR}/android_hardware_google_pixel/0001-Remove-wifi-ext.patch"; #Remove wifi-ext
+#  fi;
+#
+#  if enterAndClear "vendor/lineage"; then
+#    applyPatch "${PATCH_DIR}/android_vendor_lineage/0001-Allow-custom-build-types.patch"; #Remove restriction for build type
+#    applyPatch "${PATCH_DIR}/android_vendor_lineage/0002-Update-webview-providers.patch"; #Allowlist Bromite webview
+#    applyPatch "${PATCH_DIR}/android_vendor_lineage/0003-Replace-default-browser.patch"; #Install Bromite browser
+#    [[ ! "${WITH_GMS}" = true ]] && applyPatch "${PATCH_DIR}/android_vendor_lineage/0004-Add-extra-apks.patch"; #Add additional apks
+#    [[ -n "${MICROG}" && ! "${WITH_GMS}" = true ]] && applyPatch "${PATCH_DIR}/android_vendor_lineage/0005-Add-microg-apks.patch"; #Add microg apks
+#    curl https://raw.githubusercontent.com/GrapheneOS/platform_packages_apps_Dialer/13/java/com/android/voicemail/impl/res/xml/vvm_config.xml -o overlay/common/packages/apps/Dialer/java/com/android/voicemail/impl/res/xml/vvm_config.xml && git commit -am "GrapheneOS VVM"
+#  fi;
+#
+#  #DEVICE
+#
+#  if enterAndClear "device/google/barbet"; then
+#    applyPatch "${PATCH_DIR}/android_device_google_barbet/0001-barbet-Disable-mainline-checking.patch"; #Allow extra apks at build time
+#  fi;
+#
+#  if enterAndClear "device/google/bramble"; then
+#    applyPatch "${PATCH_DIR}/android_device_google_bramble/0001-bramble-Disable-mainline-checking.patch"; #Allow extra apks at build time
+#  fi;
+#
+#  if enterAndClear "device/google/coral"; then
+#    applyPatch "${PATCH_DIR}/android_device_google_coral/0001-floral-Disable-mainline-checking.patch"; #Allow extra apks at build time
+#    applyPatch "${PATCH_DIR}/android_device_google_coral/0002-floral-Remove-modules.patch"; #Debloat
+#    applyPatch "${PATCH_DIR}/android_device_google_coral/0003-floral-Remove-default-permissions.patch"; #Remove unused permissions
+#    [[ -n ${AVB} ]] && applyPatch "${PATCH_DIR}/android_device_google_coral/0004-floral-Add-custom-avb-key.patch"; #Add support for AVB
+#  fi;
+#
+#  if enterAndClear "device/google/crosshatch"; then
+#    applyPatch "${PATCH_DIR}/android_device_google_crosshatch/0001-b1c1-Remove-modules.patch"; #Debloat
+#    applyPatch "${PATCH_DIR}/android_device_google_crosshatch/0002-b1c1-Remove-default-permissions.patch"; #Remove unused permissions
+#    [[ -n ${AVB} ]] && applyPatch "${PATCH_DIR}/android_device_google_crosshatch/0003-b1c1-Add-custom-avb-key.patch"; #Add support for AVB
+#  fi;
+#
+#  if enterAndClear "device/google/redbull"; then
+#    applyPatch "${PATCH_DIR}/android_device_google_redbull/0001-redbull-Remove-modules.patch"; #Debloat
+#    applyPatch "${PATCH_DIR}/android_device_google_redbull/0002-redbull-Remove-default-permissions.patch"; #Remove unused permissions
+#    [[ -n ${AVB} ]] && applyPatch "${PATCH_DIR}/android_device_google_redbull/0003-redbull-Add-custom-avb-key.patch"; #Add support for AVB
+#  fi;
+#
+#  if enterAndClear "device/google/redfin"; then
+#    applyPatch "${PATCH_DIR}/android_device_google_redfin/0001-redfin-Disable-mainline-checking.patch"; #Allow extra apks at build time
+#  fi;
+#
+#  #KERNEL
+#
+#  if enterAndClear "kernel/google/redbull"; then
+#    "${GIT_LOCAL}"/DivestOS-Build/Scripts/"${BUILD_WORKING_DIR}"/CVE_Patchers/android_kernel_google_redbull.sh
+#  fi;
+#
+#  if enterAndClear "kernel/google/msm-4.14"; then
+#    "${GIT_LOCAL}"/DivestOS-Build/Scripts/"${BUILD_WORKING_DIR}"/CVE_Patchers/android_kernel_google_msm-4.14.sh
+#  fi;
+#
+#  if enterAndClear "kernel/google/msm-4.9"; then
+#    "${GIT_LOCAL}"/DivestOS-Build/Scripts/"${BUILD_WORKING_DIR}"/CVE_Patchers/android_kernel_google_msm-4.9.sh
+#  fi;
 
   #VENDOR
 
