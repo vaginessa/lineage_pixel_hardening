@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
 
-  <!-- Not required for Pixel 3 / los 20 -->
+  <!-- Not required for Pixel / los 20 -->
   <remove-project name="device/generic/mini-emulator-arm64" />
   <remove-project name="device/generic/mini-emulator-armv7-a-neon" />
   <remove-project name="device/generic/mini-emulator-x86" />
@@ -15,6 +15,7 @@
   <remove-project name="LineageOS/android_external_nano" />
   <remove-project name="LineageOS/android_external_openssh" />
   <remove-project name="LineageOS/android_external_vim" />
+  <remove-project name="LineageOS/android_packages_apps_Eleven" />
   <remove-project name="LineageOS/android_packages_apps_Stk" />
   <remove-project name="LineageOS/charter" />
   <remove-project name="LineageOS/cm_crowdin" />
@@ -25,6 +26,7 @@
   <remove-project name="LineageOS/www" />
   <remove-project name="platform/external/iperf3" />
   <remove-project name="platform/packages/apps/Music" />
+  <remove-project name="platform/packages/apps/Browser2" />
   <remove-project name="platform/packages/apps/MusicFX" />
   <remove-project name="platform/packages/apps/QuickSearchBox" />
   <remove-project name="platform/packages/apps/SampleLocationAttribution" />
