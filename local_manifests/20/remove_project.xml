@@ -16,7 +16,6 @@
   <remove-project name="LineageOS/android_external_openssh" />
   <remove-project name="LineageOS/android_external_vim" />
   <remove-project name="LineageOS/android_packages_apps_Eleven" />
-  <remove-project name="LineageOS/android_packages_apps_Jelly" />
   <remove-project name="LineageOS/android_packages_apps_Stk" />
   <remove-project name="LineageOS/charter" />
   <remove-project name="LineageOS/cm_crowdin" />
