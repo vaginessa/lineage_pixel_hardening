@@ -1,0 +1,617 @@
+From 2108cbdcb17c1673f78aa48c4d7bd32c9725450f Mon Sep 17 00:00:00 2001
+From: danielk43 <11856117+danielk43@users.noreply.github.com>
+Date: Wed, 25 Oct 2023 19:54:16 -0400
+Subject: [PATCH 1/2] panther: Update priv-apps
+
+---
+ Android.bp        | 430 ----------------------------------------------
+ panther-vendor.mk |  59 -------
+ 2 files changed, 489 deletions(-)
+
+diff --git a/Android.bp b/Android.bp
+index 2972753..054096a 100644
+--- a/Android.bp
++++ b/Android.bp
+@@ -27,30 +27,6 @@ android_app_import {
+ 	product_specific: true,
+ }
+ 
+-android_app_import {
+-	name: "AppDirectedSMSService",
+-	owner: "google",
+-	apk: "proprietary/product/priv-app/AppDirectedSMSService/AppDirectedSMSService.apk",
+-	presigned: true,
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	privileged: true,
+-	product_specific: true,
+-}
+-
+-android_app_import {
+-	name: "CarrierServices",
+-	owner: "google",
+-	apk: "proprietary/product/priv-app/CarrierServices/CarrierServices.apk",
+-	presigned: true,
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	privileged: true,
+-	product_specific: true,
+-}
+-
+ android_app_import {
+ 	name: "CarrierSettings",
+ 	owner: "google",
+@@ -63,293 +39,6 @@ android_app_import {
+ 	product_specific: true,
+ }
+ 
+-android_app_import {
+-	name: "CarrierWifi",
+-	owner: "google",
+-	apk: "proprietary/product/priv-app/CarrierWifi/CarrierWifi.apk",
+-	presigned: true,
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	privileged: true,
+-	product_specific: true,
+-}
+-
+-android_app_import {
+-	name: "ConnMO",
+-	owner: "google",
+-	apk: "proprietary/product/priv-app/ConnMO/ConnMO.apk",
+-	certificate: "platform",
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	privileged: true,
+-	product_specific: true,
+-}
+-
+-android_app_import {
+-	name: "DCMO",
+-	owner: "google",
+-	apk: "proprietary/product/priv-app/DCMO/DCMO.apk",
+-	certificate: "platform",
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	privileged: true,
+-	product_specific: true,
+-}
+-
+-android_app_import {
+-	name: "DMService",
+-	owner: "google",
+-	apk: "proprietary/product/priv-app/DMService/DMService.apk",
+-	certificate: "platform",
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	privileged: true,
+-	product_specific: true,
+-}
+-
+-android_app_import {
+-	name: "DeviceIntelligenceNetworkPrebuilt",
+-	owner: "google",
+-	apk: "proprietary/product/priv-app/DeviceIntelligenceNetworkPrebuilt/DeviceIntelligenceNetworkPrebuilt.apk",
+-	presigned: true,
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	privileged: true,
+-	product_specific: true,
+-}
+-
+-android_app_import {
+-	name: "DevicePersonalizationPrebuiltPixel2022",
+-	owner: "google",
+-	apk: "proprietary/product/priv-app/DevicePersonalizationPrebuiltPixel2022/DevicePersonalizationPrebuiltPixel2022.apk",
+-	presigned: true,
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	privileged: true,
+-	product_specific: true,
+-}
+-
+-android_app_import {
+-	name: "DiagMon",
+-	owner: "google",
+-	apk: "proprietary/product/priv-app/DiagMon/DiagMon.apk",
+-	certificate: "platform",
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	privileged: true,
+-	product_specific: true,
+-}
+-
+-android_app_import {
+-	name: "EuiccGoogle",
+-	owner: "google",
+-	apk: "proprietary/product/priv-app/EuiccGoogle/EuiccGoogle.apk",
+-	presigned: true,
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	privileged: true,
+-	product_specific: true,
+-}
+-
+-android_app_import {
+-	name: "HardwareInfo",
+-	owner: "google",
+-	apk: "proprietary/product/priv-app/HardwareInfo/HardwareInfo.apk",
+-	presigned: true,
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	privileged: true,
+-	product_specific: true,
+-}
+-
+-android_app_import {
+-	name: "HotwordEnrollmentOKGoogleFUSIONPro",
+-	owner: "google",
+-	apk: "proprietary/product/priv-app/HotwordEnrollmentOKGoogleFUSIONPro/HotwordEnrollmentOKGoogleFUSIONPro.apk",
+-	presigned: true,
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	privileged: true,
+-	product_specific: true,
+-}
+-
+-android_app_import {
+-	name: "HotwordEnrollmentXGoogleFUSIONPro",
+-	owner: "google",
+-	apk: "proprietary/product/priv-app/HotwordEnrollmentXGoogleFUSIONPro/HotwordEnrollmentXGoogleFUSIONPro.apk",
+-	presigned: true,
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	privileged: true,
+-	product_specific: true,
+-}
+-
+-android_app_import {
+-	name: "OemDmTrigger",
+-	owner: "google",
+-	apk: "proprietary/product/priv-app/OemDmTrigger/OemDmTrigger.apk",
+-	certificate: "platform",
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	privileged: true,
+-	product_specific: true,
+-}
+-
+-android_app_import {
+-	name: "TetheringEntitlement",
+-	owner: "google",
+-	apk: "proprietary/product/priv-app/TetheringEntitlement/TetheringEntitlement.apk",
+-	certificate: "platform",
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	privileged: true,
+-	product_specific: true,
+-}
+-
+-android_app_import {
+-	name: "WfcActivation",
+-	owner: "google",
+-	apk: "proprietary/product/priv-app/WfcActivation/WfcActivation.apk",
+-	presigned: true,
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	privileged: true,
+-	product_specific: true,
+-}
+-
+-android_app_import {
+-	name: "OemRilHookService",
+-	owner: "google",
+-	apk: "proprietary/system_ext/app/OemRilHookService/OemRilHookService.apk",
+-	certificate: "platform",
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	system_ext_specific: true,
+-}
+-
+-android_app_import {
+-	name: "CarrierSetup",
+-	owner: "google",
+-	apk: "proprietary/system_ext/priv-app/CarrierSetup/CarrierSetup.apk",
+-	presigned: true,
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	privileged: true,
+-	system_ext_specific: true,
+-}
+-
+-android_app_import {
+-	name: "ConnectivityThermalPowerManager",
+-	owner: "google",
+-	apk: "proprietary/system_ext/priv-app/ConnectivityThermalPowerManager/ConnectivityThermalPowerManager.apk",
+-	certificate: "platform",
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	privileged: true,
+-	system_ext_specific: true,
+-}
+-
+-android_app_import {
+-	name: "EuiccGoogleOverlay",
+-	owner: "google",
+-	apk: "proprietary/system_ext/priv-app/EuiccGoogleOverlay/EuiccGoogleOverlay.apk",
+-	certificate: "platform",
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	privileged: true,
+-	system_ext_specific: true,
+-}
+-
+-android_app_import {
+-	name: "EuiccSupportPixel",
+-	owner: "google",
+-	apk: "proprietary/system_ext/priv-app/EuiccSupportPixel/EuiccSupportPixel.apk",
+-	presigned: true,
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	privileged: true,
+-	system_ext_specific: true,
+-}
+-
+-android_app_import {
+-	name: "EuiccSupportPixelPermissions",
+-	owner: "google",
+-	apk: "proprietary/system_ext/priv-app/EuiccSupportPixelPermissions/EuiccSupportPixelPermissions.apk",
+-	presigned: true,
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	privileged: true,
+-	system_ext_specific: true,
+-}
+-
+-android_app_import {
+-	name: "HbmSVManager",
+-	owner: "google",
+-	apk: "proprietary/system_ext/priv-app/HbmSVManager/HbmSVManager.apk",
+-	certificate: "platform",
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	privileged: true,
+-	system_ext_specific: true,
+-}
+-
+-android_app_import {
+-	name: "LLKAgent",
+-	owner: "google",
+-	apk: "proprietary/system_ext/priv-app/LLKAgent/LLKAgent.apk",
+-	certificate: "platform",
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	privileged: true,
+-	system_ext_specific: true,
+-}
+-
+-android_app_import {
+-	name: "MyVerizonServices",
+-	owner: "google",
+-	apk: "proprietary/system_ext/priv-app/MyVerizonServices/MyVerizonServices.apk",
+-	presigned: true,
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	privileged: true,
+-	system_ext_specific: true,
+-}
+-
+-android_app_import {
+-	name: "OemRilService",
+-	owner: "google",
+-	apk: "proprietary/system_ext/priv-app/OemRilService/OemRilService.apk",
+-	presigned: true,
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	privileged: true,
+-	system_ext_specific: true,
+-}
+-
+ android_app_import {
+ 	name: "PixelNfc",
+ 	owner: "google",
+@@ -374,54 +63,6 @@ android_app_import {
+ 	system_ext_specific: true,
+ }
+ 
+-android_app_import {
+-	name: "RilConfigService",
+-	owner: "google",
+-	apk: "proprietary/system_ext/priv-app/RilConfigService/RilConfigService.apk",
+-	certificate: "platform",
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	privileged: true,
+-	system_ext_specific: true,
+-}
+-
+-android_app_import {
+-	name: "ShannonIms",
+-	owner: "google",
+-	apk: "proprietary/system_ext/priv-app/ShannonIms/ShannonIms.apk",
+-	presigned: true,
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	privileged: true,
+-	system_ext_specific: true,
+-}
+-
+-android_app_import {
+-	name: "ShannonRcs",
+-	owner: "google",
+-	apk: "proprietary/system_ext/priv-app/ShannonRcs/ShannonRcs.apk",
+-	presigned: true,
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	privileged: true,
+-	system_ext_specific: true,
+-}
+-
+-android_app_import {
+-	name: "grilservice",
+-	owner: "google",
+-	apk: "proprietary/system_ext/priv-app/grilservice/grilservice.apk",
+-	presigned: true,
+-	dex_preopt: {
+-		enabled: false,
+-	},
+-	privileged: true,
+-	system_ext_specific: true,
+-}
+-
+ dex_import {
+ 	name: "libhwinfo",
+ 	owner: "google",
+@@ -436,20 +77,6 @@ dex_import {
+ 	system_ext_specific: true,
+ }
+ 
+-dex_import {
+-	name: "com.android.hotwordenrollment.common.util",
+-	owner: "google",
+-	jars: ["proprietary/system_ext/framework/com.android.hotwordenrollment.common.util.jar"],
+-	system_ext_specific: true,
+-}
+-
+-dex_import {
+-	name: "com.google.android.camera.experimental2022_system",
+-	owner: "google",
+-	jars: ["proprietary/system_ext/framework/com.google.android.camera.experimental2022_system.jar"],
+-	system_ext_specific: true,
+-}
+-
+ dex_import {
+ 	name: "com.google.android.camera.extensions",
+ 	owner: "google",
+@@ -457,20 +84,6 @@ dex_import {
+ 	system_ext_specific: true,
+ }
+ 
+-dex_import {
+-	name: "google-ril",
+-	owner: "google",
+-	jars: ["proprietary/system_ext/framework/google-ril.jar"],
+-	system_ext_specific: true,
+-}
+-
+-dex_import {
+-	name: "oemrilhook",
+-	owner: "google",
+-	jars: ["proprietary/system_ext/framework/oemrilhook.jar"],
+-	system_ext_specific: true,
+-}
+-
+ prebuilt_etc_xml {
+ 	name: "vendor.google.edgetpu_app_service@1.0-service",
+ 	owner: "google",
+@@ -508,22 +121,6 @@ prebuilt_apex {
+ 	soc_specific: true,
+ }
+ 
+-dex_import {
+-	name: "com.google.android.camera.experimental2022",
+-	owner: "google",
+-	jars: ["proprietary/vendor/framework/com.google.android.camera.experimental2022.jar"],
+-	soc_specific: true,
+-}
+-
+-prebuilt_etc_xml {
+-	name: "android.hardware.biometrics.face-service.22.pixel",
+-	owner: "google",
+-	src: "proprietary/vendor/etc/vintf/manifest/android.hardware.biometrics.face-service.22.pixel.xml",
+-	filename_from_src: true,
+-	sub_dir: "vintf/manifest",
+-	soc_specific: true,
+-}
+-
+ prebuilt_etc_xml {
+ 	name: "android.hardware.camera.provider@2.7-service-google-apex",
+ 	owner: "google",
+@@ -587,24 +184,6 @@ prebuilt_etc_xml {
+ 	soc_specific: true,
+ }
+ 
+-prebuilt_etc_xml {
+-	name: "fingerprint-goodix",
+-	owner: "google",
+-	src: "proprietary/vendor/etc/vintf/manifest/fingerprint-goodix.xml",
+-	filename_from_src: true,
+-	sub_dir: "vintf/manifest",
+-	soc_specific: true,
+-}
+-
+-prebuilt_etc_xml {
+-	name: "manifest_android.hardware.drm-service.widevine",
+-	owner: "google",
+-	src: "proprietary/vendor/etc/vintf/manifest/manifest_android.hardware.drm-service.widevine.xml",
+-	filename_from_src: true,
+-	sub_dir: "vintf/manifest",
+-	soc_specific: true,
+-}
+-
+ prebuilt_etc_xml {
+ 	name: "manifest_input.processor-service",
+ 	owner: "google",
+@@ -623,15 +202,6 @@ prebuilt_etc_xml {
+ 	soc_specific: true,
+ }
+ 
+-prebuilt_etc_xml {
+-	name: "manifest_wifi_ext",
+-	owner: "google",
+-	src: "proprietary/vendor/etc/vintf/manifest/manifest_wifi_ext.xml",
+-	filename_from_src: true,
+-	sub_dir: "vintf/manifest",
+-	soc_specific: true,
+-}
+-
+ prebuilt_etc_xml {
+ 	name: "vendor.dolby.media.c2@1.0-service",
+ 	owner: "google",
+diff --git a/panther-vendor.mk b/panther-vendor.mk
+index 42757e0..70e04d7 100644
+--- a/panther-vendor.mk
++++ b/panther-vendor.mk
+@@ -25,7 +25,6 @@ PRODUCT_COPY_FILES += \
+     vendor/google/panther/proprietary/product/etc/permissions/features-verizon.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/features-verizon.xml \
+     vendor/google/panther/proprietary/product/etc/permissions/privapp-permissions-google-p-lineage.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-google-p-lineage.xml \
+     vendor/google/panther/proprietary/product/etc/sysconfig/allowlist_com.android.omadm.service.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/allowlist_com.android.omadm.service.xml \
+-    vendor/google/panther/proprietary/product/etc/sysconfig/allowlist_com.shannon.imsservice.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/allowlist_com.shannon.imsservice.xml \
+     vendor/google/panther/proprietary/product/etc/sysconfig/google-hiddenapi-package-whitelist.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/google-hiddenapi-package-whitelist.xml \
+     vendor/google/panther/proprietary/product/etc/sysconfig/nexus.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/nexus.xml \
+     vendor/google/panther/proprietary/product/etc/sysconfig/pixel_experience_2017.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/pixel_experience_2017.xml \
+@@ -44,20 +43,10 @@ PRODUCT_COPY_FILES += \
+     vendor/google/panther/proprietary/product/lib64/libdmjavaplugin.so:$(TARGET_COPY_OUT_PRODUCT)/lib64/libdmjavaplugin.so \
+     vendor/google/panther/proprietary/system_ext/bin/hw/vendor.google.edgetpu_app_service@1.0-service:$(TARGET_COPY_OUT_SYSTEM_EXT)/bin/hw/vendor.google.edgetpu_app_service@1.0-service \
+     vendor/google/panther/proprietary/system_ext/etc/init/vendor.google.edgetpu_app_service@1.0-service.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/vendor.google.edgetpu_app_service@1.0-service.rc \
+-    vendor/google/panther/proprietary/system_ext/etc/permissions/com.android.hotwordenrollment.common.util.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/com.android.hotwordenrollment.common.util.xml \
+     vendor/google/panther/proprietary/system_ext/etc/permissions/com.android.omadm.radioconfig.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/com.android.omadm.radioconfig.xml \
+-    vendor/google/panther/proprietary/system_ext/etc/permissions/com.google.android.camera.experimental2022_system.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/com.google.android.camera.experimental2022_system.xml \
+     vendor/google/panther/proprietary/system_ext/etc/permissions/com.google.android.camera.extensions.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/com.google.android.camera.extensions.xml \
+-    vendor/google/panther/proprietary/system_ext/etc/permissions/com.google.euiccpixel.permissions.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/com.google.euiccpixel.permissions.xml \
+-    vendor/google/panther/proprietary/system_ext/etc/permissions/com.google.euiccpixel.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/com.google.euiccpixel.xml \
+     vendor/google/panther/proprietary/system_ext/etc/permissions/com.samsung.slsi.telephony.oemril.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/com.samsung.slsi.telephony.oemril.xml \
+-    vendor/google/panther/proprietary/system_ext/etc/permissions/com.shannon.imsservice.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/com.shannon.imsservice.xml \
+-    vendor/google/panther/proprietary/system_ext/etc/permissions/com.shannon.rcsservice.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/com.shannon.rcsservice.xml \
+-    vendor/google/panther/proprietary/system_ext/etc/permissions/com.verizon.llkagent.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/com.verizon.llkagent.xml \
+-    vendor/google/panther/proprietary/system_ext/etc/permissions/google-ril.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/google-ril.xml \
+-    vendor/google/panther/proprietary/system_ext/etc/permissions/oemrilhook.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/oemrilhook.xml \
+     vendor/google/panther/proprietary/system_ext/etc/permissions/privapp-permissions-google-se-lineage.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-google-se-lineage.xml \
+-    vendor/google/panther/proprietary/system_ext/etc/permissions/vzw_mvs_permissions.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/vzw_mvs_permissions.xml \
+     vendor/google/panther/proprietary/system_ext/lib/libmediaadaptor.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib/libmediaadaptor.so \
+     vendor/google/panther/proprietary/system_ext/lib/vendor.samsung_slsi.telephony.hardware.oemservice@1.0.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib/vendor.samsung_slsi.telephony.hardware.oemservice@1.0.so \
+     vendor/google/panther/proprietary/system_ext/lib/vendor.samsung_slsi.telephony.hardware.radioExternal@1.0.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib/vendor.samsung_slsi.telephony.hardware.radioExternal@1.0.so \
+@@ -68,60 +57,16 @@ PRODUCT_COPY_FILES += \
+     vendor/google/panther/proprietary/system_ext/lib64/libpowerstatshaldataprovider.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib64/libpowerstatshaldataprovider.so \
+     vendor/google/panther/proprietary/system_ext/lib64/vendor.samsung_slsi.telephony.hardware.oemservice@1.0.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib64/vendor.samsung_slsi.telephony.hardware.oemservice@1.0.so \
+     vendor/google/panther/proprietary/system_ext/lib64/vendor.samsung_slsi.telephony.hardware.radioExternal@1.0.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib64/vendor.samsung_slsi.telephony.hardware.radioExternal@1.0.so \
+-    vendor/google/panther/proprietary/system_ext/priv-app/EuiccSupportPixel/DKA_RC5_DVT.in:$(TARGET_COPY_OUT_SYSTEM_EXT)/priv-app/EuiccSupportPixel/DKA_RC5_DVT.in \
+-    vendor/google/panther/proprietary/system_ext/priv-app/EuiccSupportPixel/DKA_RC5_P22_DVT.in:$(TARGET_COPY_OUT_SYSTEM_EXT)/priv-app/EuiccSupportPixel/DKA_RC5_P22_DVT.in \
+-    vendor/google/panther/proprietary/system_ext/priv-app/EuiccSupportPixel/DKA_RC5_P22_EVT.in:$(TARGET_COPY_OUT_SYSTEM_EXT)/priv-app/EuiccSupportPixel/DKA_RC5_P22_EVT.in \
+-    vendor/google/panther/proprietary/system_ext/priv-app/EuiccSupportPixel/DKA_RC7_DVT.up:$(TARGET_COPY_OUT_SYSTEM_EXT)/priv-app/EuiccSupportPixel/DKA_RC7_DVT.up \
+-    vendor/google/panther/proprietary/system_ext/priv-app/EuiccSupportPixel/DKA_RC7_EVT.up:$(TARGET_COPY_OUT_SYSTEM_EXT)/priv-app/EuiccSupportPixel/DKA_RC7_EVT.up \
+-    vendor/google/panther/proprietary/system_ext/priv-app/EuiccSupportPixel/DKA_RC7_P22_DVT.up:$(TARGET_COPY_OUT_SYSTEM_EXT)/priv-app/EuiccSupportPixel/DKA_RC7_P22_DVT.up \
+-    vendor/google/panther/proprietary/system_ext/priv-app/EuiccSupportPixel/DKA_RC7_P22_EVT.up:$(TARGET_COPY_OUT_SYSTEM_EXT)/priv-app/EuiccSupportPixel/DKA_RC7_P22_EVT.up \
+-    vendor/google/panther/proprietary/system_ext/priv-app/EuiccSupportPixel/esim-full-ofl-v1.img:$(TARGET_COPY_OUT_SYSTEM_EXT)/priv-app/EuiccSupportPixel/esim-full-ofl-v1.img \
+-    vendor/google/panther/proprietary/system_ext/priv-app/EuiccSupportPixel/esim-full-v0.img:$(TARGET_COPY_OUT_SYSTEM_EXT)/priv-app/EuiccSupportPixel/esim-full-v0.img \
+-    vendor/google/panther/proprietary/system_ext/priv-app/EuiccSupportPixel/esim-full-v1.img:$(TARGET_COPY_OUT_SYSTEM_EXT)/priv-app/EuiccSupportPixel/esim-full-v1.img
+ 
+ PRODUCT_PACKAGES += \
+     PixelCameraServicesP10 \
+     VZWAPNLib \
+-    AppDirectedSMSService \
+-    CarrierServices \
+     CarrierSettings \
+-    CarrierWifi \
+-    ConnMO \
+-    DCMO \
+-    DMService \
+-    DeviceIntelligenceNetworkPrebuilt \
+-    DevicePersonalizationPrebuiltPixel2022 \
+-    DiagMon \
+-    EuiccGoogle \
+-    HardwareInfo \
+-    HotwordEnrollmentOKGoogleFUSIONPro \
+-    HotwordEnrollmentXGoogleFUSIONPro \
+-    OemDmTrigger \
+-    TetheringEntitlement \
+-    WfcActivation \
+-    OemRilHookService \
+-    CarrierSetup \
+-    ConnectivityThermalPowerManager \
+-    EuiccGoogleOverlay \
+-    EuiccSupportPixel \
+-    EuiccSupportPixelPermissions \
+-    HbmSVManager \
+-    LLKAgent \
+-    MyVerizonServices \
+-    OemRilService \
+     PixelNfc \
+     QualifiedNetworksService \
+-    RilConfigService \
+-    ShannonIms \
+-    ShannonRcs \
+-    grilservice \
+     libhwinfo \
+     RadioConfigLib \
+-    com.android.hotwordenrollment.common.util \
+-    com.google.android.camera.experimental2022_system \
+     com.google.android.camera.extensions \
+-    google-ril \
+-    oemrilhook \
+     vendor.google.edgetpu_app_service@1.0-service
+ PRODUCT_COPY_FILES += \
+     vendor/google/panther/proprietary/product/etc/CarrierSettings/1and1_de.pb:$(TARGET_COPY_OUT_PRODUCT)/etc/CarrierSettings/1and1_de.pb \
+@@ -365,11 +310,8 @@ PRODUCT_COPY_FILES += \
+     vendor/google/panther/proprietary/vendor/bin/cbd:$(TARGET_COPY_OUT_VENDOR)/bin/cbd \
+     vendor/google/panther/proprietary/vendor/bin/chre:$(TARGET_COPY_OUT_VENDOR)/bin/chre \
+     vendor/google/panther/proprietary/vendor/bin/dmd:$(TARGET_COPY_OUT_VENDOR)/bin/dmd \
+-    vendor/google/panther/proprietary/vendor/bin/hw/android.hardware.biometrics.face-service.22.pixel:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.biometrics.face-service.22.pixel \
+-    vendor/google/panther/proprietary/vendor/bin/hw/android.hardware.biometrics.fingerprint-service.goodix:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.biometrics.fingerprint-service.goodix \
+     vendor/google/panther/proprietary/vendor/bin/hw/android.hardware.bluetooth@1.1-service.bcmbtlinux:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.bluetooth@1.1-service.bcmbtlinux \
+     vendor/google/panther/proprietary/vendor/bin/hw/android.hardware.confirmationui@1.0-service.trusty.vendor:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.confirmationui@1.0-service.trusty.vendor \
+-    vendor/google/panther/proprietary/vendor/bin/hw/android.hardware.drm-service.widevine:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.drm-service.widevine \
+     vendor/google/panther/proprietary/vendor/bin/hw/android.hardware.edgetpu.logging@service-edgetpu-logging:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.edgetpu.logging@service-edgetpu-logging \
+     vendor/google/panther/proprietary/vendor/bin/hw/android.hardware.gxp.logging@service-gxp-logging:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.gxp.logging@service-gxp-logging \
+     vendor/google/panther/proprietary/vendor/bin/hw/android.hardware.identity@1.0-service.citadel:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.identity@1.0-service.citadel \
+@@ -389,7 +331,6 @@ PRODUCT_COPY_FILES += \
+     vendor/google/panther/proprietary/vendor/bin/hw/vendor.google.edgetpu_vendor_service@1.0-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/vendor.google.edgetpu_vendor_service@1.0-service \
+     vendor/google/panther/proprietary/vendor/bin/hw/vendor.google.google_battery-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/vendor.google.google_battery-service \
+     vendor/google/panther/proprietary/vendor/bin/hw/vendor.google.radioext@1.0-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/vendor.google.radioext@1.0-service \
+-    vendor/google/panther/proprietary/vendor/bin/hw/vendor.google.wifi_ext@1.0-service-vendor:$(TARGET_COPY_OUT_VENDOR)/bin/hw/vendor.google.wifi_ext@1.0-service-vendor \
+     vendor/google/panther/proprietary/vendor/bin/hw/vendor.google.wireless_charger@1.3-service-vendor:$(TARGET_COPY_OUT_VENDOR)/bin/hw/vendor.google.wireless_charger@1.3-service-vendor \
+     vendor/google/panther/proprietary/vendor/bin/init.radio.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.radio.sh \
+     vendor/google/panther/proprietary/vendor/bin/modem_logging_control:$(TARGET_COPY_OUT_VENDOR)/bin/modem_logging_control \
+-- 
+2.39.2
+

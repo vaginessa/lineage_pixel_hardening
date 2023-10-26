@@ -145,6 +145,11 @@ if [[ ${PROJECT_ROOT,,} =~ "lineage" ]]; then
     applyPatch "${PATCH_DIR}/proprietary_vendor_google_flame/0003-flame-Update-apps.patch"; #Deblob apps
   fi;
 
+  if enterAndClear "vendor/google/panther"; then
+    applyPatch "${PATCH_DIR}/proprietary_vendor_google_panther/0001-panther-Update-priv-apps.patch"; #Deblob priv-apps
+    applyPatch "${PATCH_DIR}/proprietary_vendor_google_panther/0002-panther-Update-apps.patch"; #Deblob apps
+  fi;
+
   if enterAndClear "vendor/google/redfin"; then
     git am "${PATCH_DIR}/proprietary_vendor_google_redfin/0001-redfin-Add-gesture-input.patch";
     applyPatch "${PATCH_DIR}/proprietary_vendor_google_redfin/0002-redfin-Update-priv-apps.patch"; #Deblob priv-apps
