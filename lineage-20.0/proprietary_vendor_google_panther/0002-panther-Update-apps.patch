@@ -1,6 +1,6 @@
-From d517d0e153eeaf2f913b5483b5f4854979e59e7d Mon Sep 17 00:00:00 2001
+From 7be7df3cb1675bbf623aa07c57515afd4625df9e Mon Sep 17 00:00:00 2001
 From: danielk43 <11856117+danielk43@users.noreply.github.com>
-Date: Wed, 25 Oct 2023 19:56:29 -0400
+Date: Wed, 25 Oct 2023 23:35:36 -0400
 Subject: [PATCH 2/2] panther: Update apps
 
 ---
@@ -9,7 +9,7 @@ Subject: [PATCH 2/2] panther: Update apps
  2 files changed, 24 deletions(-)
 
 diff --git a/Android.bp b/Android.bp
-index 054096a..a44bb8b 100644
+index a54d739..7e4cf1a 100644
 --- a/Android.bp
 +++ b/Android.bp
 @@ -5,28 +5,6 @@
@@ -42,11 +42,11 @@ index 054096a..a44bb8b 100644
  	name: "CarrierSettings",
  	owner: "google",
 diff --git a/panther-vendor.mk b/panther-vendor.mk
-index 70e04d7..da019d0 100644
+index 149de8f..2306a10 100644
 --- a/panther-vendor.mk
 +++ b/panther-vendor.mk
-@@ -59,8 +59,6 @@ PRODUCT_COPY_FILES += \
-     vendor/google/panther/proprietary/system_ext/lib64/vendor.samsung_slsi.telephony.hardware.radioExternal@1.0.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib64/vendor.samsung_slsi.telephony.hardware.radioExternal@1.0.so \
+@@ -49,8 +49,6 @@ PRODUCT_COPY_FILES += \
+     vendor/google/panther/proprietary/system_ext/lib64/libpowerstatshaldataprovider.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib64/libpowerstatshaldataprovider.so \
  
  PRODUCT_PACKAGES += \
 -    PixelCameraServicesP10 \
