@@ -1,146 +1,176 @@
-From 14ae535f850dcec200c9961a7135837ad5bb595e Mon Sep 17 00:00:00 2001
+From 48d344ea9267c7fda45aae0153365ecb25e8c46e Mon Sep 17 00:00:00 2001
 From: danielk43 <11856117+danielk43@users.noreply.github.com>
-Date: Sun, 17 Oct 2021 12:25:39 -0400
+Date: Sun, 29 Oct 2023 13:46:09 -0400
 Subject: [PATCH] Update dns references
 
 ---
- .../tethering/TetheringConfiguration.java      |  2 +-
- .../src/android/net/EthernetTetheringTest.java |  6 +++---
- .../unit/src/android/net/ip/IpServerTest.java  |  2 +-
- .../tethering/BpfCoordinatorTest.java          | 12 ++++++------
- .../IPv6TetheringCoordinatorTest.java          |  2 +-
- framework/src/android/net/util/DnsUtils.java   |  4 ++--
- .../res/values/config.xml                      |  2 +-
- service/native/libs/libclat/clatutils_test.cpp |  6 +++---
- .../server/connectivity/ClatCoordinator.java   |  4 ++--
- .../connectivity/NetworkDiagnostics.java       |  4 ++--
- .../common/java/android/net/IpPrefixTest.java  |  8 ++++----
- .../java/android/net/LinkPropertiesTest.java   |  8 ++++----
- .../common/java/android/net/RouteInfoTest.java |  6 +++---
- tests/cts/net/jni/NativeDnsJni.c               |  8 ++++----
- .../net/src/android/net/cts/DscpPolicyTest.kt  |  4 ++--
- .../android/net/cts/IpConfigurationTest.java   |  4 ++--
- .../src/android/net/cts/IpSecManagerTest.java  |  4 ++--
- .../net/src/android/net/cts/RateLimitTest.java |  2 +-
- .../net/cts/StaticIpConfigurationTest.java     |  8 ++++----
- .../src/android/net/cts/VpnServiceTest.java    |  2 +-
- .../java/android/net/IpSecManagerTest.java     |  4 ++--
- .../android/internal/net/VpnProfileTest.java   |  4 ++--
- .../server/ConnectivityServiceTest.java        | 18 +++++++++---------
- .../server/IpSecServiceParameterizedTest.java  |  4 ++--
- .../connectivity/ClatCoordinatorTest.java      |  2 +-
- .../server/connectivity/DnsManagerTest.java    | 14 +++++++-------
- .../ethernet/EthernetConfigStoreTest.java      |  2 +-
- .../server/ethernet/EthernetTrackerTest.java   | 10 +++++-----
- 28 files changed, 78 insertions(+), 78 deletions(-)
+ .../tethering/TetheringConfiguration.java     |  2 +-
+ .../net/EthernetTetheringTestBase.java        |  4 ++--
+ .../android/net/EthernetTetheringTest.java    |  2 +-
+ .../mts/MtsEthernetTetheringTest.java         |  2 +-
+ .../unit/src/android/net/ip/IpServerTest.java |  2 +-
+ .../tethering/BpfCoordinatorTest.java         | 12 +++++------
+ .../IPv6TetheringCoordinatorTest.java         |  2 +-
+ framework/src/android/net/util/DnsUtils.java  |  4 ++--
+ .../res/values/config.xml                     |  2 +-
+ service/lint-baseline.xml                     |  2 +-
+ .../native/libs/libclat/clatutils_test.cpp    |  6 +++---
+ .../server/connectivity/ClatCoordinator.java  |  4 ++--
+ .../connectivity/NetworkDiagnostics.java      |  4 ++--
+ .../common/java/android/net/IpPrefixTest.java |  8 ++++----
+ .../java/android/net/LinkPropertiesTest.java  |  8 ++++----
+ .../java/android/net/RouteInfoTest.java       |  6 +++---
+ tests/cts/net/jni/NativeDnsJni.c              |  6 +++---
+ .../net/src/android/net/cts/DscpPolicyTest.kt |  2 +-
+ .../android/net/cts/IpConfigurationTest.java  |  4 ++--
+ .../src/android/net/cts/IpSecManagerTest.java |  4 ++--
+ .../src/android/net/cts/RateLimitTest.java    |  2 +-
+ .../net/cts/StaticIpConfigurationTest.java    |  6 +++---
+ .../src/android/net/cts/VpnServiceTest.java   |  2 +-
+ .../java/android/net/IpSecManagerTest.java    |  4 ++--
+ .../android/internal/net/VpnProfileTest.java  |  4 ++--
+ .../server/ConnectivityServiceTest.java       | 20 +++++++++----------
+ .../server/IpSecServiceParameterizedTest.java |  4 ++--
+ .../android/server/VpnManagerServiceTest.java |  2 +-
+ .../AutomaticOnOffKeepaliveTrackerTest.java   |  2 +-
+ .../connectivity/ClatCoordinatorTest.java     |  2 +-
+ .../server/connectivity/DnsManagerTest.java   | 14 ++++++-------
+ .../android/server/connectivity/VpnTest.java  |  4 ++--
+ .../ethernet/EthernetConfigStoreTest.java     |  4 ++--
+ .../server/ethernet/EthernetTrackerTest.java  | 10 +++++-----
+ 34 files changed, 83 insertions(+), 83 deletions(-)
 
 diff --git a/Tethering/src/com/android/networkstack/tethering/TetheringConfiguration.java b/Tethering/src/com/android/networkstack/tethering/TetheringConfiguration.java
+index 99b29b596e..edd701ecd3 100644
 --- a/Tethering/src/com/android/networkstack/tethering/TetheringConfiguration.java
 +++ b/Tethering/src/com/android/networkstack/tethering/TetheringConfiguration.java
-@@ -76,7 +76,7 @@ public class TetheringConfiguration {
+@@ -79,7 +79,7 @@ public class TetheringConfiguration {
          "192.168.48.2", "192.168.48.254", "192.168.49.2", "192.168.49.254",
      };
  
 -    private static final String[] DEFAULT_IPV4_DNS = {"1.0.0.1", "1.1.1.1"};
-+    private static final String[] DEFAULT_IPV4_DNS = {"149.112.112.112", "9.9.9.9"};
++    private static final String[] DEFAULT_IPV4_DNS = {"149.112.112.11", "9.9.9.11"};
  
      @VisibleForTesting
      public static final int TETHER_USB_RNDIS_FUNCTION = 0;
+diff --git a/Tethering/tests/integration/base/android/net/EthernetTetheringTestBase.java b/Tethering/tests/integration/base/android/net/EthernetTetheringTestBase.java
+index 007bf23a1c..632d857344 100644
+--- a/Tethering/tests/integration/base/android/net/EthernetTetheringTestBase.java
++++ b/Tethering/tests/integration/base/android/net/EthernetTetheringTestBase.java
+@@ -117,11 +117,11 @@ public abstract class EthernetTetheringTestBase {
+     protected static final MacAddress TEST_MAC = MacAddress.fromString("1:2:3:4:5:6");
+     protected static final LinkAddress TEST_IP4_ADDR = new LinkAddress("10.0.0.1/24");
+     protected static final LinkAddress TEST_IP6_ADDR = new LinkAddress("2001:db8:1::101/64");
+-    protected static final InetAddress TEST_IP4_DNS = parseNumericAddress("8.8.8.8");
++    protected static final InetAddress TEST_IP4_DNS = parseNumericAddress("9.9.9.11");
+     protected static final InetAddress TEST_IP6_DNS = parseNumericAddress("2001:db8:1::888");
+ 
+     protected static final Inet4Address REMOTE_IP4_ADDR =
+-            (Inet4Address) parseNumericAddress("8.8.8.8");
++            (Inet4Address) parseNumericAddress("9.9.9.11");
+     protected static final Inet6Address REMOTE_IP6_ADDR =
+             (Inet6Address) parseNumericAddress("2002:db8:1::515:ca");
+     protected static final Inet6Address REMOTE_NAT64_ADDR =
 diff --git a/Tethering/tests/integration/src/android/net/EthernetTetheringTest.java b/Tethering/tests/integration/src/android/net/EthernetTetheringTest.java
+index 55854e273f..88e01e8db9 100644
 --- a/Tethering/tests/integration/src/android/net/EthernetTetheringTest.java
 +++ b/Tethering/tests/integration/src/android/net/EthernetTetheringTest.java
-@@ -143,7 +143,7 @@ public class EthernetTetheringTest {
- 
-     private static final LinkAddress TEST_IP4_ADDR = new LinkAddress("10.0.0.1/8");
-     private static final LinkAddress TEST_IP6_ADDR = new LinkAddress("2001:db8:1::101/64");
--    private static final InetAddress TEST_IP4_DNS = parseNumericAddress("8.8.8.8");
-+    private static final InetAddress TEST_IP4_DNS = parseNumericAddress("9.9.9.9");
-     private static final InetAddress TEST_IP6_DNS = parseNumericAddress("2001:db8:1::888");
-     private static final ByteBuffer TEST_REACHABILITY_PAYLOAD =
-             ByteBuffer.wrap(new byte[] { (byte) 0x55, (byte) 0xaa });
-@@ -821,10 +821,10 @@ public class EthernetTetheringTest {
+@@ -488,7 +488,7 @@ public class EthernetTetheringTest extends EthernetTetheringTestBase {
      // |   Sever    +---------+  Upstream  | Downstream +---------+   Client   |
      // +------------+         +------------+------------+         +------------+
      // remote ip              public ip                           private ip
 -    // 8.8.8.8:443            <Upstream ip>:9876                  <TetheredDevice ip>:9876
-+    // 9.9.9.9:443            <Upstream ip>:9876                  <TetheredDevice ip>:9876
++    // 9.9.9.11:443            <Upstream ip>:9876                  <TetheredDevice ip>:9876
      //
-     private static final Inet4Address REMOTE_IP4_ADDR =
--            (Inet4Address) parseNumericAddress("8.8.8.8");
-+            (Inet4Address) parseNumericAddress("9.9.9.9");
-     // Used by public port and private port. Assume port 9876 has not been used yet before the
-     // testing that public port and private port are the same in the testing. Note that NAT port
-     // forwarding could be different between private port and public port.
+     private void runUdp4Test() throws Exception {
+         final TetheringTester tester = initTetheringTester(toList(TEST_IP4_ADDR),
+diff --git a/Tethering/tests/mts/src/android/tethering/mts/MtsEthernetTetheringTest.java b/Tethering/tests/mts/src/android/tethering/mts/MtsEthernetTetheringTest.java
+index c2bc812da9..cc4bea8b90 100644
+--- a/Tethering/tests/mts/src/android/tethering/mts/MtsEthernetTetheringTest.java
++++ b/Tethering/tests/mts/src/android/tethering/mts/MtsEthernetTetheringTest.java
+@@ -187,7 +187,7 @@ public class MtsEthernetTetheringTest extends EthernetTetheringTestBase {
+     // |   Sever    +---------+  Upstream  | Downstream +---------+   Client   |
+     // +------------+         +------------+------------+         +------------+
+     // remote ip              public ip                           private ip
+-    // 8.8.8.8:443            <Upstream ip>:9876                  <TetheredDevice ip>:9876
++    // 9.9.9.11:443            <Upstream ip>:9876                  <TetheredDevice ip>:9876
+     //
+     private void runUdp4Test() throws Exception {
+         final TetheringTester tester = initTetheringTester(toList(TEST_IP4_ADDR),
 diff --git a/Tethering/tests/unit/src/android/net/ip/IpServerTest.java b/Tethering/tests/unit/src/android/net/ip/IpServerTest.java
+index 46e50ef835..43127ba1dd 100644
 --- a/Tethering/tests/unit/src/android/net/ip/IpServerTest.java
 +++ b/Tethering/tests/unit/src/android/net/ip/IpServerTest.java
-@@ -1239,7 +1239,7 @@ public class IpServerTest {
+@@ -1270,7 +1270,7 @@ public class IpServerTest {
          linkProp.setInterfaceName(iface);
          linkProp.addLinkAddress(new LinkAddress("2001:db8::1/64"));
          linkProp.addRoute(new RouteInfo(new IpPrefix("::/0"), null, iface, RTN_UNICAST));
 -        final InetAddress dns = InetAddresses.parseNumericAddress("2001:4860:4860::8888");
-+        final InetAddress dns = InetAddresses.parseNumericAddress("2620:fe::fe");
++        final InetAddress dns = InetAddresses.parseNumericAddress("2620:fe::11");
          linkProp.addDnsServer(dns);
  
          return linkProp;
 diff --git a/Tethering/tests/unit/src/com/android/networkstack/tethering/BpfCoordinatorTest.java b/Tethering/tests/unit/src/com/android/networkstack/tethering/BpfCoordinatorTest.java
+index 4f32f3c216..ae88734d8e 100644
 --- a/Tethering/tests/unit/src/com/android/networkstack/tethering/BpfCoordinatorTest.java
 +++ b/Tethering/tests/unit/src/com/android/networkstack/tethering/BpfCoordinatorTest.java
-@@ -165,7 +165,7 @@ public class BpfCoordinatorTest {
+@@ -181,7 +181,7 @@ public class BpfCoordinatorTest {
      private static final Inet4Address REMOTE_ADDR =
              (Inet4Address) InetAddresses.parseNumericAddress("140.112.8.116");
      private static final Inet4Address PUBLIC_ADDR =
 -            (Inet4Address) InetAddresses.parseNumericAddress("1.0.0.1");
-+            (Inet4Address) InetAddresses.parseNumericAddress("149.112.112.112");
++            (Inet4Address) InetAddresses.parseNumericAddress("149.112.112.11");
      private static final Inet4Address PUBLIC_ADDR2 =
              (Inet4Address) InetAddresses.parseNumericAddress("1.0.0.2");
      private static final Inet4Address PRIVATE_ADDR =
-@@ -1446,7 +1446,7 @@ public class BpfCoordinatorTest {
+@@ -1517,7 +1517,7 @@ public class BpfCoordinatorTest {
      // |   Sever    +---------+  Upstream  | Downstream +---------+   Client   |
      // +------------+         +------------+------------+         +------------+
      // remote ip              public ip                           private ip
 -    // 140.112.8.116:443      1.0.0.1:62449                       192.168.80.12:62449
-+    // 140.112.8.116:443      149.112.112.112:62449                       192.168.80.12:62449
++    // 140.112.8.116:443      149.112.112.11:62449                       192.168.80.12:62449
      //
  
      // Setup upstream interface to BpfCoordinator.
-@@ -1799,8 +1799,8 @@ public class BpfCoordinatorTest {
+@@ -1871,8 +1871,8 @@ public class BpfCoordinatorTest {
      // remote ip            +-------------+      |                          private ip
      // 140.112.8.116:443   public ip             |                          192.168.80.12:62449
      //                     (upstream 1, rawip)   |
 -    //                     1.0.0.1:62449         |
 -    //                     1.0.0.1:62450         |     +--------------+     +------------+
-+    //                     149.112.112.112:62449         |
-+    //                     149.112.112.112:62450         |     +--------------+     +------------+
++    //                     149.112.112.11:62449         |
++    //                     149.112.112.11:62450         |     +--------------+     +------------+
      //                            - or -         +-----+ Downstream 2 +-----+  Client B  |
      //                     (upstream 2, ether)         +--------------+     +------------+
      //                                                                      private ip
-@@ -1810,10 +1810,10 @@ public class BpfCoordinatorTest {
+@@ -1882,10 +1882,10 @@ public class BpfCoordinatorTest {
      //
      // Rule set A: a socket connection from client A to remote server via the first upstream
      //             (UPSTREAM_IFINDEX).
 -    //             192.168.80.12:62449 -> 1.0.0.1:62449 -> 140.112.8.116:443
-+    //             192.168.80.12:62449 -> 149.112.112.112:62449 -> 140.112.8.116:443
++    //             192.168.80.12:62449 -> 149.112.112.11:62449 -> 140.112.8.116:443
      // Rule set B: a socket connection from client B to remote server via the first upstream
      //             (UPSTREAM_IFINDEX).
 -    //             192.168.80.12:62450 -> 1.0.0.1:62450 -> 140.112.8.116:443
-+    //             192.168.80.12:62450 -> 149.112.112.112:62450 -> 140.112.8.116:443
++    //             192.168.80.12:62450 -> 149.112.112.11:62450 -> 140.112.8.116:443
      //
      // The second upstream (UPSTREAM_IFINDEX2) is an ethernet interface which is not supported by
      // BPF. Used for testing the rule adding and removing on an unsupported upstream interface.
 diff --git a/Tethering/tests/unit/src/com/android/networkstack/tethering/IPv6TetheringCoordinatorTest.java b/Tethering/tests/unit/src/com/android/networkstack/tethering/IPv6TetheringCoordinatorTest.java
+index 865228af76..e9ef29e79d 100644
 --- a/Tethering/tests/unit/src/com/android/networkstack/tethering/IPv6TetheringCoordinatorTest.java
 +++ b/Tethering/tests/unit/src/com/android/networkstack/tethering/IPv6TetheringCoordinatorTest.java
-@@ -60,7 +60,7 @@ import java.util.List;
+@@ -61,7 +61,7 @@ import java.util.List;
  @RunWith(AndroidJUnit4.class)
  @SmallTest
  public class IPv6TetheringCoordinatorTest {
 -    private static final String TEST_DNS_SERVER = "2001:4860:4860::8888";
-+    private static final String TEST_DNS_SERVER = "2620:fe::fe";
++    private static final String TEST_DNS_SERVER = "2620:fe::11";
      private static final String TEST_INTERFACE = "test_rmnet0";
      private static final String TEST_IPV6_ADDRESS = "2001:db8::1/64";
      private static final String TEST_IPV4_ADDRESS = "192.168.100.1/24";
 diff --git a/framework/src/android/net/util/DnsUtils.java b/framework/src/android/net/util/DnsUtils.java
+index d3e2f66105..e8515efee8 100644
 --- a/framework/src/android/net/util/DnsUtils.java
 +++ b/framework/src/android/net/util/DnsUtils.java
 @@ -342,7 +342,7 @@ public class DnsUtils {
@@ -148,7 +178,7 @@ diff --git a/framework/src/android/net/util/DnsUtils.java b/framework/src/androi
      public static boolean haveIpv4(@Nullable Network network) {
          final SocketAddress addrIpv4 =
 -                new InetSocketAddress(InetAddresses.parseNumericAddress("1.1.1.1"), 0);
-+                new InetSocketAddress(InetAddresses.parseNumericAddress("9.9.9.9"), 0);
++                new InetSocketAddress(InetAddresses.parseNumericAddress("9.9.9.11"), 0);
          return checkConnectivity(network, AF_INET, addrIpv4);
      }
  
@@ -157,23 +187,38 @@ diff --git a/framework/src/android/net/util/DnsUtils.java b/framework/src/androi
      public static boolean haveIpv6(@Nullable Network network) {
          final SocketAddress addrIpv6 =
 -                new InetSocketAddress(InetAddresses.parseNumericAddress("2606:4700:4700::1001"), 0);
-+                new InetSocketAddress(InetAddresses.parseNumericAddress("2620:fe::fe"), 0);
++                new InetSocketAddress(InetAddresses.parseNumericAddress("2620:fe::fe:11"), 0);
          return checkConnectivity(network, AF_INET6, addrIpv6);
      }
  
 diff --git a/service/ServiceConnectivityResources/res/values/config.xml b/service/ServiceConnectivityResources/res/values/config.xml
+index f30abc6b0b..2647676130 100644
 --- a/service/ServiceConnectivityResources/res/values/config.xml
 +++ b/service/ServiceConnectivityResources/res/values/config.xml
-@@ -160,7 +160,7 @@
+@@ -188,7 +188,7 @@
           -->
      <string-array translatable="false" name="config_ethernet_interfaces">
          <!--
 -        <item>eth1;12,13,14,15;ip=192.168.0.10/24 gateway=192.168.0.1 dns=4.4.4.4,8.8.8.8</item>
-+        <item>eth1;12,13,14,15;ip=192.168.0.10/24 gateway=192.168.0.1 dns=149.112.112.112,9.9.9.9</item>
++        <item>eth1;12,13,14,15;ip=192.168.0.10/24 gateway=192.168.0.1 dns=149.112.112.11,9.9.9.11</item>
          <item>eth2;;ip=192.168.0.11/24</item>
          <item>eth3;12,13,14,15;ip=192.168.0.12/24;1</item>
          -->
+diff --git a/service/lint-baseline.xml b/service/lint-baseline.xml
+index 5149e6d5d7..d9a4e907d4 100644
+--- a/service/lint-baseline.xml
++++ b/service/lint-baseline.xml
+@@ -378,7 +378,7 @@
+     <issue
+         id="NewApi"
+         message="Call requires API level 31 (current min is 30): `java.net.InetAddress#parseNumericAddress`"
+-        errorLine1='    private static final InetAddress GOOGLE_DNS_4 = InetAddress.parseNumericAddress("8.8.8.8");'
++        errorLine1='    private static final InetAddress GOOGLE_DNS_4 = InetAddress.parseNumericAddress("9.9.9.11");'
+         errorLine2="                                                                ~~~~~~~~~~~~~~~~~~~">
+         <location
+             file="packages/modules/Connectivity/service/src/com/android/server/connectivity/ClatCoordinator.java"
 diff --git a/service/native/libs/libclat/clatutils_test.cpp b/service/native/libs/libclat/clatutils_test.cpp
+index f4f97dbdf9..c8d74b2e9d 100644
 --- a/service/native/libs/libclat/clatutils_test.cpp
 +++ b/service/native/libs/libclat/clatutils_test.cpp
 @@ -92,9 +92,9 @@ TEST_F(ClatUtils, SelectIpv4Address) {
@@ -183,13 +228,14 @@ diff --git a/service/native/libs/libclat/clatutils_test.cpp b/service/native/lib
 -    // Assume that the machine running the test has the address 127.0.0.1, but not 8.8.8.8.
 -    addr.s_addr = inet_addr("8.8.8.8");
 -    EXPECT_EQ(inet_addr("8.8.8.8"), selectIpv4Address(addr, 29));
-+    // Assume that the machine running the test has the address 127.0.0.1, but not 9.9.9.9.
-+    addr.s_addr = inet_addr("9.9.9.9");
-+    EXPECT_EQ(inet_addr("9.9.9.9"), selectIpv4Address(addr, 29));
++    // Assume that the machine running the test has the address 127.0.0.1, but not 9.9.9.11.
++    addr.s_addr = inet_addr("9.9.9.11");
++    EXPECT_EQ(inet_addr("9.9.9.11"), selectIpv4Address(addr, 29));
  
      addr.s_addr = inet_addr("127.0.0.1");
      EXPECT_EQ(inet_addr("127.0.0.2"), selectIpv4Address(addr, 29));
 diff --git a/service/src/com/android/server/connectivity/ClatCoordinator.java b/service/src/com/android/server/connectivity/ClatCoordinator.java
+index 0d5288e970..189add9bc2 100644
 --- a/service/src/com/android/server/connectivity/ClatCoordinator.java
 +++ b/service/src/com/android/server/connectivity/ClatCoordinator.java
 @@ -86,7 +86,7 @@ public class ClatCoordinator {
@@ -197,7 +243,7 @@ diff --git a/service/src/com/android/server/connectivity/ClatCoordinator.java b/
      @VisibleForTesting
      static final int INIT_V4ADDR_PREFIX_LEN = 29;
 -    private static final InetAddress CLOUDFLARE_DNS_4 = InetAddress.parseNumericAddress("1.1.1.1");
-+    private static final InetAddress QUADNINE_DNS_4 = InetAddress.parseNumericAddress("9.9.9.9");
++    private static final InetAddress QUADNINE_DNS_4 = InetAddress.parseNumericAddress("9.9.9.11");
  
      private static final int INVALID_IFINDEX = 0;
  
@@ -211,21 +257,23 @@ diff --git a/service/src/com/android/server/connectivity/ClatCoordinator.java b/
              maybeCleanUp(tunFd, readSock6, writeSock6);
              throw new IOException("Detect MTU on " + tunIface + " failed: " + e);
 diff --git a/service/src/com/android/server/connectivity/NetworkDiagnostics.java b/service/src/com/android/server/connectivity/NetworkDiagnostics.java
+index 22d422a4c4..5664ca8f4f 100644
 --- a/service/src/com/android/server/connectivity/NetworkDiagnostics.java
 +++ b/service/src/com/android/server/connectivity/NetworkDiagnostics.java
-@@ -97,9 +97,9 @@ import javax.net.ssl.SSLSocketFactory;
+@@ -104,9 +104,9 @@ import javax.net.ssl.SSLSocketFactory;
  public class NetworkDiagnostics {
      private static final String TAG = "NetworkDiagnostics";
  
 -    private static final InetAddress TEST_DNS4 = InetAddresses.parseNumericAddress("1.1.1.1");
-+    private static final InetAddress TEST_DNS4 = InetAddresses.parseNumericAddress("9.9.9.9");
++    private static final InetAddress TEST_DNS4 = InetAddresses.parseNumericAddress("9.9.9.11");
      private static final InetAddress TEST_DNS6 = InetAddresses.parseNumericAddress(
 -            "2606:4700:4700::1001");
-+            "2620:fe::fe");
++            "2620:fe::fe:11");
  
      // For brevity elsewhere.
      private static final long now() {
 diff --git a/tests/common/java/android/net/IpPrefixTest.java b/tests/common/java/android/net/IpPrefixTest.java
+index fef6416c37..d4c720f1a2 100644
 --- a/tests/common/java/android/net/IpPrefixTest.java
 +++ b/tests/common/java/android/net/IpPrefixTest.java
 @@ -236,15 +236,15 @@ public class IpPrefixTest {
@@ -234,8 +282,8 @@ diff --git a/tests/common/java/android/net/IpPrefixTest.java b/tests/common/java
          assertFalse(p.contains(address("2001:db8:f00::bad:d00d")));
 -        assertFalse(p.contains(address("2001:4868:4860::8888")));
 -        assertFalse(p.contains(address("8.8.8.8")));
-+        assertFalse(p.contains(address("2620:fe::fe")));
-+        assertFalse(p.contains(address("9.9.9.9")));
++        assertFalse(p.contains(address("2620:fe::11")));
++        assertFalse(p.contains(address("9.9.9.11")));
  
          p = new IpPrefix("192.0.2.0/23");
          assertTrue(p.contains(address("192.0.2.43")));
@@ -243,15 +291,16 @@ diff --git a/tests/common/java/android/net/IpPrefixTest.java b/tests/common/java
          assertFalse(p.contains(address("192.0.0.21")));
 -        assertFalse(p.contains(address("8.8.8.8")));
 -        assertFalse(p.contains(address("2001:4868:4860::8888")));
-+        assertFalse(p.contains(address("9.9.9.9")));
-+        assertFalse(p.contains(address("2620:fe::fe")));
++        assertFalse(p.contains(address("9.9.9.11")));
++        assertFalse(p.contains(address("2620:fe::11")));
  
          IpPrefix ipv6Default = new IpPrefix("::/0");
          assertTrue(ipv6Default.contains(address("2001:db8::f00")));
 diff --git a/tests/common/java/android/net/LinkPropertiesTest.java b/tests/common/java/android/net/LinkPropertiesTest.java
+index 09f5d6ec85..d7d1ba4b3b 100644
 --- a/tests/common/java/android/net/LinkPropertiesTest.java
 +++ b/tests/common/java/android/net/LinkPropertiesTest.java
-@@ -80,10 +80,10 @@ public class LinkPropertiesTest {
+@@ -81,10 +81,10 @@ public class LinkPropertiesTest {
      private static final InetAddress ADDRV6 = address("2001:0db8:85a3:0000:0000:8a2e:0370:7334");
      private static final InetAddress DNS1 = address("75.208.7.1");
      private static final InetAddress DNS2 = address("69.78.7.1");
@@ -259,14 +308,15 @@ diff --git a/tests/common/java/android/net/LinkPropertiesTest.java b/tests/commo
 -    private static final InetAddress PRIVDNS1 = address("1.1.1.1");
 -    private static final InetAddress PRIVDNS2 = address("1.0.0.1");
 -    private static final InetAddress PRIVDNS6 = address("2606:4700:4700::1111");
-+    private static final InetAddress DNS6 = address("2620:fe::fe");
-+    private static final InetAddress PRIVDNS1 = address("149.112.112.112");
-+    private static final InetAddress PRIVDNS2 = address("9.9.9.9");
-+    private static final InetAddress PRIVDNS6 = address("2620:fe::fe");
++    private static final InetAddress DNS6 = address("2620:fe::11");
++    private static final InetAddress PRIVDNS1 = address("9.9.9.11");
++    private static final InetAddress PRIVDNS2 = address("149.112.112.11");
++    private static final InetAddress PRIVDNS6 = address("2620:fe::11");
      private static final InetAddress PCSCFV4 = address("10.77.25.37");
      private static final InetAddress PCSCFV6 = address("2001:0db8:85a3:0000:0000:8a2e:0370:1");
      private static final InetAddress GATEWAY1 = address("75.208.8.1");
 diff --git a/tests/common/java/android/net/RouteInfoTest.java b/tests/common/java/android/net/RouteInfoTest.java
+index 5b28b841fb..c2fb92c892 100644
 --- a/tests/common/java/android/net/RouteInfoTest.java
 +++ b/tests/common/java/android/net/RouteInfoTest.java
 @@ -142,14 +142,14 @@ public class RouteInfoTest {
@@ -275,53 +325,50 @@ diff --git a/tests/common/java/android/net/RouteInfoTest.java b/tests/common/jav
          assertFalse(r.matches(Address("2001:db8:f00::bad:d00d")));
 -        assertFalse(r.matches(Address("2001:4868:4860::8888")));
 -        assertFalse(r.matches(Address("8.8.8.8")));
-+        assertFalse(r.matches(Address("2620:fe::fe")));
-+        assertFalse(r.matches(Address("9.9.9.9")));
++        assertFalse(r.matches(Address("2620:fe::11")));
++        assertFalse(r.matches(Address("9.9.9.11")));
  
          r = new PatchedRouteInfo(Prefix("192.0.2.0/23"), null, "wlan0");
          assertTrue(r.matches(Address("192.0.2.43")));
          assertTrue(r.matches(Address("192.0.3.21")));
          assertFalse(r.matches(Address("192.0.0.21")));
 -        assertFalse(r.matches(Address("8.8.8.8")));
-+        assertFalse(r.matches(Address("9.9.9.9")));
++        assertFalse(r.matches(Address("9.9.9.11")));
  
          PatchedRouteInfo ipv6Default = new PatchedRouteInfo(Prefix("::/0"), null, "rmnet0");
          assertTrue(ipv6Default.matches(Address("2001:db8::f00")));
 diff --git a/tests/cts/net/jni/NativeDnsJni.c b/tests/cts/net/jni/NativeDnsJni.c
+index 4ec800e555..f72489789f 100644
 --- a/tests/cts/net/jni/NativeDnsJni.c
 +++ b/tests/cts/net/jni/NativeDnsJni.c
-@@ -26,10 +26,10 @@
+@@ -26,9 +26,9 @@
  #define LOGD(fmt, ...) \
          __android_log_print(ANDROID_LOG_DEBUG, LOG_TAG, fmt, ##__VA_ARGS__)
  
 -const char *GoogleDNSIpV4Address="8.8.8.8";
 -const char *GoogleDNSIpV4Address2="8.8.4.4";
 -const char *GoogleDNSIpV6Address="2001:4860:4860::8888";
--const char *GoogleDNSIpV6Address2="2001:4860:4860::8844";
-+const char *GoogleDNSIpV4Address="9.9.9.9";
-+const char *GoogleDNSIpV4Address2="149.112.112.112";
-+const char *GoogleDNSIpV6Address="2620:fe::fe";
-+const char *GoogleDNSIpV6Address2="2620:fe::9";
++const char *GoogleDNSIpV4Address="9.9.9.11";
++const char *GoogleDNSIpV4Address2="149.112.112.11";
++const char *GoogleDNSIpV6Address="2620:fe::11";
+ const char *GoogleDNSIpV6Address2="2001:4860:4860::8844";
  
  JNIEXPORT jboolean Java_android_net_cts_DnsTest_testNativeDns(JNIEnv* env, jclass class)
- {
 diff --git a/tests/cts/net/src/android/net/cts/DscpPolicyTest.kt b/tests/cts/net/src/android/net/cts/DscpPolicyTest.kt
+index db13c4943d..74f4aa9f74 100644
 --- a/tests/cts/net/src/android/net/cts/DscpPolicyTest.kt
 +++ b/tests/cts/net/src/android/net/cts/DscpPolicyTest.kt
-@@ -103,10 +103,10 @@ class DscpPolicyTest {
- 
-     private val LOCAL_IPV4_ADDRESS = InetAddresses.parseNumericAddress("192.0.2.1")
+@@ -119,7 +119,7 @@ class DscpPolicyTest {
      private val TEST_TARGET_IPV4_ADDR =
--            InetAddresses.parseNumericAddress("8.8.8.8") as Inet4Address
-+            InetAddresses.parseNumericAddress("9.9.9.9") as Inet4Address
-     private val LOCAL_IPV6_ADDRESS = InetAddresses.parseNumericAddress("2001:db8::1")
+             InetAddresses.parseNumericAddress("203.0.113.1") as Inet4Address
      private val TEST_TARGET_IPV6_ADDR =
--            InetAddresses.parseNumericAddress("2001:4860:4860::8888") as Inet6Address
-+            InetAddresses.parseNumericAddress("2620:fe::fe") as Inet6Address
- 
-     private val realContext = InstrumentationRegistry.getContext()
-     private val cm = realContext.getSystemService(ConnectivityManager::class.java)
+-        InetAddresses.parseNumericAddress("2001:4860:4860::8888") as Inet6Address
++        InetAddresses.parseNumericAddress("2620:fe::11") as Inet6Address
+     private val TEST_ROUTER_IPV6_ADDR =
+         InetAddresses.parseNumericAddress("fe80::1234") as Inet6Address
+     private val TEST_TARGET_MAC_ADDR = MacAddress.fromString("12:34:56:78:9a:bc")
 diff --git a/tests/cts/net/src/android/net/cts/IpConfigurationTest.java b/tests/cts/net/src/android/net/cts/IpConfigurationTest.java
+index 1d19d26bca..7f90d11e9b 100644
 --- a/tests/cts/net/src/android/net/cts/IpConfigurationTest.java
 +++ b/tests/cts/net/src/android/net/cts/IpConfigurationTest.java
 @@ -46,8 +46,8 @@ import java.util.ArrayList;
@@ -330,27 +377,29 @@ diff --git a/tests/cts/net/src/android/net/cts/IpConfigurationTest.java b/tests/
      private static final InetAddress GATEWAY = InetAddressUtils.parseNumericAddress("192.0.2.1");
 -    private static final InetAddress DNS1 = InetAddressUtils.parseNumericAddress("8.8.8.8");
 -    private static final InetAddress DNS2 = InetAddressUtils.parseNumericAddress("8.8.4.4");
-+    private static final InetAddress DNS1 = InetAddressUtils.parseNumericAddress("9.9.9.9");
-+    private static final InetAddress DNS2 = InetAddressUtils.parseNumericAddress("149.112.112.112");
++    private static final InetAddress DNS1 = InetAddressUtils.parseNumericAddress("9.9.9.11");
++    private static final InetAddress DNS2 = InetAddressUtils.parseNumericAddress("149.112.112.11");
      private static final String DOMAINS = "example.com";
  
      private static final ArrayList<InetAddress> dnsServers = new ArrayList<>();
 diff --git a/tests/cts/net/src/android/net/cts/IpSecManagerTest.java b/tests/cts/net/src/android/net/cts/IpSecManagerTest.java
+index f935cef977..87791d5604 100644
 --- a/tests/cts/net/src/android/net/cts/IpSecManagerTest.java
 +++ b/tests/cts/net/src/android/net/cts/IpSecManagerTest.java
-@@ -99,9 +99,9 @@ public class IpSecManagerTest extends IpSecBaseTest {
+@@ -105,9 +105,9 @@ public class IpSecManagerTest extends IpSecBaseTest {
  
      private static final String TAG = IpSecManagerTest.class.getSimpleName();
  
 -    private static final InetAddress GOOGLE_DNS_4 = InetAddress.parseNumericAddress("8.8.8.8");
-+    private static final InetAddress GOOGLE_DNS_4 = InetAddress.parseNumericAddress("9.9.9.9");
++    private static final InetAddress GOOGLE_DNS_4 = InetAddress.parseNumericAddress("9.9.9.11");
      private static final InetAddress GOOGLE_DNS_6 =
 -            InetAddress.parseNumericAddress("2001:4860:4860::8888");
-+            InetAddress.parseNumericAddress("2620:fe::fe");
++            InetAddress.parseNumericAddress("2620:fe::11");
  
      private static final InetAddress[] GOOGLE_DNS_LIST =
              new InetAddress[] {GOOGLE_DNS_4, GOOGLE_DNS_6};
 diff --git a/tests/cts/net/src/android/net/cts/RateLimitTest.java b/tests/cts/net/src/android/net/cts/RateLimitTest.java
+index 36b98fc570..db73520803 100644
 --- a/tests/cts/net/src/android/net/cts/RateLimitTest.java
 +++ b/tests/cts/net/src/android/net/cts/RateLimitTest.java
 @@ -88,7 +88,7 @@ public class RateLimitTest {
@@ -358,29 +407,29 @@ diff --git a/tests/cts/net/src/android/net/cts/RateLimitTest.java b/tests/cts/ne
      private static final String TAG = "RateLimitTest";
      private static final LinkAddress LOCAL_IP4_ADDR = new LinkAddress("10.0.0.1/8");
 -    private static final InetAddress REMOTE_IP4_ADDR = InetAddresses.parseNumericAddress("8.8.8.8");
-+    private static final InetAddress REMOTE_IP4_ADDR = InetAddresses.parseNumericAddress("9.9.9.9");
++    private static final InetAddress REMOTE_IP4_ADDR = InetAddresses.parseNumericAddress("9.9.9.11");
      private static final short TEST_UDP_PORT = 1234;
      private static final byte TOS = 0;
      private static final short ID = 27149;
 diff --git a/tests/cts/net/src/android/net/cts/StaticIpConfigurationTest.java b/tests/cts/net/src/android/net/cts/StaticIpConfigurationTest.java
+index e2d3346036..9bb80d26ef 100644
 --- a/tests/cts/net/src/android/net/cts/StaticIpConfigurationTest.java
 +++ b/tests/cts/net/src/android/net/cts/StaticIpConfigurationTest.java
-@@ -55,10 +55,10 @@ public class StaticIpConfigurationTest {
+@@ -55,9 +55,9 @@ public class StaticIpConfigurationTest {
      private static final LinkAddress ADDR = new LinkAddress(ADDRSTR);
      private static final InetAddress GATEWAY = ipAddress("192.0.2.1");
      private static final InetAddress OFFLINKGATEWAY = ipAddress("192.0.2.129");
 -    private static final InetAddress DNS1 = ipAddress("8.8.8.8");
 -    private static final InetAddress DNS2 = ipAddress("8.8.4.4");
 -    private static final InetAddress DNS3 = ipAddress("4.2.2.2");
--    private static final InetAddress IPV6_ADDRESS = ipAddress("2001:4860:800d::68");
-+    private static final InetAddress DNS1 = IpAddress("9.9.9.9");
-+    private static final InetAddress DNS2 = IpAddress("149.112.112.112");
-+    private static final InetAddress DNS3 = IpAddress("149.112.112.112");
-+    private static final InetAddress IPV6_ADDRESS = ipAddress("2620:fe::fe");
++    private static final InetAddress DNS1 = ipAddress("9.9.9.11");
++    private static final InetAddress DNS2 = ipAddress("149.112.112.11");
++    private static final InetAddress DNS3 = ipAddress("149.112.112.11");
+     private static final InetAddress IPV6_ADDRESS = ipAddress("2001:4860:800d::68");
      private static final LinkAddress IPV6_LINK_ADDRESS = new LinkAddress("2001:db8::1/64");
      private static final String IFACE = "eth0";
-     private static final String FAKE_DOMAINS = "google.com";
 diff --git a/tests/cts/net/src/android/net/cts/VpnServiceTest.java b/tests/cts/net/src/android/net/cts/VpnServiceTest.java
+index 5c7b5ca082..d1f577dc78 100644
 --- a/tests/cts/net/src/android/net/cts/VpnServiceTest.java
 +++ b/tests/cts/net/src/android/net/cts/VpnServiceTest.java
 @@ -52,7 +52,7 @@ public class VpnServiceTest extends AndroidTestCase {
@@ -388,11 +437,12 @@ diff --git a/tests/cts/net/src/android/net/cts/VpnServiceTest.java b/tests/cts/n
          try {
              // Should always return null since we are not prepared.
 -            descriptor = mVpnService.new Builder().addAddress("8.8.8.8", 30).establish();
-+            descriptor = mVpnService.new Builder().addAddress("9.9.9.9", 30).establish();
++            descriptor = mVpnService.new Builder().addAddress("9.9.9.11", 30).establish();
              assertNull(descriptor);
          } finally {
              try {
 diff --git a/tests/unit/java/android/net/IpSecManagerTest.java b/tests/unit/java/android/net/IpSecManagerTest.java
+index 335f53969d..acadf2b4af 100644
 --- a/tests/unit/java/android/net/IpSecManagerTest.java
 +++ b/tests/unit/java/android/net/IpSecManagerTest.java
 @@ -67,8 +67,8 @@ public class IpSecManagerTest {
@@ -401,117 +451,156 @@ diff --git a/tests/unit/java/android/net/IpSecManagerTest.java b/tests/unit/java
              // Google Public DNS Addresses;
 -            GOOGLE_DNS_4 = InetAddress.getByName("8.8.8.8");
 -            VTI_LOCAL_ADDRESS = InetAddress.getByName("8.8.4.4");
-+            GOOGLE_DNS_4 = InetAddress.getByName("9.9.9.9");
-+            VTI_LOCAL_ADDRESS = InetAddress.getByName("149.112.112.112");
++            GOOGLE_DNS_4 = InetAddress.getByName("9.9.9.11");
++            VTI_LOCAL_ADDRESS = InetAddress.getByName("149.112.112.11");
          } catch (UnknownHostException e) {
              throw new RuntimeException("Could not resolve DNS Addresses", e);
          }
 diff --git a/tests/unit/java/com/android/internal/net/VpnProfileTest.java b/tests/unit/java/com/android/internal/net/VpnProfileTest.java
+index b2dff2e03f..5715bd6f10 100644
 --- a/tests/unit/java/com/android/internal/net/VpnProfileTest.java
 +++ b/tests/unit/java/com/android/internal/net/VpnProfileTest.java
-@@ -97,7 +97,7 @@ public class VpnProfileTest {
+@@ -104,7 +104,7 @@ public class VpnProfileTest {
          p.server = "bar";
          p.username = "baz";
          p.password = "qux";
 -        p.dnsServers = "8.8.8.8";
-+        p.dnsServers = "9.9.9.9";
++        p.dnsServers = "9.9.9.11";
          p.searchDomains = "";
          p.routes = "0.0.0.0/0";
          p.mppe = false;
-@@ -132,7 +132,7 @@ public class VpnProfileTest {
+@@ -141,7 +141,7 @@ public class VpnProfileTest {
  
          p.name = "foo";
          p.server = "bar";
 -        p.dnsServers = "8.8.8.8";
-+        p.dnsServers = "9.9.9.9";
++        p.dnsServers = "9.9.9.11";
          p.searchDomains = "";
          p.routes = "0.0.0.0/0";
          p.mppe = false;
 diff --git a/tests/unit/java/com/android/server/ConnectivityServiceTest.java b/tests/unit/java/com/android/server/ConnectivityServiceTest.java
+index a5cbb4c972..91fb417fb4 100755
 --- a/tests/unit/java/com/android/server/ConnectivityServiceTest.java
 +++ b/tests/unit/java/com/android/server/ConnectivityServiceTest.java
-@@ -6101,8 +6101,8 @@ public class ConnectivityServiceTest {
+@@ -6833,8 +6833,8 @@ public class ConnectivityServiceTest {
          InetAddress myIPv4 = InetAddress.getByName("192.0.2.129");
          InetAddress notMyIPv4 = InetAddress.getByName("192.0.2.35");
          InetAddress myIPv6 = InetAddress.getByName("2001:db8::1");
 -        InetAddress dstIPv4 = InetAddress.getByName("8.8.8.8");
 -        InetAddress dstIPv6 = InetAddress.getByName("2001:4860:4860::8888");
-+        InetAddress dstIPv4 = InetAddress.getByName("9.9.9.9");
-+        InetAddress dstIPv6 = InetAddress.getByName("2620:fe::fe");
++        InetAddress dstIPv4 = InetAddress.getByName("9.9.9.11");
++        InetAddress dstIPv6 = InetAddress.getByName("2620:fe::11");
  
          final int validKaInterval = 15;
          final int invalidKaInterval = 9;
-@@ -6236,8 +6236,8 @@ public class ConnectivityServiceTest {
+@@ -6968,8 +6968,8 @@ public class ConnectivityServiceTest {
          final InetAddress myIPv4 = InetAddress.getByName("192.0.2.129");
          final InetAddress notMyIPv4 = InetAddress.getByName("192.0.2.35");
          final InetAddress myIPv6 = InetAddress.getByName("2001:db8::1");
 -        final InetAddress dstIPv4 = InetAddress.getByName("8.8.8.8");
 -        final InetAddress dstIPv6 = InetAddress.getByName("2001:4860:4860::8888");
-+        final InetAddress dstIPv4 = InetAddress.getByName("9.9.9.9");
-+        final InetAddress dstIPv6 = InetAddress.getByName("2620:fe::fe");
++        final InetAddress dstIPv4 = InetAddress.getByName("9.9.9.11");
++        final InetAddress dstIPv6 = InetAddress.getByName("2620:fe::11");
  
          final int validKaInterval = 15;
          final int invalidKaInterval = 9;
-@@ -6508,7 +6508,7 @@ public class ConnectivityServiceTest {
+@@ -7237,7 +7237,7 @@ public class ConnectivityServiceTest {
      private void doTestNattSocketKeepalivesFdWithExecutor(Executor executor) throws Exception {
          final InetAddress myIPv4 = InetAddress.getByName("192.0.2.129");
          final InetAddress anyIPv4 = InetAddress.getByName("0.0.0.0");
 -        final InetAddress dstIPv4 = InetAddress.getByName("8.8.8.8");
-+        final InetAddress dstIPv4 = InetAddress.getByName("9.9.9.9");
++        final InetAddress dstIPv4 = InetAddress.getByName("9.9.9.11");
          final int validKaInterval = 15;
  
          // Prepare the target network.
-@@ -9294,7 +9294,7 @@ public class ConnectivityServiceTest {
+@@ -7755,7 +7755,7 @@ public class ConnectivityServiceTest {
+         cellLp.addLinkAddress(new LinkAddress("192.0.2.4/24"));
+         cellLp.addRoute(new RouteInfo((IpPrefix) null, InetAddress.getByName("192.0.2.4"),
+                 MOBILE_IFNAME));
+-        cellLp.setDnsServers(List.of(InetAddress.getAllByName("8.8.8.8")));
++        cellLp.setDnsServers(List.of(InetAddress.getAllByName("9.9.9.11")));
+         mCellAgent.sendLinkProperties(cellLp);
+         verifyNoMoreInteractions(mStatsManager);
+         reset(mStatsManager);
+@@ -10075,7 +10075,7 @@ public class ConnectivityServiceTest {
          final VpnProfile profile = new VpnProfile(profileName);
          profile.name = "My VPN";
          profile.server = "192.0.2.1";
 -        profile.dnsServers = "8.8.8.8";
-+        profile.dnsServers = "9.9.9.9";
++        profile.dnsServers = "9.9.9.11";
          profile.type = VpnProfile.TYPE_IPSEC_XAUTH_PSK;
          final byte[] encodedProfile = profile.encode();
          doReturn(encodedProfile).when(mVpnProfileStore).get(Credentials.VPN + profileName);
-@@ -9934,7 +9934,7 @@ public class ConnectivityServiceTest {
+@@ -10776,7 +10776,7 @@ public class ConnectivityServiceTest {
          assertRoutesAdded(cellNetId, stackedDefault);
          verify(mMockNetd, times(1)).networkAddInterface(cellNetId, CLAT_MOBILE_IFNAME);
          // Change trivial linkproperties and see if stacked link is preserved.
 -        cellLp.addDnsServer(InetAddress.getByName("8.8.8.8"));
-+        cellLp.addDnsServer(InetAddress.getByName("9.9.9.9"));
-         mCellNetworkAgent.sendLinkProperties(cellLp);
-         networkCallback.expectCallback(CallbackEntry.LINK_PROPERTIES_CHANGED, mCellNetworkAgent);
++        cellLp.addDnsServer(InetAddress.getByName("9.9.9.11"));
+         mCellAgent.sendLinkProperties(cellLp);
+         networkCallback.expect(LINK_PROPERTIES_CHANGED, mCellAgent);
  
-@@ -9947,7 +9947,7 @@ public class ConnectivityServiceTest {
+@@ -10789,7 +10789,7 @@ public class ConnectivityServiceTest {
                  mResolverParamsParcelCaptor.capture());
          ResolverParamsParcel resolvrParams = mResolverParamsParcelCaptor.getValue();
          assertEquals(1, resolvrParams.servers.length);
 -        assertTrue(CollectionUtils.contains(resolvrParams.servers, "8.8.8.8"));
-+        assertTrue(CollectionUtils.contains(resolvrParams.servers, "9.9.9.9"));
++        assertTrue(CollectionUtils.contains(resolvrParams.servers, "9.9.9.11"));
  
          for (final LinkProperties stackedLp : stackedLpsAfterChange) {
              assertNotNull(readHead.poll(TIMEOUT_MS, ri -> ri.contentEquals(mServiceContext,
-@@ -10021,7 +10021,7 @@ public class ConnectivityServiceTest {
+@@ -10868,7 +10868,7 @@ public class ConnectivityServiceTest {
          // Remove IPv4 address and expect prefix discovery and clatd to be started again.
          cellLp.removeLinkAddress(myIpv4);
          cellLp.removeRoute(new RouteInfo(myIpv4, null, MOBILE_IFNAME));
 -        cellLp.removeDnsServer(InetAddress.getByName("8.8.8.8"));
-+        cellLp.removeDnsServer(InetAddress.getByName("9.9.9.9"));
-         mCellNetworkAgent.sendLinkProperties(cellLp);
-         networkCallback.expectCallback(CallbackEntry.LINK_PROPERTIES_CHANGED, mCellNetworkAgent);
++        cellLp.removeDnsServer(InetAddress.getByName("9.9.9.11"));
+         mCellAgent.sendLinkProperties(cellLp);
+         networkCallback.expect(LINK_PROPERTIES_CHANGED, mCellAgent);
          assertRoutesRemoved(cellNetId, ipv4Subnet);  // Directly-connected routes auto-added.
 diff --git a/tests/unit/java/com/android/server/IpSecServiceParameterizedTest.java b/tests/unit/java/com/android/server/IpSecServiceParameterizedTest.java
+index 1618a62c81..cd973f187e 100644
 --- a/tests/unit/java/com/android/server/IpSecServiceParameterizedTest.java
 +++ b/tests/unit/java/com/android/server/IpSecServiceParameterizedTest.java
-@@ -105,8 +105,8 @@ public class IpSecServiceParameterizedTest {
+@@ -112,8 +112,8 @@ public class IpSecServiceParameterizedTest {
      public static Collection ipSecConfigs() {
          return Arrays.asList(
                  new Object[][] {
 -                {"1.2.3.4", "8.8.4.4", "10.0.1.1/24", AF_INET},
 -                {"2601::2", "2601::10", "2001:db8::1/64", AF_INET6}
-+                {"1.2.3.4", "149.112.112.112", "10.0.1.1/24", AF_INET},
-+                {"2601::2", "2620:fe::9", "2001:db8::1/64", AF_INET6}
++                {"1.2.3.4", "149.112.112.11", "10.0.1.1/24", AF_INET},
++                {"2601::2", "2620:fe::11", "2001:db8::1/64", AF_INET6}
          });
      }
  
+diff --git a/tests/unit/java/com/android/server/VpnManagerServiceTest.java b/tests/unit/java/com/android/server/VpnManagerServiceTest.java
+index bf23cd192c..ce60869860 100644
+--- a/tests/unit/java/com/android/server/VpnManagerServiceTest.java
++++ b/tests/unit/java/com/android/server/VpnManagerServiceTest.java
+@@ -309,7 +309,7 @@ public class VpnManagerServiceTest extends VpnTestBase {
+         final VpnProfile profile = new VpnProfile(profileName);
+         profile.name = profileName;
+         profile.server = "192.0.2.1";
+-        profile.dnsServers = "8.8.8.8";
++        profile.dnsServers = "9.9.9.11";
+         profile.type = VpnProfile.TYPE_IPSEC_XAUTH_PSK;
+         final byte[] encodedProfile = profile.encode();
+         doReturn(encodedProfile).when(mVpnProfileStore).get(Credentials.VPN + profileName);
+diff --git a/tests/unit/java/com/android/server/connectivity/AutomaticOnOffKeepaliveTrackerTest.java b/tests/unit/java/com/android/server/connectivity/AutomaticOnOffKeepaliveTrackerTest.java
+index 0b20227d78..1958f62f2b 100644
+--- a/tests/unit/java/com/android/server/connectivity/AutomaticOnOffKeepaliveTrackerTest.java
++++ b/tests/unit/java/com/android/server/connectivity/AutomaticOnOffKeepaliveTrackerTest.java
+@@ -149,7 +149,7 @@ public class AutomaticOnOffKeepaliveTrackerTest {
+             "DEA5" +            // idiag_sport = 42462
+             "71B9" +            // idiag_dport = 47473
+             "0a006402000000000000000000000000" + // idiag_src = 10.0.100.2
+-            "08080808000000000000000000000000" + // idiag_dst = 8.8.8.8
++            "08080808000000000000000000000000" + // idiag_dst = 9.9.9.11
+             "00000000" +            // idiag_if
+             "34ED000076270000" +    // idiag_cookie = 43387759684916
+             "00000000" +            // idiag_expires
 diff --git a/tests/unit/java/com/android/server/connectivity/ClatCoordinatorTest.java b/tests/unit/java/com/android/server/connectivity/ClatCoordinatorTest.java
+index b651c33326..7f6fa2d3ad 100644
 --- a/tests/unit/java/com/android/server/connectivity/ClatCoordinatorTest.java
 +++ b/tests/unit/java/com/android/server/connectivity/ClatCoordinatorTest.java
 @@ -91,7 +91,7 @@ public class ClatCoordinatorTest {
@@ -519,11 +608,12 @@ diff --git a/tests/unit/java/com/android/server/connectivity/ClatCoordinatorTest
      private static final Inet6Address INET6_PFX96 = (Inet6Address)
              InetAddresses.parseNumericAddress(NAT64_PREFIX_STRING);
 -    private static final int GOOGLE_DNS_4 = 0x08080808;  // 8.8.8.8
-+    private static final int GOOGLE_DNS_4 = 0x09.9.9.9;  // 9.9.9.9
++    private static final int GOOGLE_DNS_4 = 0x08080808;  // 9.9.9.11
      private static final int NETID = 42;
  
      // The test fwmark means: PERMISSION_NETWORK | PERMISSION_SYSTEM (0x3), protectedFromVpn: true,
 diff --git a/tests/unit/java/com/android/server/connectivity/DnsManagerTest.java b/tests/unit/java/com/android/server/connectivity/DnsManagerTest.java
+index 24aecdb90a..017363c148 100644
 --- a/tests/unit/java/com/android/server/connectivity/DnsManagerTest.java
 +++ b/tests/unit/java/com/android/server/connectivity/DnsManagerTest.java
 @@ -166,7 +166,7 @@ public class DnsManagerTest {
@@ -531,7 +621,7 @@ diff --git a/tests/unit/java/com/android/server/connectivity/DnsManagerTest.java
          lp.setInterfaceName(TEST_IFACENAME);
          lp.addDnsServer(InetAddress.getByName("3.3.3.3"));
 -        lp.addDnsServer(InetAddress.getByName("4.4.4.4"));
-+        lp.addDnsServer(InetAddress.getByName("149.112.112.112"));
++        lp.addDnsServer(InetAddress.getByName("149.112.112.11"));
  
          // Send a validation event that is tracked on the alternate netId
          mDnsManager.updateTransportsForNetwork(TEST_NETID, TEST_TRANSPORT_TYPES);
@@ -540,7 +630,7 @@ diff --git a/tests/unit/java/com/android/server/connectivity/DnsManagerTest.java
          mDnsManager.updatePrivateDnsValidation(
                  new DnsManager.PrivateDnsValidationUpdate(TEST_NETID_ALTERNATE,
 -                        InetAddress.parseNumericAddress("4.4.4.4"), "",
-+                        InetAddress.parseNumericAddress("149.112.112.112"), "",
++                        InetAddress.parseNumericAddress("149.112.112.11"), "",
                          VALIDATION_RESULT_SUCCESS));
          LinkProperties fixedLp = new LinkProperties(lp);
          mDnsManager.updatePrivateDnsStatus(TEST_NETID, fixedLp);
@@ -549,7 +639,7 @@ diff --git a/tests/unit/java/com/android/server/connectivity/DnsManagerTest.java
          assertTrue(fixedLp.isPrivateDnsActive());
          assertNull(fixedLp.getPrivateDnsServerName());
 -        assertEquals(Arrays.asList(InetAddress.getByName("4.4.4.4")),
-+        assertEquals(Arrays.asList(InetAddress.getByName("149.112.112.112")),
++        assertEquals(Arrays.asList(InetAddress.getByName("149.112.112.11")),
                  fixedLp.getValidatedPrivateDnsServers());
  
          // Set up addresses for strict mode and switch to it.
@@ -558,7 +648,7 @@ diff --git a/tests/unit/java/com/android/server/connectivity/DnsManagerTest.java
          mDnsManager.updatePrivateDnsValidation(
                  new DnsManager.PrivateDnsValidationUpdate(TEST_NETID,
 -                        InetAddress.parseNumericAddress("4.4.4.4"), "",
-+                        InetAddress.parseNumericAddress("149.112.112.112"), "",
++                        InetAddress.parseNumericAddress("149.112.112.11"), "",
                          VALIDATION_RESULT_SUCCESS));
          mDnsManager.updatePrivateDnsStatus(TEST_NETID, lp);
          assertFalse(lp.isPrivateDnsActive());
@@ -567,7 +657,7 @@ diff --git a/tests/unit/java/com/android/server/connectivity/DnsManagerTest.java
          lp.setInterfaceName(TEST_IFACENAME);
          lp.addDnsServer(InetAddress.getByName("3.3.3.3"));
 -        lp.addDnsServer(InetAddress.getByName("4.4.4.4"));
-+        lp.addDnsServer(InetAddress.getByName("149.112.112.112"));
++        lp.addDnsServer(InetAddress.getByName("149.112.112.11"));
          mDnsManager.updateTransportsForNetwork(TEST_NETID, TEST_TRANSPORT_TYPES);
          mDnsManager.noteDnsServersForNetwork(TEST_NETID, lp);
          mDnsManager.flushVmDnsCache();
@@ -576,37 +666,57 @@ diff --git a/tests/unit/java/com/android/server/connectivity/DnsManagerTest.java
          expectedParams.minSamples = TEST_DEFAULT_MIN_SAMPLES;
          expectedParams.maxSamples = TEST_DEFAULT_MAX_SAMPLES;
 -        expectedParams.servers = new String[]{"3.3.3.3", "4.4.4.4"};
-+        expectedParams.servers = new String[]{"3.3.3.3", "149.112.112.112"};
++        expectedParams.servers = new String[]{"3.3.3.3", "149.112.112.11"};
          expectedParams.domains = new String[]{};
          expectedParams.tlsName = "";
 -        expectedParams.tlsServers = new String[]{"3.3.3.3", "4.4.4.4"};
-+        expectedParams.tlsServers = new String[]{"3.3.3.3", "149.112.112.112"};
++        expectedParams.tlsServers = new String[]{"3.3.3.3", "149.112.112.11"};
          expectedParams.transportTypes = TEST_TRANSPORT_TYPES;
          expectedParams.resolverOptions = null;
          assertResolverParamsEquals(actualParams, expectedParams);
+diff --git a/tests/unit/java/com/android/server/connectivity/VpnTest.java b/tests/unit/java/com/android/server/connectivity/VpnTest.java
+index f7b9fcf9a0..d1d37339cb 100644
+--- a/tests/unit/java/com/android/server/connectivity/VpnTest.java
++++ b/tests/unit/java/com/android/server/connectivity/VpnTest.java
+@@ -262,9 +262,9 @@ public class VpnTest extends VpnTestBase {
+     private static final InetAddress TEST_VPN_INTERNAL_IP6 =
+             InetAddresses.parseNumericAddress("2001:db8::1");
+     private static final InetAddress TEST_VPN_INTERNAL_DNS =
+-            InetAddresses.parseNumericAddress("8.8.8.8");
++            InetAddresses.parseNumericAddress("9.9.9.11");
+     private static final InetAddress TEST_VPN_INTERNAL_DNS6 =
+-            InetAddresses.parseNumericAddress("2001:4860:4860::8888");
++            InetAddresses.parseNumericAddress("2620:fe::11");
+ 
+     private static final IkeTrafficSelector IN_TS =
+             new IkeTrafficSelector(MIN_PORT, MAX_PORT, TEST_VPN_INTERNAL_IP, TEST_VPN_INTERNAL_IP);
 diff --git a/tests/unit/java/com/android/server/ethernet/EthernetConfigStoreTest.java b/tests/unit/java/com/android/server/ethernet/EthernetConfigStoreTest.java
+index a9f80ea436..b053ac500d 100644
 --- a/tests/unit/java/com/android/server/ethernet/EthernetConfigStoreTest.java
 +++ b/tests/unit/java/com/android/server/ethernet/EthernetConfigStoreTest.java
-@@ -47,7 +47,7 @@ import java.util.List;
+@@ -47,8 +47,8 @@ import java.util.List;
  public class EthernetConfigStoreTest {
      private static final LinkAddress LINKADDR = new LinkAddress("192.168.1.100/25");
      private static final InetAddress GATEWAY = InetAddresses.parseNumericAddress("192.168.1.1");
 -    private static final InetAddress DNS1 = InetAddresses.parseNumericAddress("8.8.8.8");
-+    private static final InetAddress DNS1 = InetAddresses.parseNumericAddress("9.9.9.9");
-     private static final InetAddress DNS2 = InetAddresses.parseNumericAddress("8.8.4.4");
+-    private static final InetAddress DNS2 = InetAddresses.parseNumericAddress("8.8.4.4");
++    private static final InetAddress DNS1 = InetAddresses.parseNumericAddress("9.9.9.11");
++    private static final InetAddress DNS2 = InetAddresses.parseNumericAddress("149.112.112.11");
      private static final StaticIpConfiguration STATIC_IP_CONFIG =
              new StaticIpConfiguration.Builder()
+                     .setIpAddress(LINKADDR)
 diff --git a/tests/unit/java/com/android/server/ethernet/EthernetTrackerTest.java b/tests/unit/java/com/android/server/ethernet/EthernetTrackerTest.java
+index e6aba22134..a2cb64292f 100644
 --- a/tests/unit/java/com/android/server/ethernet/EthernetTrackerTest.java
 +++ b/tests/unit/java/com/android/server/ethernet/EthernetTrackerTest.java
-@@ -123,15 +123,15 @@ public class EthernetTrackerTest {
+@@ -113,15 +113,15 @@ public class EthernetTrackerTest {
                  .setIpAddress(new LinkAddress("192.0.2.10/24")).build(), "ip=192.0.2.10/24");
  
          final ArrayList<InetAddress> dnsAddresses = new ArrayList<>();
 -        dnsAddresses.add(InetAddresses.parseNumericAddress("4.4.4.4"));
 -        dnsAddresses.add(InetAddresses.parseNumericAddress("8.8.8.8"));
-+        dnsAddresses.add(InetAddresses.parseNumericAddress("149.112.112.112"));
-+        dnsAddresses.add(InetAddresses.parseNumericAddress("9.9.9.9"));
++        dnsAddresses.add(InetAddresses.parseNumericAddress("149.112.112.11"));
++        dnsAddresses.add(InetAddresses.parseNumericAddress("9.9.9.11"));
          // Setting other fields properly cascades them
          assertStaticConfiguration(new StaticIpConfiguration.Builder()
                  .setIpAddress(new LinkAddress("192.0.2.10/24"))
@@ -614,26 +724,28 @@ diff --git a/tests/unit/java/com/android/server/ethernet/EthernetTrackerTest.jav
                  .setGateway(InetAddresses.parseNumericAddress("192.0.2.1"))
                  .setDomains("android").build(),
 -                "ip=192.0.2.10/24 dns=4.4.4.4,8.8.8.8 gateway=192.0.2.1 domains=android");
-+                "ip=192.0.2.10/24 dns=149.112.112.112,9.9.9.9 gateway=192.0.2.1 domains=android");
++                "ip=192.0.2.10/24 dns=149.112.112.11,9.9.9.11 gateway=192.0.2.1 domains=android");
  
          // Verify order doesn't matter
          assertStaticConfiguration(new StaticIpConfiguration.Builder()
-@@ -139,7 +139,7 @@ public class EthernetTrackerTest {
+@@ -129,7 +129,7 @@ public class EthernetTrackerTest {
                  .setDnsServers(dnsAddresses)
                  .setGateway(InetAddresses.parseNumericAddress("192.0.2.1"))
                  .setDomains("android").build(),
 -                "domains=android ip=192.0.2.10/24 gateway=192.0.2.1 dns=4.4.4.4,8.8.8.8 ");
-+                "domains=android ip=192.0.2.10/24 gateway=192.0.2.1 dns=149.112.112.112,9.9.9.9 ");
++                "domains=android ip=192.0.2.10/24 gateway=192.0.2.1 dns=149.112.112.11,9.9.9.11 ");
      }
  
      /**
-@@ -150,7 +150,7 @@ public class EthernetTrackerTest {
+@@ -140,7 +140,7 @@ public class EthernetTrackerTest {
          assertStaticConfigurationFails("ip=192.0.2.1/24 gateway= blah=20.20.20.20");  // Unknown key
          assertStaticConfigurationFails("ip=192.0.2.1");  // mask is missing
          assertStaticConfigurationFails("ip=a.b.c");  // not a valid ip address
 -        assertStaticConfigurationFails("dns=4.4.4.4,1.2.3.A");  // not valid ip address in dns
-+        assertStaticConfigurationFails("dns=149.112.112.112,1.2.3.A");  // not valid ip address in dns
++        assertStaticConfigurationFails("dns=149.112.112.11,1.2.3.A");  // not valid ip address in dns
          assertStaticConfigurationFails("=");  // Key and value is empty
          assertStaticConfigurationFails("ip=");  // Value is empty
          assertStaticConfigurationFails("ip=192.0.2.1/24 gateway=");  // Gateway is empty
+-- 
+2.39.2
 
