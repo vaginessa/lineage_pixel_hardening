@@ -1,4 +1,4 @@
-From 3504125444d2c8df825e92d8d58f6d3d1297a2a7 Mon Sep 17 00:00:00 2001
+From 54c7d3602e1bcd9f48473c5b328987b64f79f03c Mon Sep 17 00:00:00 2001
 From: danielk43 <11856117+danielk43@users.noreply.github.com>
 Date: Sun, 29 Oct 2023 21:12:07 -0400
 Subject: [PATCH 2/2] panther: Update apps
@@ -9,7 +9,7 @@ Subject: [PATCH 2/2] panther: Update apps
  2 files changed, 24 deletions(-)
 
 diff --git a/Android.bp b/Android.bp
-index ff75f66..99c3ed6 100644
+index 8c304d7..284013e 100644
 --- a/Android.bp
 +++ b/Android.bp
 @@ -5,28 +5,6 @@
@@ -42,10 +42,10 @@ index ff75f66..99c3ed6 100644
  	name: "CarrierSettings",
  	owner: "google",
 diff --git a/panther-vendor.mk b/panther-vendor.mk
-index 475664e..bd78872 100644
+index 0c89f9a..59076eb 100644
 --- a/panther-vendor.mk
 +++ b/panther-vendor.mk
-@@ -68,8 +68,6 @@ PRODUCT_COPY_FILES += \
+@@ -67,8 +67,6 @@ PRODUCT_COPY_FILES += \
      vendor/google/panther/proprietary/system_ext/lib64/vendor.samsung_slsi.telephony.hardware.radioExternal@1.0.so:$(TARGET_COPY_OUT_SYSTEM_EXT)/lib64/vendor.samsung_slsi.telephony.hardware.radioExternal@1.0.so \
  
  PRODUCT_PACKAGES += \
@@ -53,7 +53,7 @@ index 475664e..bd78872 100644
 -    VZWAPNLib \
      CarrierSettings \
      OemRilHookService \
-     HbmSVManager \
+     OemRilService \
 -- 
 2.39.2
 
