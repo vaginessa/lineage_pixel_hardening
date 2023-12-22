@@ -18,6 +18,7 @@
   <project path="device/google/pantah" name="LineageOS/android_device_google_pantah" revision="lineage-20" />
   <project path="device/google/panther" name="LineageOS/android_device_google_panther" revision="lineage-20" />
   <project path="device/google/oriole" name="LineageOS/android_device_google_oriole" revision="lineage-20" />
+  <project path="device/google/raven" name="LineageOS/android_device_google_raven" revision="lineage-20" />
   <project path="device/google/raviole" name="LineageOS/android_device_google_raviole" revision="lineage-20" />
   <project path="device/google/bluejay" name="LineageOS/android_device_google_bluejay" revision="lineage-20" />
   <project path="device/google/felix" name="LineageOS/android_device_google_felix" revision="lineage-20" />
